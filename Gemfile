@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.3.5'
 
 gem 'rails', '4.2.10'
 gem 'mysql2', '>= 0.3.13', '< 0.5'
@@ -21,7 +22,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'autonumeric-rails'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.1.1'
 gem 'carrierwave'
 gem 'devise'
 gem 'devise-i18n'
@@ -29,7 +30,6 @@ gem 'devise-i18n-views'
 gem 'gmaps4rails'
 gem 'kaminari'
 gem 'mini_magick'
-gem 'non-stupid-digest-assets'
 gem 'payjp'
 gem 'squasher'
 
