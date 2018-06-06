@@ -1,11 +1,15 @@
 Rails.application.routes.draw do
-
+  # 公開用
   namespace :public do
-  get 'tops/index'
+    # トップ画面
+    resources :tops, only: [:index] do
+      collection do
+        get 'company'
+      end
+    end
+
+    
   end
 
-  namespace :public do
-  get 'tops/company'
-  end
-
+  root to: "tops#index"
 end
