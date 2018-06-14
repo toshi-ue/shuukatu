@@ -23,9 +23,7 @@ Rails.application.routes.draw do
 
   # master用
   namespace :master do
-    resources :genres do
-      resources :subgenres
-    end
+
   end
 
   # ルート
