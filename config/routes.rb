@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :positions
+
   devise_for :managers, controllers: {
     sessions:      'managers/sessions',
     passwords:     'managers/passwords',
@@ -21,6 +21,8 @@ Rails.application.routes.draw do
       end
     end
 
+    # googlemap表示用
+    resources :positions
     # ジャンル
     resources :genres, only: [:show]
   end
