@@ -24,7 +24,9 @@ Rails.application.routes.draw do
     # googlemap表示用
     resources :positions
     # ジャンル
-    resources :genres, only: [:show]
+    resources :genres, only: [:show] do
+      resources :items, only: [:show]
+    end
   end
 
   # master用

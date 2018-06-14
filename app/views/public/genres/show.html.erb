@@ -1,9 +1,13 @@
 <div>BEGIN app/views/public/genres/show.html.erb</div>
-
-<% genre_no = @items.first.genre_id %>
-<h3>ジャンル<%= genre_no %>の商品一覧</h3>
-<div class="text-center"><%= page_entries_info @items %></div>
-<%= render partial: 'layouts/public/items', locals: {items: @items} %>
-<div class="text-center"><%= paginate @items, window: 3 %></div>
+<div class="col-md-2">
+  <%= render 'layouts/public/sidebar' %>
+</div>
+<div class="col-md-10">
+  <% genre_no = @items.first.genre_id %>
+  <h3>ジャンル<%= genre_no %>の商品一覧</h3>
+  <div class="text-center"><%= page_entries_info @items %></div>
+  <%= render partial: 'layouts/public/items', locals: {items: @items} %>
+  <div class="text-center"><%= paginate @items, window: 3 %></div>
+</div>
 
 <div>END app/views/public/genres/show.html.erb</div>
