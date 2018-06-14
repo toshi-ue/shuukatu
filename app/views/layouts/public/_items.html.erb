@@ -5,8 +5,8 @@
     <article class="card pull-left">
       <%= image_tag item.mainImage.url, class: 'card-img' %>
       <div class="card-content">
-        <div class="card-title"><%= item.itemName%></div>
-        <div class="card-text"><%= item.price %></div>
+        <div class="card-title"><%= item.itemName %></div>
+        <div class="card-text"><%= dispMoney(item.price) %></div>
       </div>
     </article>
   <% end %>
