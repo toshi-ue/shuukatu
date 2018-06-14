@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180614071854) do
+ActiveRecord::Schema.define(version: 20180614072215) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer  "user_id",       limit: 4
@@ -41,6 +41,13 @@ ActiveRecord::Schema.define(version: 20180614071854) do
     t.integer  "item_id",    limit: 4
     t.integer  "order_id",   limit: 4
     t.integer  "user_id",    limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "dvendors", force: :cascade do |t|
+    t.string   "name",         limit: 255
+    t.string   "for_api_name", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
