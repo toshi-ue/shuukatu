@@ -16,3 +16,18 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+div.panel.panel-default{
+  margin: 0;
+  border: none;
+}
+
+nav.navbar.navbar-default{
+  margin: 0;
+  border: none;
+}
+
+a:hover{
+  opacity: 0.2;
+}

@@ -6,13 +6,13 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body id="<%= controller.controller_name %>-<%= controller.action_name == 'index' ? 'main' : controller.action_name %>">
 <%# @path %>
 
 
-<% if @path.start_with?('public') %>
-  <%= render 'layouts/public/public' %>
-<% end %>
+<%# if @path.start_with?('public') %>
+  <%= render 'layouts/public/a' %>
+<%# end %>
 <%= yield %>
 
 </body>
