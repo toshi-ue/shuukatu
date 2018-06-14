@@ -25,7 +25,9 @@ Rails.application.routes.draw do
     resources :positions
     # ジャンル
     resources :genres, only: [:show] do
-      resources :items, only: [:show]
+      resources :subgenres, only: [:show] do
+        resources :items, only: [:show]
+      end
     end
   end
 
