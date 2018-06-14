@@ -1,3 +1,16 @@
 // Place all the styles related to the public::tops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+// デスクトップ用
+@media (max-width: 1200px) {
+  #tops-main{
+    // .card {
+    //   width: 17%;
+    // }
+  }//#tops-main
+
+}//@media screen and (max-width: 1200px)
