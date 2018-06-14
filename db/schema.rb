@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180614063339) do
+ActiveRecord::Schema.define(version: 20180614070553) do
 
   create_table "genres", force: :cascade do |t|
     t.string   "name",       limit: 255, null: false
@@ -52,6 +52,17 @@ ActiveRecord::Schema.define(version: 20180614063339) do
 
   add_index "managers", ["email"], name: "index_managers_on_email", unique: true, using: :btree
   add_index "managers", ["reset_password_token"], name: "index_managers_on_reset_password_token", unique: true, using: :btree
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "order_no",    limit: 255
+    t.integer  "user_id",     limit: 4
+    t.string   "total_price", limit: 255
+    t.integer  "address_id",  limit: 4
+    t.integer  "dvendor_id",  limit: 4
+    t.string   "d_number",    limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "subgenres", force: :cascade do |t|
     t.string   "name",       limit: 255, null: false
