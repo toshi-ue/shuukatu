@@ -35,6 +35,10 @@ a:hover{
   opacity: 0.2;
 }
 
+.inline{
+  display: inline;
+}
+
 
 // デスクトップ用
 @media (min-width: 999px) {
@@ -44,7 +48,7 @@ a:hover{
     width: 17%;
     background: #fff;
     box-shadow: 0 2px 5px #bbb;
-    margin: 0 8px;
+    margin: 8px;
   }
   .card-img {
     // border-radius: 5px 5px 0 0;
@@ -67,16 +71,43 @@ a:hover{
     line-height: 1.5;
   }
 
-  // topコントローラー
-  #tops-main{
-
-
-    .items{
+  main{
+    // topコントローラー
+    #tops-main{
       display: flex;
-      justify-content: space-between;
-      margin: 0 0 50px 0;
-      // width: 100%;
-      // display: block;
-    }//.top-items
-  }//.card
+      h3{
+        span{
+          font-size: 15px;
+          color: #000000;
+        }
+      }
+
+      .items{
+        // display: flex;
+        justify-content: space-between;
+        margin: 0 0 50px 0;
+        // width: 100%;
+        // display: block;
+      }//.top-items
+    }//#tops-main
+
+// genresコントローラー
+    #genres-show{
+      .items{
+        display: flex;
+        // justify-content: space-between;
+        margin: 0 0 50px 0;
+        // width: 100%;
+        // display: block;
+
+        article{
+          .card{
+            .pull-left{
+              margin: 10px;
+            }//.pull-left
+          }//.card
+        }//article
+      }//.items
+    }//#genres-show
+  }
 }

@@ -1,14 +1,15 @@
 <!-- <div>Public::Tops#index</div> -->
 <div>app/views/public/tops/index.html.erb</div>
 
-<h3>新商品</h3>
-<%= render partial: 'layouts/public/items', locals: {items: @newItems} %>
+  <h3>新商品<span>　<%= link_to 'すべてみる', genre_path(1) %></span></h3>
+  <%= render partial: 'layouts/public/items', locals: {items: @newItems} %>
 
-<h3>ジャンル1の商品</h3>
-<%= render partial: 'layouts/public/items', locals: {items: @genre1Items} %>
+  <h3>ジャンル1の商品<span>　<%= link_to 'すべてみる', genre_path(1) %></span></h3>
+  <%= render partial: 'layouts/public/items', locals: {items: @genre1Items} %>
 
-<h3>ジャンル2の商品</h3>
-<%= render partial: 'layouts/public/items', locals: {items: @genre2Items} %>
+  <h3>ジャンル2の商品<span>　<%= link_to 'すべてみる', genre_path(2) %></span></h3>
+  <%= render partial: 'layouts/public/items', locals: {items: @genre2Items} %>
 
-<h3>ジャンル3の商品</h3>
-<%= render partial: 'layouts/public/items', locals: {items: @genre3Items} %>
+  <h3>ジャンル3の商品<span>　<%= link_to 'すべてみる', genre_path(2) %></span></h3>
+  <%= render partial: 'layouts/public/items', locals: {items: @genre3Items} %>
+

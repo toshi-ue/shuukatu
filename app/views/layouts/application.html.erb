@@ -14,13 +14,13 @@
   <%= render 'layouts/public/a' %>
 <%# end %>
 <div class="container-fluid">
-  <div class="row">
+  <!-- <div class="row"> -->
     <div class="col-md-12">
       <main  id="<%= controller.controller_name %>-<%= controller.action_name == 'index' ? 'main' : controller.action_name %>">
         <%= yield %>
       </main>
     </div>
-  </div>
+  <!-- </div> -->
 </div>
 
 </body>

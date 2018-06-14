@@ -5,16 +5,12 @@
     <article class="card pull-left">
       <%= image_tag item.mainImage.url, class: 'card-img' %>
       <div class="card-content">
-        <div class="card-title">
-          <%= item.itemName%>
-        </div>
-        <div class="card-text">
-          <%= item.price %>
-        </div>
+        <div class="card-title"><%= item.itemName%></div>
+        <div class="card-text"><%= item.price %></div>
       </div>
     </article>
   <% end %>
 </div>
 <div class="clearfix"></div>
 
-<!-- <div>END app/assets/stylesheets/public/_items.html.erb</div> -->
+<!-- <div>END app/views/layouts/public/_items.html.erb</div> -->
