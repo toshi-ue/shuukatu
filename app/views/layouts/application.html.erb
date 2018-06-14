@@ -7,7 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<%# @path %>
 
+
+<% if @path.start_with?('public') %>
+  <%= render 'layouts/public/public' %>
+<% end %>
 <%= yield %>
 
 </body>
