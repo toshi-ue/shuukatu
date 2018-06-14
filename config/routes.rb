@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   # 公開用
   scope module: :public do
     # トップ画面

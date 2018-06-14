@@ -41,6 +41,7 @@ group :development, :test do
   # gem 'bullet'
   gem 'hirb'
   gem 'hirb-unicode'
+  gem 'letter_opener_web'
   gem 'pry-byebug'
   gem 'pry-doc'
   gem 'pry-rails'
