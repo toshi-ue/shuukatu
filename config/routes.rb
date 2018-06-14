@@ -20,6 +20,9 @@ Rails.application.routes.draw do
         get 'company'
       end
     end
+
+    # ジャンル
+    resources :genres, only: [:show]
   end
 
   # master用
