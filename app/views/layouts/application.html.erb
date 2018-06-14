@@ -6,16 +6,21 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body id="<%= scope_name %>">
 <%# @path %>
 
 
-<%# if @path.start_with?('public') %>
+<%# if scope_name.('public') %>
   <%= render 'layouts/public/a' %>
 <%# end %>
 <div class="container-fluid">
     <!-- <div class="col-md-12"> -->
-      <main  id="<%= controller.controller_name %>-<%= controller.action_name == 'index' ? 'main' : controller.action_name %>">
+      <main  id="<%= controller_name %>-<%= controller.action_name == 'index' ? 'main' : controller.action_name %>">
+
+<!--         <h1><%# scope_name %></h1>
+        <h1><%# controller_name %></h1>
+        <h1><%# action_name %></h1>
+        <h1><%# @path %></h1> -->
         <%= yield %>
       </main>
     <!-- </div> -->

@@ -82,43 +82,53 @@ nav.navbar.navbar-default{
     line-height: 1.5;
   }
 
-  main{
-    // topコントローラー
-    #tops-main{
-      display: flex;
-      h3{
-        span{
-          font-size: 15px;
-          color: #000000;
-        }
-      }
-
-      .items{
-        // display: flex;
-        justify-content: space-between;
-        margin: 0 0 50px 0;
-        // width: 100%;
-        // display: block;
-      }//.top-items
-    }//#tops-main
-
-// genresコントローラー
-    #genres-show{
-      .items{
+  #public{
+    main{
+  // topコントローラー
+      // main(index)
+      #tops-main{
         display: flex;
-        // justify-content: space-between;
-        margin: 0 0 50px 0;
-        // width: 100%;
-        // display: block;
+        h3{
+          span{
+            font-size: 15px;
+            color: #000000;
+          }
+        }
 
-        article{
-          .card{
-            .pull-left{
-              margin: 10px;
-            }//.pull-left
-          }//.card
-        }//article
-      }//.items
-    }//#genres-show
-  }
-}
+        .items{
+          // display: flex;
+          justify-content: space-between;
+          margin: 0 0 50px 0;
+          // width: 100%;
+          // display: block;
+        }//.top-items
+      }//#tops-main
+
+  // genres
+      // show
+      #genres-show{
+        .items{
+          display: flex;
+          // justify-content: space-between;
+          margin: 0 0 50px 0;
+          // width: 100%;
+          // display: block;
+
+          article{
+            .card{
+              .pull-left{
+                margin: 10px;
+              }//.pull-left
+            }//.card
+          }//article
+        }//.items
+      }//#genres-show
+
+  // items
+      //show
+      #items-show{
+
+      }//#items-show
+    }//main
+  }//#public
+}//@media (min-width: 999px)

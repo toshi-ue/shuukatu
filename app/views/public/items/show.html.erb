@@ -1,13 +1,26 @@
 <div>BEGIN app/views/public/items/show.html.erb</div>
 
-<p>
-  ジャンルID<<br>
-  <%= @item.genre_id %>
-</p>
+<div class="col-md-2">
+  <%= render partial: 'layouts/public/sidebar', locals: {genres: @genres} %>
+</div>
+<div class="col-md-10">
 
-<p>
-  サブジャンルID<<br>
-<%= @item.subgenre_id %>
-</p>
+<!--   <p>
+    ジャンルID:
+    <%# @item.genre_id %>
+  </p>
+
+  <p>
+    サブジャンルID<br>
+    <%# @item.subgenre_id %>
+  </p>
+
+  <p>
+    商品ID<br>
+    <%# @item.id %>
+  </p> -->
+
+  <%= render partial: 'layouts/public/item', locals: {item: @item} %>
+</div>
 
 <div>END app/views/public/items/show.html.erb</div>
