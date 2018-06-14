@@ -18,6 +18,19 @@
 @import "bootstrap";
 
 
+//共通
+a{
+  color: #77777B;
+
+  &:hover{
+    opacity: 0.2;
+  }
+}
+
+.sidebar{
+  border-right: 2px solid #F8F8F8;
+}
+
 
 // navbar余白削除
 div.panel.panel-default{
@@ -31,9 +44,7 @@ nav.navbar.navbar-default{
   border: none;
 }
 
-a:hover{
-  opacity: 0.2;
-}
+
 
 .inline{
   display: inline;

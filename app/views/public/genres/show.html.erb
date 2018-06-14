@@ -1,6 +1,6 @@
 <div>BEGIN app/views/public/genres/show.html.erb</div>
 <div class="col-md-2">
-  <%= render 'layouts/public/sidebar' %>
+  <%= render partial: 'layouts/public/sidebar', locals: {genres: @genres} %>
 </div>
 <div class="col-md-10">
   <% genre_no = @items.first.genre_id %>
