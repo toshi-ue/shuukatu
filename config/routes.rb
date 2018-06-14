@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :positions
   devise_for :managers, controllers: {
     sessions:      'managers/sessions',
     passwords:     'managers/passwords',
