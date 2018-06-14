@@ -2,15 +2,15 @@ Rails.application.routes.draw do
 
 
   devise_for :managers, controllers: {
-    sessions:      'managers/sessions',
-    passwords:     'managers/passwords',
-    registrations: 'managers/registrations'
+    sessions:      'managers/devise/managers/sessions',
+    passwords:     'managers/devise/managers/passwords',
+    registrations: 'managers/devise/managers/registrations'
   }
 
   devise_for :users, controllers: {
-    sessions:      'users/sessions',
-    passwords:     'users/passwords',
-    registrations: 'users/registrations'
+    sessions:      'public/devise/users/sessions',
+    passwords:     'public/devise/users/passwords',
+    registrations: 'public/devise/users/registrations'
   }
   # 公開用
   scope module: :public do
