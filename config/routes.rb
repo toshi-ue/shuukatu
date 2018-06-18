@@ -1,19 +1,24 @@
 Rails.application.routes.draw do
 
-
   devise_for :managers, controllers: {
     sessions:      'managers/devise/managers/sessions',
     passwords:     'managers/devise/managers/passwords',
     registrations: 'managers/devise/managers/registrations'
   }
 
-  devise_for :users, controllers: {
-    sessions:      'public/devise/users/sessions',
-    passwords:     'public/devise/users/passwords',
-    registrations: 'public/devise/users/registrations'
-  }
+
   # 公開用
   scope module: :public do
+    # ユーザー設定用
+    devise_for :users, controllers: {
+      sessions:      'public/settings/users/sessions',
+      passwords:     'public/settings/users/passwords',
+      registrations: 'public/settings/users/registrations'
+    }
+    scope module: :settings do
+      resources :addresses, except: [:delete]
+    end
+
     # トップ画面
     resources :tops, only: [:index] do
       collection do
@@ -30,6 +35,12 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  #ショッパー用
+  namespace :manager do
+
+  end
+
 
   # master用
   namespace :master do
