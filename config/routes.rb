@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   devise_for :managers, controllers: {
     sessions:      'managers/devise/managers/sessions',
     passwords:     'managers/devise/managers/passwords',
@@ -39,7 +38,7 @@ Rails.application.routes.draw do
 
   #ショッパー用
   namespace :manager do
-
+    get 'tops/dash_board'
   end
 
 
