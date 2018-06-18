@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   devise_for :managers, controllers: {
     sessions:      'managers/devise/managers/sessions',
     passwords:     'managers/devise/managers/passwords',
@@ -44,7 +45,7 @@ Rails.application.routes.draw do
 
   # master用
   namespace :master do
-
+    resources :genres
   end
 
   # ルート
