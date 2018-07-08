@@ -1,23 +1,21 @@
 Rails.application.routes.draw do
 
-  devise_for :managers, controllers: {
-    sessions:      'managers/devise/managers/sessions',
-    passwords:     'managers/devise/managers/passwords',
-    registrations: 'managers/devise/managers/registrations'
+  # BEGIN 公開用 ------------------------------------------------------------------
+
+  # ユーザー設定用
+  devise_for :users, controllers: {
+    sessions:      'public/settings/users/sessions',
+    passwords:     'public/settings/users/passwords',
+    registrations: 'public/settings/users/registrations'
   }
 
 
-  # 公開用
   scope module: :public do
     # ユーザー設定用
-    devise_for :users, controllers: {
-      sessions:      'public/settings/users/sessions',
-      passwords:     'public/settings/users/passwords',
-      registrations: 'public/settings/users/registrations'
-    }
-    scope module: :settings do
-      resources :addresses, except: [:delete]
-    end
+
+    # scope module: :settings do
+    #   resources :addresses
+    # end
 
     # トップ画面
     resources :tops, only: [:index] do
@@ -36,11 +34,18 @@ Rails.application.routes.draw do
     end
   end
 
-  #ショッパー用
-  namespace :manager do
-    get 'tops/dash_board'
-  end
 
+  # BEGIN ショッパー用 ------------------------------------------------------------------
+  devise_for :managers, controllers: {
+    sessions:      'managers/devise/managers/sessions',
+    passwords:     'managers/devise/managers/passwords',
+    registrations: 'managers/devise/managers/registrations'
+  }
+
+  namespace :managers do
+    get 'tops/dash_board'
+    resources :positions
+  end
 
   # master用
   namespace :master do

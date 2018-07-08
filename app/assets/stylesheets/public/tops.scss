@@ -3,3 +3,78 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+@media (min-width: 999px) {
+
+
+
+  // topsコントローラー
+      // main(index)
+#tops-main{
+  h3{
+    span{
+      font-size: 15px;
+      color: #000000;
+    }
+  }
+
+  .items{
+    // display: flex;
+    justify-content: space-around;
+    // justify-content: flex-end;
+    margin: 0 0 20px 0;
+    height: 290px;
+
+      // カードデザイン
+      .card {
+        width: 17%;
+        background: #fff;
+        box-shadow: 0 2px 5px #bbb;
+        margin: 8px;
+      }
+      .card-img {
+        // border-radius: 5px 5px 0 0;
+        max-width: 100%;
+        height: auto;
+      }
+      .card-content {
+        padding: 5px;
+      }
+      .card-title {
+        font-size: 12px;
+        margin-bottom: 5px;
+        text-align: center;
+        color: #333;
+      }
+      .card-text {
+        color: #777;
+        font-size: 14px;
+        text-align: center;
+        line-height: 1.5;
+      }
+
+  }//.items
+}//#tops-main
+
+  // genres
+      // show
+      #genres-show{
+        .items{
+          display: flex;
+          // justify-content: space-between;
+          margin: 0 0 50px 0;
+          // width: 100%;
+          // display: block;
+
+          article{
+            .card{
+              .pull-left{
+                margin: 10px;
+              }//.pull-left
+            }//.card
+          }//article
+        }//.items
+      }//#genres-show
+
+
+}

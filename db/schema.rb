@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180614074228) do
+ActiveRecord::Schema.define(version: 20180708060931) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer  "user_id",       limit: 4
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20180614074228) do
     t.string   "city",          limit: 255
     t.string   "street",        limit: 255
     t.string   "others",        limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "brands", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.string   "description", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -66,6 +73,7 @@ ActiveRecord::Schema.define(version: 20180614074228) do
   end
 
   create_table "items", force: :cascade do |t|
+    t.integer  "brand_id",    limit: 4,   null: false
     t.integer  "itemCodeNo",  limit: 4
     t.string   "partNumber",  limit: 255
     t.string   "itemName",    limit: 255
@@ -98,6 +106,17 @@ ActiveRecord::Schema.define(version: 20180614074228) do
 
   add_index "managers", ["email"], name: "index_managers_on_email", unique: true, using: :btree
   add_index "managers", ["reset_password_token"], name: "index_managers_on_reset_password_token", unique: true, using: :btree
+
+  create_table "managers_positions", force: :cascade do |t|
+    t.string   "title",       limit: 255
+    t.string   "description", limit: 255
+    t.string   "address",     limit: 255
+    t.float    "latitude",    limit: 24
+    t.float    "longitude",   limit: 24
+    t.integer  "manager_id",  limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "orders", force: :cascade do |t|
     t.string   "order_no",    limit: 255

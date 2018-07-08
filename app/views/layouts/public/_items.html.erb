@@ -1,18 +1,18 @@
 <!-- <div>BEGIN app/views/layouts/public/_items.html.erb</div> -->
 
-<div class="items">
-  <% items.each do | item | %>
-    <%= link_to(item_path(item)) do %>
-      <article class="card pull-left">
-        <%= image_tag item.mainImage.url, class: 'card-img' %>
-        <div class="card-content">
-          <div class="card-title"><%= item.itemName %></div>
-          <div class="card-text"><%= dispYen(item.price) %></div>
-        </div>
-      </article>
+  <div class="items">
+    <% items.each do | item | %>
+      <%= link_to(item_path(item)) do %>
+        <article class="card pull-left">
+          <%= image_tag item.mainImage.url, class: 'card-img' %>
+          <div class="card-content">
+            <div class="card-title"><%= item.itemName %></div>
+            <div class="card-text"><%= dispYen(item.price) %></div>
+          </div>
+        </article>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div>
 <div class="clearfix"></div>
 
 <!-- <div>END app/views/layouts/public/_items.html.erb</div> -->

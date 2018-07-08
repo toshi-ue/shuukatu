@@ -2,29 +2,37 @@
 <html>
 <head>
   <title>Shuukatu</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= stylesheet_link_tag    "#{scope_name}/#{controller_name}", media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body id="<%= scope_name %>">
+<body>
 <%# @path %>
 
 
-<%# if scope_name.('public') %>
-  <%= render 'layouts/public/a' %>
-<%# end %>
+
+<%= render 'layouts/judgement_header' %>
+
 <div class="container-fluid">
     <!-- <div class="col-md-12"> -->
       <main  id="<%= controller_name %>-<%= controller.action_name == 'index' ? 'main' : controller.action_name %>">
-
-<!--         <h1><%# scope_name %></h1>
+    <% flash.each do |key, value| %>
+      <% key = "success" if key == "notice" %>
+      <% key = "error" if key == "alert" %>
+      <%= content_tag :div, value, class: "alert alert-#{key}" %>
+    <% end %>
+        <h1><%# scope_name %></h1>
         <h1><%# controller_name %></h1>
         <h1><%# action_name %></h1>
-        <h1><%# @path %></h1> -->
+        <h1><%# @path %></h1>
         <%= yield %>
       </main>
     <!-- </div> -->
 </div>
+
+<p><%= controller.controller_name %></p>
+<p><%= @path %></p>
 
 </body>
 </html>

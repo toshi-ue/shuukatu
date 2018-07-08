@@ -19,8 +19,34 @@
     商品ID<br>
     <%# @item.id %>
   </p> -->
+<% item = @item %>
 
-  <%= render partial: 'layouts/public/item', locals: {item: @item} %>
+<div class="col-md-5 text-center pull-left">
+  <%= image_tag item.mainImage.url %>
+</div>
+<div class="col-md-4 pull-left">
+  <h3><%= item.itemName %></h3>
+  <p>商品番号： <%= item.itemCodeNo %></p>
+  <p>
+    <h3 class="text-center"><%= dispYen(item.price) %><span>税込</span></h3>
+  </p>
+  <br>
+  <p>ジャンル：  <%= item.genre.name %></p>
+  <p>サブジャンル：  <%= item.subgenre.name %></p>
+  <p>
+    <b>商品詳細：</b><br>
+    <%= item.description %>
+  </p>
+</div>
+<div class="col-md-3" style="border: 1px solid gray; border-radius: 5px;">
+  <p class="text-center">
+    個数： <input type="" name="">
+  </p>
+  <br>
+  <p class="add-cart text-center">カートに入れる</p>
+</div>
+<div class="clearfix"></div>
+
 </div>
 
 <div>END app/views/public/items/show.html.erb</div>

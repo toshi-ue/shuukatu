@@ -1,10 +1,10 @@
-<!-- <div>BEGIN app/views/layouts/public/_navbar.html.erb</div> -->
+<div>BEGIN app/views/layouts/master/_navbar.html.erb</div>
 
 <div class="panel panel-default">
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
-          <%= link_to 'ショッピングサイト', root_path, class: 'navbar-brand' %>
+          <%= link_to "管理者画面", managers_tops_dash_board_path, class: 'navbar-brand' %>
         </div>
 
         <div class="collapse navbar-collapse" id="navbarEexample">
@@ -28,26 +28,21 @@
           </form>
           <ul class="nav navbar-nav navbar-right">
 <!--             <li><a href="#">メニュー</a></li> -->
-            <% unless user_signed_in? %>
-            <li><%= link_to '会員登録', new_user_registration_path %></li>
-            <li><%= link_to 'ログイン', new_user_session_path %></li>
-            <% else %>
             <li><a>注文履歴</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">メニュー<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="#">注文履歴(未リンク)</a></li>
-                <li><a href="#">ユーザー情報(未リンク)</a></li>
+                <li><a href="#">登録情報(未リンク)</a></li>
                 <li><a href="#">おしらせ(未リンク)</a></li>
-                <li><%= link_to 'ログアウト', destroy_user_session_path %></li>
+                <li><%= link_to 'ログアウト', destroy_manager_session_path %></li>
               </ul>
             </li>
-            <% end %>
+
           </ul>
         </div>
       </div>
     </nav>
 </div>
 
-<!-- <div>END app/views/layouts/public/_navbar.html.erb</div>
- -->
+<div>END app/views/layouts/master/_navbar.html.erb</div>

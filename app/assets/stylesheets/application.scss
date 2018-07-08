@@ -1,0 +1,43 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// デスクトップ用
+@media (min-width: 999px) {
+
+//共通
+a{
+  color: #77777B;
+
+  &:hover{
+    opacity: 0.2;
+  }
+}
+
+.sidebar{
+  border-right: 2px solid #F8F8F8;
+}
+
+
+// navbar余白削除
+div.panel.panel-default{
+  // margin: 0 0 50px 0;
+  margin: 0 0 0 0;
+  border: none;
+}
+
+nav.navbar.navbar-default{
+  margin: 0;
+  border: none;
+}
+
+
+
+.inline{
+  display: inline;
+}
+
+
+
+
+
+}//@media (min-width: 999px)

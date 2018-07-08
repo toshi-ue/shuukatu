@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @managers_position.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @managers_position.description %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @managers_position.address %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @managers_position.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @managers_position.longitude %>
+</p>
+
+<%= link_to 'Edit', edit_managers_position_path(@managers_position) %> |
+<%= link_to 'Back', managers_positions_path %>

@@ -9,4 +9,30 @@ class ApplicationController < ActionController::Base
           str.map{|s| self.include?(s)}.include?(true)
       end
   end
+
+  # def after_sign_up_path_for(resource)
+  #   case resources
+  #     when User
+  #       redirect_to root_path and return
+  #   end
+  # end
+
+  def after_sign_in_path_for(resource)
+    case resource
+    when User
+      root_path
+    when Manager
+      managers_tops_dash_board_path
+    end
+  end
+
+  # def after_sign_out_path_for(resource)
+  #   case resource
+  #   when User
+  #     root_path
+  #   when Manager
+  #     new_manager_session_path
+  #   end
+  # end
+
 end

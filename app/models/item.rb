@@ -8,4 +8,5 @@ class Item < ActiveRecord::Base
   has_many :orders, through: :cartitems
   belongs_to :genre
   belongs_to :subgenre
+  belongs_to :brand
 end

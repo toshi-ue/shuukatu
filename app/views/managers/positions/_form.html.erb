@@ -1,0 +1,40 @@
+<%= form_for(@managers_position) do |f| %>
+  <% if @managers_position.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@managers_position.errors.count, "error") %> prohibited this managers_position from being saved:</h2>
+
+      <ul>
+      <% @managers_position.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :latitude %><br>
+    <%= f.text_field :latitude %>
+  </div>
+  <div class="field">
+    <%= f.label :longitude %><br>
+    <%= f.text_field :longitude %>
+  </div>
+
+    <%= f.hidden_field :manager_id, value: current_manager.id %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

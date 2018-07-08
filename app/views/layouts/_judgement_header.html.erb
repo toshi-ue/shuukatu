@@ -1,0 +1,15 @@
+<div>BEGIN app/views/layouts/_judgement_header.html.erb</div>
+<% if scope_name == 'public' %>
+<%= render 'layouts/public/navbar' %>
+<% elsif scope_name == 'managers' %>
+  <% if manager_signed_in? %>
+  <%= render 'layouts/managers/navbar' %>
+  <% end %>
+<% elsif scope_name == 'master' %>
+  <% if master_signed_in? %>
+    <%= render 'layouts/master/navbar' %>
+  <% end %>
+<% else %>
+
+<% end %>
+<div>END app/views/layouts/_judgement_header.html.erb</div>
