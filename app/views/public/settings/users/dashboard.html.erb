@@ -1,0 +1,25 @@
+<p><strong>BEGIN app/views/public/settings/users/dashboard.html.erb</strong></p>
+
+<h3>アカウントサービス</h3>
+<p id="user_name"><%= current_user.email %>さん</p>
+
+
+
+<div id="box-parent" class="row col-md-6 col-md-offset-3">
+  <%= link_to(settings_addresses_path, class: 'content col-md-4 col-md-offset-1') do %>
+    <%= image_tag 'address_home.png' %>
+    <strong>住所一覧</strong>
+  <% end %>
+
+  <%= link_to(settings_credits_path, class: 'content col-md-4 col-md-offset-2') do %>
+    <%= image_tag 'credit.png' %>
+    <strong>お支払い方法</strong>
+  <% end %>
+
+  <%= link_to(settings_users_security_path, class: 'content col-md-4 col-md-offset-1') do %>
+    <%= image_tag 'key.png' %>
+    <strong>ユーザー情報</strong>
+  <% end %>
+</div>
+
+<p><strong>END app/views/public/settings/users/dashboard.html.erb</strong></p>

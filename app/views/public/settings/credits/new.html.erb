@@ -1,0 +1,16 @@
+<p><strong>BEGIN app/controllers/public/settings/credits/new.html.erb</strong></p>
+
+<%= form_tag(credits_path, method: :post, datakey: ENV['payjp_test_public_key']) do |f| %>
+
+  <%= f.text_field :number, maxlength: '16', placeholder: 'カード番号' %>
+  <%= f.text_field :cvc, maxlength: '3', placeholder: 'CVC' %>
+  <%= f.text_field :exp_month, maxlength: '2', placeholder: '月' %>
+  <%= f.text_field :exp_year, maxlength: '4', placeholder: '西暦(4桁)' %>
+  <div class="actions">
+    <%= f.submit @submit %>
+  </div>
+<% end %>
+
+
+
+<p><strong>END app/controllers/public/settings/credits/new.html.erb</strong></p>

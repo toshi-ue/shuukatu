@@ -17,6 +17,10 @@ module ApplicationHelper
     "#{(controller.class.parent.name).downcase}"
   end
 
+
+  def for_css
+    controller_path.gsub(/\//, "-")
+  end
   # コントローラー判定
   # def controller_name
   #   "#{controller.controller_name}"

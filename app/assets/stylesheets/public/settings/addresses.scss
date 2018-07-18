@@ -1,3 +1,91 @@
-// Place all the styles related to the public::settings::addresses controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@media (min-width: 999px) {
+
+  #public-settings-addresses{
+
+    #index{
+
+      #parent{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+
+        #add_address{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            div{
+              display: inline-block;
+              // margin-left: 20px;
+              font-size: 60px;
+            }//div
+
+            strong{
+              color: black;
+            }//strong
+          }//div
+
+        }//#add_address
+
+        .box, .box_without_border{
+          width: 300px;
+          height: 260px;
+          padding: 20px;
+          margin-bottom: 10px;
+
+          #tel{
+            margin-top: 10px;
+          }//#tel
+        }//.box, .box_without_border
+
+        .box{
+          border: 1.4px solid silver;
+        }
+
+
+      }//#parent
+      // .box{
+      //   border: 1.4px solid silver;
+      //   width: 300px;
+      //   height: 260px;
+      //   padding: 20px;
+
+      //   #tel{
+      //     margin-top: 10px;
+      //   }//#tel
+      // }//.box
+
+    }//#index
+
+    #show{
+
+    }//#show
+
+    #new{
+      #parent{
+        display: flex;
+        flex-direction: column;
+
+        div{
+          margin-bottom: 10px;
+        }
+
+        div#yoko{
+          display: flex;
+        }//div#yoko
+      }
+
+    }//#new
+
+    #edit{
+
+    }//#edit
+
+  }//#public-settings-addresses
+
+}//@media (min-width: 999px)

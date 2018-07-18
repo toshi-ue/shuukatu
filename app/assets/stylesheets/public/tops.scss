@@ -9,52 +9,20 @@
 
 
   // topsコントローラー
-      // main(index)
-#tops-main{
-  h3{
-    span{
-      font-size: 15px;
-      color: #000000;
-    }
-  }
+#public-tops{
 
-  .items{
-    // display: flex;
-    justify-content: space-around;
-    // justify-content: flex-end;
-    margin: 0 0 20px 0;
-    height: 290px;
+  #index{
+    h3{
+      span{
+        font-size: 15px;
+        color: #000000;
+      }//span
+    }//h3
 
-      // カードデザイン
-      .card {
-        width: 17%;
-        background: #fff;
-        box-shadow: 0 2px 5px #bbb;
-        margin: 8px;
-      }
-      .card-img {
-        // border-radius: 5px 5px 0 0;
-        max-width: 100%;
-        height: auto;
-      }
-      .card-content {
-        padding: 5px;
-      }
-      .card-title {
-        font-size: 12px;
-        margin-bottom: 5px;
-        text-align: center;
-        color: #333;
-      }
-      .card-text {
-        color: #777;
-        font-size: 14px;
-        text-align: center;
-        line-height: 1.5;
-      }
+  }//#index
 
-  }//.items
-}//#tops-main
+
+}//#public-tops
 
   // genres
       // show
@@ -77,4 +45,4 @@
       }//#genres-show
 
 
-}
+}//@media (min-width: 999px)

@@ -1,0 +1,40 @@
+<h1>Public::Cartitems#index</h1>
+<p>Find me in app/views/public/cartitems/index.html.erb</p>
+
+<h3>カート一覧</h3>
+<% unless @cartitems.blank? %>
+<div class="col-md-9">
+  <table class="col-md-12">
+    <% @cartitems.each do |cartitem| %>
+      <tr>
+        <!--画像-->
+        <td class="col-md-3"><%= image_tag(cartitem.item.mainImage.url, size: '110x110') %></td>
+        <!--品番-->
+        <!-- <td><%# cartitem.item.partNumber %></td> -->
+        <!--商品名-->
+        <td class="col-md-3 text-left"><%= cartitem.item.itemName %></td>
+        <!--値段-->
+        <td class="col-md-2 text-right"><%= dispYen(cartitem.item.price) %></td>
+        <!--数量-->
+        <td class="text-right col-md-1 text-right"><%= cartitem.quantity %></td>
+        <!--小計-->
+        <td class="text-right col-md-3 text-right">
+            <% subtotal_price = ((cartitem.item.price) * (cartitem.quantity)).to_s %>
+            <%= dispYen(subtotal_price) %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+  <%= render 'go_checkout' %>
+<% else %>
+<div id="no-item_in_cart" class="col-md-12">
+  <p>カートにはまだ商品がありません</p>
+  <%= link_to '戻る', :back, class: 'btn btn-warning btn-md btn-margin col-md-4' %>
+</div>
+<% end %>
+
+
+
+
+

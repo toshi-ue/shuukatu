@@ -3,4 +3,7 @@ class Manager < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  # relation
+  has_many :managers_positions
 end

@@ -10,7 +10,7 @@ gem 'coffee-rails', '~> 4.1.0'
 
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
-#gem 'turbolinks'
+gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'therubyracer'
@@ -25,10 +25,13 @@ gem 'therubyracer'
 # gem 'capistrano-rails', group: :development
 gem 'autonumeric-rails'
 gem 'bootstrap-sass'
+gem 'bullet'
 gem 'carrierwave'
+# gem 'credit_card_validator'
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'dotenv-rails'
 gem 'gmaps4rails'
 gem 'kaminari'
 gem 'less-rails'
@@ -47,15 +50,17 @@ group :development, :test do
   gem 'pry-doc'
   gem 'pry-rails'
   gem 'pry-stack_explorer'
-
+  gem 'rspec-rails', '~> 3.6.0'
 end
 
 group :development do
+  gem 'faker', require: false # for sample data in development
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  gem 'spring-commands-rspec'
 end
 
 group :production do

@@ -1,6 +1,27 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+// @font-face {
+//   font-family: ‘Glyphicons Halflings’;
+//   src: url(‘/assets/glyphicons-halflings-regular.eot’);
+//   src: url(‘/asstes/glyphicons-halflings-regular.eot?#iefix’) format(‘embedded-opentype’),
+//   url(‘/assets/glyphicons-halflings-regular.woff’) format(‘woff’),
+//   url(‘/assets/glyphicons-halflings-regular.ttf’) format(‘truetype’),
+//   url(‘/assets/glyphicons-halflings-regular.svg#glyphicons-halflingsregular’) format(‘svg’);
+// }
+
+// Bootstrap3適用
+#error_explanation {
+  color: #f00;
+  div {
+  }
+}
+
+.field_with_errors {
+  @extend .form-group;
+  @extend .has-error;
+}
+
 // デスクトップ用
 @media (min-width: 999px) {
 
@@ -35,6 +56,68 @@ nav.navbar.navbar-default{
 .inline{
   display: inline;
 }
+
+
+
+
+// 商品(カードデザイン)
+  .items{
+    // display: flex;
+    justify-content: space-around;
+    // justify-content: flex-end;
+    margin: 0 0 20px 0;
+    height: 290px;
+
+      // カードデザイン
+      .card {
+        width: 17%;
+        background: #fff;
+        box-shadow: 0 2px 5px #bbb;
+        margin: 8px;
+      }
+      .card-img {
+        // border-radius: 5px 5px 0 0;
+        max-width: 100%;
+        height: auto;
+      }
+      .card-content {
+        padding: 5px;
+      }
+      .card-title {
+        font-size: 12px;
+        margin-bottom: 5px;
+        text-align: center;
+        color: #333;
+      }
+      .card-text {
+        color: #777;
+        font-size: 14px;
+        text-align: center;
+        line-height: 1.5;
+      }
+
+  }//.items
+
+
+
+#public-settings-users-sessions{
+
+// ユーザーログイン画面
+  #new{
+
+    #frame-border{
+      justify-content: center;
+      border: 1.2px solid silver;
+      border-radius: 10px;
+      padding: 0 20px 20px 20px;
+    }
+
+    .btn-margin{
+      margin-bottom: 10px;
+    }//.btn-margin
+
+  }//#new
+}//#public-settings-users-sessions
 
 
 

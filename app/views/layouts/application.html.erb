@@ -2,37 +2,61 @@
 <html>
 <head>
   <title>Shuukatu</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= stylesheet_link_tag    "#{scope_name}/#{controller_name}", media: 'all' %>
-  <%= javascript_include_tag 'application' %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    controller.controller_path, media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag controller.controller_path, 'data-turbolinks-track': 'reload' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%# @path %>
+
 
 
 
 <%= render 'layouts/judgement_header' %>
+<%# render 'loyouts/judgement_sidebar' %>
+
+<div class="text-center">現在の階層:　<%= @path %> </div>
+<div class="text-center">css用:　<%= for_css %></div>
+<div class="text-center">
+  session[1]:　<%= session[:first_controller] %>　　　
+  session[2]:　<%= session[:second_controller] %>
+</div>
+<div class="text-center">現在地のパス:　</div>
 
 <div class="container-fluid">
     <!-- <div class="col-md-12"> -->
-      <main  id="<%= controller_name %>-<%= controller.action_name == 'index' ? 'main' : controller.action_name %>">
-    <% flash.each do |key, value| %>
-      <% key = "success" if key == "notice" %>
-      <% key = "error" if key == "alert" %>
-      <%= content_tag :div, value, class: "alert alert-#{key}" %>
-    <% end %>
-        <h1><%# scope_name %></h1>
-        <h1><%# controller_name %></h1>
-        <h1><%# action_name %></h1>
-        <h1><%# @path %></h1>
-        <%= yield %>
+      <!-- <main  id="<%# controller_name %>-<%# controller.action_name == 'index' ? 'main' : controller.action_name %>"> -->
+      <main  id="<%= for_css %>">
+        <div id="<%= action_name %>">
+          <% flash.each do |key, value| %>
+            <% key = "success" if key == "notice" %>
+            <% key = "error" if key == "alert" %>
+            <%= content_tag :div, value, class: "alert alert-#{key}" %>
+          <% end %>
+
+          <%= yield %>
+
+        </div>
       </main>
     <!-- </div> -->
 </div>
 
-<p><%= controller.controller_name %></p>
-<p><%= @path %></p>
+
+
+
+
+
+<!--
+<div>session[:3]</div>
+<p><%# session[:third_controller] %></p>
+
+<div>session[:4]</div>
+<p><%# session[:fourth_controller] %></p>
+
+<div>session[:5]</div>
+<p><%# session[:fifth_controller] %></p>
+ -->
 
 </body>
 </html>

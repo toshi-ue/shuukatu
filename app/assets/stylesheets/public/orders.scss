@@ -1,0 +1,61 @@
+//  app/assets/stylesheets/public/orders.scss
+
+// デスクトップ用
+@media (min-width: 999px) {
+
+  #public-orders{
+
+    #new{
+
+      #delivery-and-credential{
+        border: 1.2px solid silver;
+        border-radius: 10px;
+        min-height: 200px;
+        margin-bottom: 30px;
+
+        #delivery{
+          border: 1.2px solid silver;
+          border-collapse: collapse;
+        }//#delivery
+
+        #credential{
+          border: 1.2px solid silver;
+          border-collapse: collapse;
+        }//#credential
+
+      }//#delivery-and-credential
+
+      #cart-items{
+        justify-content: center;
+        // align-items: center;
+        border: 1.2px solid silver;
+        border-radius: 10px;
+        min-height: 200px;
+
+        table{
+          text-align: center;
+
+          td{
+            min-height:200px;
+            padding: 10px 0;
+            border-bottom: 1.2px solid silver;
+          }//td
+
+        }//table
+
+      }//#cart-items
+
+      #confirm-orders{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1.2px solid silver;
+        border-radius: 10px;
+        min-height: 250px;
+
+      }//#confirm-orders
+
+    }//#new
+
+  }//#public-orders
+}//@media (min-width: 999px)

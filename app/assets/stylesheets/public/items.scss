@@ -1,7 +1,20 @@
 // Place all the styles related to the public::items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@media (min-width: 999px) {
 
-#items-show{
+  #public-items{
+    #cart{
+      display: flex;
+      flex-direction: column;
+      justify-content:center;
+      align-items: center;
+      height: 150px;
 
+      select{
+        margin-bottom: 30px;
+      }
+
+    }
+  }
 }

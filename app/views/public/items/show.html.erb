@@ -38,12 +38,20 @@
     <%= item.description %>
   </p>
 </div>
-<div class="col-md-3" style="border: 1px solid gray; border-radius: 5px;">
-  <p class="text-center">
-    個数： <input type="" name="">
-  </p>
-  <br>
-  <p class="add-cart text-center">カートに入れる</p>
+<div id="cart" class="col-md-3" style="border: 1px solid gray; border-radius: 5px; min-height: 200px;">
+    <% if user_signed_in? %>
+      <%= form_tag(add_item_cartitems_path, method: :post) do %>
+        <%= hidden_field_tag :item_id, @item.id %>
+        <%= hidden_field_tag :user_id, current_user.id %>
+        <!-- <div class="text-center"> -->
+          個数：<%= select_tag :quantity, options_for_select([[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]]), class: 'form-control' %>
+          <%= submit_tag 'カートに入れる', data: { disable_with: '送信中' }, class: 'btn btn-primary btm-md' %>
+        <!-- </div> -->
+      <% end %>
+    <% else %>
+      <p>ログインしてください</p>
+      <%= link_to 'ログインする', new_user_session_path, class: "btn btn-primary btn-md" %>
+    <% end %>
 </div>
 <div class="clearfix"></div>
 

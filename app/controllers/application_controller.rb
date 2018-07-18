@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :request_path
+  before_action :controller_session
+
+  # bootstrapフラッシュメッセージ用
+  add_flash_types :success, :info, :warning, :danger
 
 # https://qiita.com/toduq/items/a9fa48926b060b2d8a5b
   def request_path
@@ -9,6 +13,18 @@ class ApplicationController < ActionController::Base
           str.map{|s| self.include?(s)}.include?(true)
       end
   end
+
+  def controller_session
+
+    session[:fifth_controller] = session[:fourth_controller]
+    session[:fourth_controller] = session[:third_controller]
+    session[:third_controller] = session[:second_controller]
+    session[:second_controller] = session[:first_controller]
+    session[:first_controller] = @path
+  end
+
+
+
 
   # def after_sign_up_path_for(resource)
   #   case resources

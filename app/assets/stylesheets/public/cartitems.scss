@@ -1,0 +1,81 @@
+// Place all the styles related to the public::cartitems controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@media (min-width: 999px) {
+
+  #public-cartitems{
+
+    #index{
+
+      table{
+
+        tr{
+          border-bottom: 1.2px solid silver;
+
+          td{
+            min-height:200px;
+            padding: 10px 0;
+          }
+        }//tr
+      }//table
+
+
+
+      #go-checkout{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1.2px solid silver;
+        border-radius: 10px;
+        min-height: 250px;
+
+        #total_count{
+          font-size: 17px;
+          margin-bottom: 10px;
+        }
+
+        #total_price{
+          color: #B12704;
+          font-size: 17px;
+        }//#total_price
+
+      }//#go-checkout
+
+      #no-item_in_cart{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }//#no-item_in_cart
+
+    }//#index
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}//@media (min-width: 999px)

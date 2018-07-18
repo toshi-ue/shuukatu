@@ -1,0 +1,55 @@
+<div class="col-md-10 col-md-offset-1">
+
+<p><strong>BEGIN app/views/public/settings/addresses/index.html.erb</strong></p>
+
+  <div id="parent">
+  <%= link_to(new_settings_address_path) do %>
+  <div id="add_address" class="box col-md-3">
+    <div>
+      <div class="glyphicon glyphicon-plus icon-10x" aria-hidden="true"></div>
+      <strong>住所を追加する</strong>
+    </div>
+  </div>
+  <% end %>
+  <% unless @addresses.blank? %>
+    <% @addresses.each do |address| %>
+      <%# if @address_count == 0 %>
+      <!-- <div class="box col-md-3"> -->
+      <%# else %>
+      <div class="box col-md-3 offset-md-1">
+      <%# end %>
+        <div><strong><%= address.user_name %></strong></div>
+        <div><%= address.name_kana %></div>
+        <div><%= address.postalcode %></div>
+        <div><%= address.prefecture.name %><%= address.city %></div>
+        <div><%= address.street %></div>
+        <div><%= address.others %></div>
+        <div id="tel"><strong>電話番号</strong></div>
+        <div><%= address.tel %></div><br>
+        <%=link_to '変更する', edit_settings_address_path(address), class: 'btn btn-default btn-md ' %>
+        <% if @addresses.count > 1 %>
+        <%=link_to '削除する', settings_address_path(address), method: :delete, class: 'btn btn-default btn-md', data:{ confirm: '削除しますか?'} %>
+        <% end %>
+
+      </div>
+
+    <% end %>
+    <!-- <h1><%# @address_count %></h1> -->
+        <% @address_count.times do %>
+        <div class="box_without_border"></div>
+        <% end %>
+
+  <% else %>
+    <p><strong>まだ住所の登録がありません</strong></p>
+    <% 2.times do %>
+      <div class="box_without_border"></div>
+    <% end %>
+  <% end %>
+  </div>
+
+<p><strong>END app/views/public/settings/addresses/index.html.erb</strong></p>
+
+</div>
+
+
+

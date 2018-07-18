@@ -32,12 +32,11 @@
             <li><%= link_to '会員登録', new_user_registration_path %></li>
             <li><%= link_to 'ログイン', new_user_session_path %></li>
             <% else %>
-            <li><a>注文履歴</a></li>
+            <li><%= link_to '注文履歴', orders_path %></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">メニュー<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#">注文履歴(未リンク)</a></li>
-                <li><a href="#">ユーザー情報(未リンク)</a></li>
+                <li><%= link_to 'ユーザー情報', settings_users_dashboard_path %></li>
                 <li><a href="#">おしらせ(未リンク)</a></li>
                 <li><%= link_to 'ログアウト', destroy_user_session_path %></li>
               </ul>

@@ -1,0 +1,19 @@
+_judgement_sidebar.html.erb
+
+<div>BEGIN app/views/layouts/_judgement_sidebar.html.erb</div>
+<% if @path.include?(("public" && "settings" && "credits")) %>
+<%= render 'layouts/public/sidebar' %>
+<% elsif @path.include?('managers') %>
+  <% if manager_signed_in? %>
+  <%= render 'layouts/managers/navbar' %>
+  <% end %>
+<% end %>
+
+<%# elsif @path.include?('master') %>
+  <%# if master_signed_in? %>
+    <%# render 'layouts/master/navbar' %>
+  <%# end %>
+<%# else %>
+
+<%# end %>
+<div>END app/views/layouts/_judgement_sidebar.html.erb</div>

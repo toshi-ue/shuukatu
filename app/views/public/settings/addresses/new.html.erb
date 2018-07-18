@@ -1,0 +1,78 @@
+
+
+<div class="row col-md-6 col-md-offset-3">
+
+<p><strong>BEGIN app/views/public/settings/addresses/new.html.erb</strong></p>
+
+<%= form_for @address, url: settings_addresses_path, method: :post do |f| %>
+
+  <% if @address.errors.any? %>
+    <div class="alert alert-danger">
+      <h3><%= pluralize(@address.errors.count, "件のエラーがあります") %></h3>
+      <% @address.errors.full_messages.each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div id="parent" class="row col-md-6 col-md-offset-3">
+
+
+    <div class="field col-md-12">
+      <%= f.label :user_name, '名前',class: 'control-label' %>
+      <%= f.text_field :user_name, placeholder: '上野敏弘', class: 'form-control' %>
+    </div>
+
+    <div class="field col-md-12">
+      <%= f.label :name_kana, '名前(ひらがな)', class: 'control-label' %>
+      <%= f.text_field :name_kana, placeholder: 'うえのとしひろ', class: 'form-control' %>
+    </div>
+
+    <div class="field col-md-12">
+      <%= f.label :tel, '電話番号', class: 'control-label' %>
+      <%= f.text_field :tel, placeholder: '080-1111-2222', class: 'form-control' %>
+    </div>
+
+    <div id="yoko">
+      <div class="field col-md-6">
+        <%= f.label :postalcode, '郵便番号', class: 'control-label' %>
+        <%= f.text_field :postalcode, placeholder: '450-0001', class: 'form-control' %>
+      </div>
+
+      <div class="field col-md-6">
+        <%= f.label :prefecture_id, '都道府県', class: 'control-label' %>
+        <%= f.text_field :prefecture_id, class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="field col-md-12">
+      <%= f.label :city, '市町村', class: 'control-label' %>
+      <%= f.text_field :city, placeholder: '名古屋市中村区名駅南', class: 'form-control' %>
+    </div>
+
+    <div class="field col-md-12">
+      <%= f.label :street, '番地', class: 'control-label' %>
+      <%= f.text_field :street, placeholder: '1-1-1',class: 'form-control' %>
+    </div>
+
+    <div class="field col-md-12">
+      <%= f.label :others, 'その他詳細', class: 'control-label' %>
+      <%= f.text_field :others, placeholder: 'マンション　101号室', class: 'form-control' %>
+    </div>
+
+      <%= f.hidden_field :user_id, value: current_user.id %>
+
+    <div class="actions text-center">
+      <%= f.submit @submit, class: 'btn btn-default btn-md'%>
+    </div>
+
+    <div class="text-center"><%= link_to '戻る', settings_addresses_path, class: 'btn btn-default btn-md' %></div>
+  </div>
+
+<% end %>
+
+<p><strong> END app/views/public/settings/addresses/new.html.erb</strong></p>
+
+</div>
+
+

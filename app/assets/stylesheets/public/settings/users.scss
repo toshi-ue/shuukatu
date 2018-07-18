@@ -1,0 +1,40 @@
+@media (min-width: 999px) {
+
+  #public-settings-users{
+
+    #dashboard{
+      h3, #user_name{
+        text-align: center;
+      }//h3, #user_name
+
+      #box-parent{
+        border: 1.2px solid silver;
+        height: 300px;
+        padding: 20px;
+      }//#box-parent
+
+      .content{
+        display: flex;
+        align-items: center;
+        padding: 5px auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border: 1.2px solid silver;
+        border-radius: 10px;
+        text-decoration: none;
+
+        &:hover{
+          color: black;
+          background-color: silver;
+        }//&:hover
+
+      }//.content
+    }//#dashboard
+
+    #security{
+
+    }//#security
+
+  }//#public-settings-users
+
+}//@media (min-width: 999px)

@@ -1,0 +1,10 @@
+_go_checkout.html.erb
+
+<% unless @cartitems.blank? %>
+<div id="go-checkout" class="col-md-3">
+  <div id="total_count">小計(<%= @totalcount %>点)</div>
+  <div id="total_price"><%= number_to_currency(@total_price, :format => "%u%n", :precision => 0, :unit =>"¥") %></div>
+  <%= link_to 'レジへ進む', new_order_path, class: 'btn btn-warning btn-md btn-margin col-md-9' %>
+</div>
+
+<% end %>

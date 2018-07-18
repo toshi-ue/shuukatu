@@ -1,0 +1,69 @@
+<p><strong>BEGIN app/views/public/settings/addresses/_address_form.html.erb</strong></p>
+
+  <% if @address.errors.any? %>
+    <div id="error_explanation">
+      <% @address.errors.full_messages.each do |message| %>
+        <div><%= message %></div><br>
+      <% end %>
+    </div>
+  <% end %>
+
+<!-- params.require(:address).permit(:user_id, :user_name, :name_kana, :tel, :postalcode, :prefecture_id, :city, :street, :others) -->
+
+    <div class="field col-md-6">
+      <%= f.label :user_name, '名前',class: 'control-label' %>
+      <%= f.text_field :user_name, class: 'form-control' %>
+    </div>
+
+    <div class="field col-md-6">
+      <%= f.label :name_kana, class: 'control-label' %>
+      <%= f.text_field :name_kana, class: 'form-control' %>
+    </div>
+
+    <div class="field col-md-6">
+      <%= f.label :tel, class: 'control-label' %>
+      <%= f.text_field :tel, class: 'form-control' %>
+    </div>
+
+    <div class="field col-md-6">
+      <%= f.label :postalcode, class: 'control-label' %>
+      <%= f.text_field :postalcode, class: 'form-control' %>
+    </div>
+
+    <div class="field col-md-6">
+      <%= f.label :prefecture_id, class: 'control-label' %>
+      <%= f.text_field :prefecture_id, class: 'form-control' %>
+    </div>
+
+    <div class="field col-md-6">
+      <%= f.label :city, class: 'control-label' %>
+      <%= f.text_field :city, class: 'form-control' %>
+    </div>
+
+    <div class="field col-md-6">
+      <%= f.label :street, class: 'control-label' %>
+      <%= f.text_field :street, class: 'form-control' %>
+    </div>
+
+    <div class="field col-md-6">
+      <%= f.label :others, class: 'control-label' %>
+      <%= f.text_field :user_name, class: 'form-control' %>
+    </div>
+
+
+    <div class="field">
+      <span>※</span><%= f.label :user_name, class: 'control-label' %><br>
+      <div class="col-xs-10 col-sm-10 col-md-6">
+        <%= f.text_field :user_name, class: 'form-control' %>
+      </div>
+    </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+
+
+<% redirect_to :back, class: 'btn btn-default btn-md' %>
+
+<p><strong>END app/views/public/settings/addresses/_address_form.html.erb</strong></p>
