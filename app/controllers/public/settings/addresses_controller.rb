@@ -34,12 +34,13 @@ class Public::Settings::AddressesController < ApplicationController
     if @address.save
       redirect_to settings_addresses_path, success: "住所を登録しました"
     else
+      @submit = '登録する'
       render 'new'
     end
   end
 
   def edit
-    @submit = "更新"
+    @submit = '更新'
   end
 
   def update
@@ -48,6 +49,7 @@ class Public::Settings::AddressesController < ApplicationController
       # binding.pry
       redirect_to settings_addresses_path, success: "住所を変更しました"
     else
+      @submit = '更新'
       render 'edit'
     end
   end
