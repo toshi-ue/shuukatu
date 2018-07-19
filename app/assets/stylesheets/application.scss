@@ -11,11 +11,11 @@
 // }
 
 // Bootstrap3適用
-#error_explanation {
-  color: #f00;
-  div {
-  }
-}
+// #error_explanation {
+//   color: #f00;
+//   div {
+//   }
+// }
 
 .field_with_errors {
   @extend .form-group;
@@ -112,15 +112,127 @@ nav.navbar.navbar-default{
       padding: 0 20px 20px 20px;
     }
 
-    .btn-margin{
-      margin-bottom: 10px;
-    }//.btn-margin
 
   }//#new
 }//#public-settings-users-sessions
 
 
+#public-settings-users-registrations{
 
+// ユーザーログイン画面
+  #new{
+
+    #frame-border{
+      justify-content: center;
+      border: 1.2px solid silver;
+      border-radius: 10px;
+      padding: 0 20px 20px 20px;
+    }
+
+
+  }//#new
+}//#public-settings-users-sessions
 
 
 }//@media (min-width: 999px)
+
+
+
+
+
+
+
+// navbar設定
+$bgDefault      : #f1be0f;
+$bgHighlight    : #f1be0f;
+$colDefault     : #edf7f9;
+$colHighlight   : #423b35;
+$dropDown       : true;
+.navbar-default {
+  background-color: $bgDefault;
+  border-color: $bgHighlight;
+  .navbar-brand {
+    color: $colDefault;
+    &:hover, &:focus {
+      color: $colHighlight; }}
+  .navbar-text {
+    color: $colDefault; }
+  .navbar-nav {
+    > li {
+      > a {
+        color: $colDefault;
+        &:hover,  &:focus {
+          color: $colHighlight; }}
+      @if $dropDown {
+        > .dropdown-menu {
+          background-color: $bgDefault;
+          > li {
+            > a {
+              color: $colDefault;
+              &:hover,  &:focus {
+                color: $colHighlight;
+                background-color: $bgHighlight; }}
+            &.divider {
+              background-color: $bgHighlight;}}}}}
+    @if $dropDown {
+      .open .dropdown-menu > .active {
+        > a, > a:hover, > a:focus {
+          color: $colHighlight;
+          background-color: $bgHighlight; }}}
+    > .active {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight; }}
+    > .open {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight; }}}
+  .navbar-toggle {
+    border-color: $bgHighlight;
+    &:hover, &:focus {
+      background-color: $bgHighlight; }
+    .icon-bar {
+      background-color: $colDefault; }}
+  .navbar-collapse,
+  .navbar-form {
+    border-color: $colDefault; }
+  .navbar-link {
+    color: $colDefault;
+    &:hover {
+      color: $colHighlight; }}}
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu {
+    > li > a {
+      color: $colDefault;
+      &:hover, &:focus {
+        color: $colHighlight; }}
+    > .active {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight; }}}
+}
+
+
+// カード画像の余白を削除
+#no-padding{
+  padding: 0px;
+}
+
+#cart-count{
+  position: relative;
+
+  p{
+    color: #f1be0f;
+    font-size:20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-40%);
+    margin:0;
+    padding:0;
+  }
+
+  img{
+    // vertical-align: middle;
+  }
+}

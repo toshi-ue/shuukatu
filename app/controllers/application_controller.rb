@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :request_path
   before_action :controller_session
+  before_action :count_cartitems, if: :user_signed_in?
 
   # bootstrapフラッシュメッセージ用
   add_flash_types :success, :info, :warning, :danger
@@ -23,7 +24,11 @@ class ApplicationController < ActionController::Base
     session[:first_controller] = @path
   end
 
-
+  def count_cartitems
+    if user_signed_in?
+      @cartitems = Cartitem.where(user_id: current_user.id, order_id: nil)
+    end
+  end
 
 
   # def after_sign_up_path_for(resource)
