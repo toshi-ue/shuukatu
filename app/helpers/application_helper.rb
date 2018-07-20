@@ -19,6 +19,11 @@ module ApplicationHelper
 
 
   def for_css
+    controller_path.gsub(/\//, "-")
+  end
+
+  # 後でコメントアウト(development用)
+  def css_development
     '#' + controller_path.gsub(/\//, "-")
   end
   # コントローラー判定
