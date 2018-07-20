@@ -27,10 +27,11 @@
             <button type="submit" class="btn btn-default">検索</button>
           </form>
           <ul class="nav navbar-nav navbar-right">
-<!--             <li><a href="#">メニュー</a></li> -->
+
             <% unless user_signed_in? %>
             <li><%= link_to '会員登録', new_user_registration_path %></li>
             <li><%= link_to 'ログイン', new_user_session_path %></li>
+
             <% else %>
             <li>
               <%= link_to(cartitems_path, id: "no-padding") do %>
@@ -49,6 +50,7 @@
                 <li><%= link_to 'ログアウト', destroy_user_session_path %></li>
               </ul>
             </li>
+
             <% end %>
           </ul>
         </div>

@@ -1,28 +1,23 @@
-// Place all the styles related to the public::tops controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
 @media (min-width: 999px) {
 
 
 
   // topsコントローラー
-#public-tops{
+  #public-tops{
 
-  #index{
-    h3{
-      span{
-        font-size: 15px;
-        color: #000000;
-      }//span
-    }//h3
+    #index{
 
-  }//#index
+      h3{
+        span{
+          font-size: 15px;
+          color: #000000;
+        }//span
+      }//h3
+
+    }//#index
 
 
-}//#public-tops
+  }//#public-tops
 
   // genres
       // show

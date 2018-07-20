@@ -25,116 +25,113 @@
 // デスクトップ用
 @media (min-width: 999px) {
 
-//共通
-a{
-  color: #77777B;
+  //共通
+  a{
+    color: #77777B;
 
-  &:hover{
-    opacity: 0.2;
-  }
-}
+    &:hover{
+      opacity: 0.2;
+    }//&:hover
+  }//a
 
-.sidebar{
-  border-right: 2px solid #F8F8F8;
-}
-
-
-// navbar余白削除
-div.panel.panel-default{
-  // margin: 0 0 50px 0;
-  margin: 0 0 0 0;
-  border: none;
-}
-
-nav.navbar.navbar-default{
-  margin: 0;
-  border: none;
-}
+  .sidebar{
+    border-right: 2px solid #F8F8F8;
+  }//.sidebar
 
 
+  // navbar余白削除
+  div.panel.panel-default{
+    // margin: 0 0 50px 0;
+    margin: 0 0 0 0;
+    border: none;
+  }//div.panel.panel-default
 
-.inline{
-  display: inline;
-}
+  nav.navbar.navbar-default{
+    margin: 0;
+    border: none;
+  }//nav.navbar.navbar-default
 
 
 
+  .inline{
+    display: inline;
+  }//.inline
 
-// 商品(カードデザイン)
-  .items{
-    // display: flex;
-    justify-content: space-around;
-    // justify-content: flex-end;
-    margin: 0 0 20px 0;
-    height: 290px;
 
-      // カードデザイン
-      .card {
-        width: 17%;
-        background: #fff;
-        box-shadow: 0 2px 5px #bbb;
-        margin: 8px;
+
+
+  // 商品(カードデザイン)
+    .items{
+      // display: flex;
+      justify-content: space-around;
+      // justify-content: flex-end;
+      margin: 0 0 20px 0;
+      height: 290px;
+
+        // カードデザイン
+        .card {
+          width: 17%;
+          background: #fff;
+          box-shadow: 0 2px 5px #bbb;
+          margin: 8px;
+        }
+        .card-img {
+          // border-radius: 5px 5px 0 0;
+          max-width: 100%;
+          height: auto;
+        }
+        .card-content {
+          padding: 5px;
+        }
+        .card-title {
+          font-size: 12px;
+          margin-bottom: 5px;
+          text-align: center;
+          color: #333;
+        }
+        .card-text {
+          color: #777;
+          font-size: 14px;
+          text-align: center;
+          line-height: 1.5;
+        }
+
+    }//.items
+
+
+
+  #public-settings-users-sessions{
+
+  // ユーザーログイン画面
+    #new{
+
+      #frame-border{
+        justify-content: center;
+        border: 1.2px solid silver;
+        border-radius: 10px;
+        padding: 0 20px 20px 20px;
       }
-      .card-img {
-        // border-radius: 5px 5px 0 0;
-        max-width: 100%;
-        height: auto;
-      }
-      .card-content {
-        padding: 5px;
-      }
-      .card-title {
-        font-size: 12px;
-        margin-bottom: 5px;
-        text-align: center;
-        color: #333;
-      }
-      .card-text {
-        color: #777;
-        font-size: 14px;
-        text-align: center;
-        line-height: 1.5;
+
+
+    }//#new
+  }//#public-settings-users-sessions
+
+
+  #public-settings-users-registrations{
+
+  // ユーザーログイン画面
+    #new{
+
+      #frame-border{
+        justify-content: center;
+        border: 1.2px solid silver;
+        border-radius: 10px;
+        padding: 0 20px 20px 20px;
       }
 
-  }//.items
 
-
-
-#public-settings-users-sessions{
-
-// ユーザーログイン画面
-  #new{
-
-    #frame-border{
-      justify-content: center;
-      border: 1.2px solid silver;
-      border-radius: 10px;
-      padding: 0 20px 20px 20px;
-    }
-
-
-  }//#new
-}//#public-settings-users-sessions
-
-
-#public-settings-users-registrations{
-
-// ユーザーログイン画面
-  #new{
-
-    #frame-border{
-      justify-content: center;
-      border: 1.2px solid silver;
-      border-radius: 10px;
-      padding: 0 20px 20px 20px;
-    }
-
-
-  }//#new
-}//#public-settings-users-sessions
-
-
-}//@media (min-width: 999px)
+    }//#new
+  }//#public-settings-users-sessions
 
 
 
@@ -142,97 +139,103 @@ nav.navbar.navbar-default{
 
 
 
-// navbar設定
-$bgDefault      : #f1be0f;
-$bgHighlight    : #f1be0f;
-$colDefault     : #edf7f9;
-$colHighlight   : #423b35;
-$dropDown       : true;
-.navbar-default {
-  background-color: $bgDefault;
-  border-color: $bgHighlight;
-  .navbar-brand {
-    color: $colDefault;
-    &:hover, &:focus {
-      color: $colHighlight; }}
-  .navbar-text {
-    color: $colDefault; }
-  .navbar-nav {
-    > li {
-      > a {
-        color: $colDefault;
-        &:hover,  &:focus {
-          color: $colHighlight; }}
-      @if $dropDown {
-        > .dropdown-menu {
-          background-color: $bgDefault;
-          > li {
-            > a {
-              color: $colDefault;
-              &:hover,  &:focus {
-                color: $colHighlight;
-                background-color: $bgHighlight; }}
-            &.divider {
-              background-color: $bgHighlight;}}}}}
-    @if $dropDown {
-      .open .dropdown-menu > .active {
-        > a, > a:hover, > a:focus {
-          color: $colHighlight;
-          background-color: $bgHighlight; }}}
-    > .active {
-      > a, > a:hover, > a:focus {
-        color: $colHighlight;
-        background-color: $bgHighlight; }}
-    > .open {
-      > a, > a:hover, > a:focus {
-        color: $colHighlight;
-        background-color: $bgHighlight; }}}
-  .navbar-toggle {
+
+
+
+  // navbar設定
+  $bgDefault      : #f1be0f;
+  $bgHighlight    : #f1be0f;
+  $colDefault     : #edf7f9;
+  $colHighlight   : #423b35;
+  $dropDown       : true;
+  .navbar-default {
+    background-color: $bgDefault;
     border-color: $bgHighlight;
-    &:hover, &:focus {
-      background-color: $bgHighlight; }
-    .icon-bar {
-      background-color: $colDefault; }}
-  .navbar-collapse,
-  .navbar-form {
-    border-color: $colDefault; }
-  .navbar-link {
-    color: $colDefault;
-    &:hover {
-      color: $colHighlight; }}}
-@media (max-width: 767px) {
-  .navbar-default .navbar-nav .open .dropdown-menu {
-    > li > a {
+    .navbar-brand {
       color: $colDefault;
       &:hover, &:focus {
         color: $colHighlight; }}
-    > .active {
-      > a, > a:hover, > a:focus {
-        color: $colHighlight;
-        background-color: $bgHighlight; }}}
-}
+    .navbar-text {
+      color: $colDefault; }
+    .navbar-nav {
+      > li {
+        > a {
+          color: $colDefault;
+          &:hover,  &:focus {
+            color: $colHighlight; }}
+        @if $dropDown {
+          > .dropdown-menu {
+            background-color: $bgDefault;
+            > li {
+              > a {
+                color: $colDefault;
+                &:hover,  &:focus {
+                  color: $colHighlight;
+                  background-color: $bgHighlight; }}
+              &.divider {
+                background-color: $bgHighlight;}}}}}
+      @if $dropDown {
+        .open .dropdown-menu > .active {
+          > a, > a:hover, > a:focus {
+            color: $colHighlight;
+            background-color: $bgHighlight; }}}
+      > .active {
+        > a, > a:hover, > a:focus {
+          color: $colHighlight;
+          background-color: $bgHighlight; }}
+      > .open {
+        > a, > a:hover, > a:focus {
+          color: $colHighlight;
+          background-color: $bgHighlight; }}}
+    .navbar-toggle {
+      border-color: $bgHighlight;
+      &:hover, &:focus {
+        background-color: $bgHighlight; }
+      .icon-bar {
+        background-color: $colDefault; }}
+    .navbar-collapse,
+    .navbar-form {
+      border-color: $colDefault; }
+    .navbar-link {
+      color: $colDefault;
+      &:hover {
+        color: $colHighlight; }}}
+  @media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu {
+      > li > a {
+        color: $colDefault;
+        &:hover, &:focus {
+          color: $colHighlight; }}
+      > .active {
+        > a, > a:hover, > a:focus {
+          color: $colHighlight;
+          background-color: $bgHighlight; }}}
+  }//@media (max-width: 767px)
 
 
-// カード画像の余白を削除
-#no-padding{
-  padding: 0px;
-}
-
-#cart-count{
-  position: relative;
-
-  p{
-    color: #f1be0f;
-    font-size:20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-40%);
-    margin:0;
-    padding:0;
+  // カード画像の余白を削除
+  #no-padding{
+    padding: 0px;
   }
 
-  img{
-    // vertical-align: middle;
-  }
-}
+  #cart-count{
+    position: relative;
+
+    p{
+      color: #f1be0f;
+      font-size:20px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-40%);
+      margin:0;
+      padding:0;
+    }//p
+
+    img{
+      // vertical-align: middle;
+    }//img
+  }//#cart-count
+
+
+}//@media (min-width: 999px)
