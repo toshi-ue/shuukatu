@@ -9,7 +9,8 @@ Bundler.require(*Rails.groups)
 module Shuukatu
   class Application < Rails::Application
 
-    config.action_view.automatically_disable_submit_tag = false
+    # rails4ではエラー扱いになる(5ではOK)
+    # config.action_view.automatically_disable_submit_tag = false
 
     config.generators do |g|
       g.test_framework :rspec,
@@ -31,7 +32,11 @@ module Shuukatu
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
+    # 日本語
     config.i18n.default_locale = :ja
+
+    # locales以下のファイルの読み込み
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.yml').to_s]
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
