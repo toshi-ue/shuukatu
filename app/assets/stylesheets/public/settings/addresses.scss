@@ -73,17 +73,32 @@
 
         div{
           margin-bottom: 10px;
-        }
+        }//div
 
         div#yoko{
           display: flex;
         }//div#yoko
-      }
+
+
+      }//#parent
 
     }//#new
 
     #edit{
+      #parent{
+        display: flex;
+        flex-direction: column;
 
+        div{
+          margin-bottom: 10px;
+        }//div
+
+        div#yoko{
+          display: flex;
+        }//div#yoko
+
+
+      }//#parent
     }//#edit
 
   }//#public-settings-addresses
