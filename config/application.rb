@@ -8,6 +8,9 @@ Bundler.require(*Rails.groups)
 
 module Shuukatu
   class Application < Rails::Application
+
+    config.action_view.automatically_disable_submit_tag = false
+
     config.generators do |g|
       g.test_framework :rspec,
       fixtures: true,

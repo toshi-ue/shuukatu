@@ -1,21 +1,23 @@
-// Place all the styles related to the public::cartitems controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 @media (min-width: 999px) {
 
   #public-cartitems{
 
     #index{
 
+      h3{
+        margin-left: 50px;
+      }
       table{
 
         tr{
+          padding: 30px;
+          border-top: 1.2px solid silver;
           border-bottom: 1.2px solid silver;
 
           td{
             min-height:200px;
             padding: 10px 0;
-          }
+          }//td
         }//tr
       }//table
 
@@ -26,6 +28,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin-top:40px;
         border: 1.2px solid silver;
         border-radius: 10px;
         min-height: 250px;
@@ -50,32 +53,7 @@
       }//#no-item_in_cart
 
     }//#index
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  }//#public-cartitems
 
 
 }//@media (min-width: 999px)

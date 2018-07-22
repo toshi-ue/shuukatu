@@ -56,7 +56,7 @@ Rails.application.routes.draw do
     end
 
     # カート
-    resources :cartitems, only: [:index] do
+    resources :cartitems, only: [:index, :update, :destroy] do
       collection do
         post 'add_item'
       end

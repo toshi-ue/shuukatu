@@ -13,6 +13,8 @@ class Public::CartitemsController < ApplicationController
       @totalcount += cartitem.quantity
       @total_price += (cartitem.quantity * cartitem.item.price)
     end
+
+    # render json: @cartitems[0].item.itemName
   end
 
 
@@ -30,6 +32,19 @@ class Public::CartitemsController < ApplicationController
       @checkcartitem.save
       redirect_to cartitems_path, success: "#{@checkcartitem.item.itemName}がカートに追加されました"
     end
+  end
+
+  def update
+    @cartitem = Cartitem.find(params[:id])
+    @cartitem.update(quantity: params[:quantity])
+
+    redirect_to cartitems_path, success: "#{@cartitem.item.itemName}の数量を変更しました"
+  end
+
+  def destroy
+    @cartitem = Cartitem.find(params[:id])
+    @cartitem.destroy
+    redirect_to cartitems_path
   end
 
   private
