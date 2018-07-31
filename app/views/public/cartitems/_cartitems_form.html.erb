@@ -1,0 +1,50 @@
+<p>Find me in app/views/public/cartitems/_caritems_form.html.erb</p>
+<% unless @cartitems.blank? %>
+
+<div class="col-md-9">
+  <table class="col-md-10 col-md-offset-1">
+    <h3>カート商品一覧</h3>
+    <% @cartitems.each_with_index do |cartitem, j| %>
+      <tr>
+        <!--画像-->
+        <td class="col-md-3">
+          <%= image_tag(cartitem.item.mainImage.url, id: "#{j}-#{cartitem.id}_img",size: '110x110') %>
+        </td>
+
+        <!--商品名-->
+        <td class="col-md-3 text-left">
+          <%= cartitem.item.itemName %>
+        </td>
+
+        <!--値段-->
+        <td class="col-md-2 text-center">
+          <%= dispYen(cartitem.item.price) %>
+        </td>
+
+        <!--数量-->
+        <td class="text-right col-md-1 text-center">
+          <div>
+            <%= dispSelectBox(cartitem.quantity, j) %>
+          </div><br>
+          <%= link_to '削除', cartitem_path(cartitem), class: 'btn btn-default btn-sm',method: :delete, data: { disable_with: '変更中'} %>
+        </td>
+
+        <!--小計-->
+        <td class="text-right col-md-3 text-center">
+            <% subtotal_price = ((cartitem.item.price) * (cartitem.quantity)).to_s %>
+            <%= dispYen(subtotal_price) %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<% else %>
+
+<div id="no-item_in_cart" class="col-md-6 col-md-offset-3">
+  <h3>カート一覧</h3>
+  <p class="text-center">カートにはまだ商品がありません</p>
+  <%= link_to '買い物を続ける', root_path, class: 'btn btn-default btn-sm' %>
+</div>
+
+<% end %>

@@ -1,24 +1,15 @@
 class Public::CartitemsController < ApplicationController
   before_action :authenticate_user!
+  skip_before_action :setControllerSession, only: [:add_item, :update, :destroy]
+
+  #controllers/concerns/cartitems_toshort.rb
+  include CartitemsToshort
 
   def index
     @cartitems = Cartitem.includes(:item).where(order_id: nil, user_id: current_user.id)
-
-    # カート内の合計商品数
-    @totalcount = 0
-
-    # カート内の合計金額
-    @total_price = 0
-    @cartitems.each do |cartitem|
-      @totalcount += cartitem.quantity
-      @total_price += (cartitem.quantity * cartitem.item.price)
-    end
-
+    set_price_and_quantity
     # render json: @cartitems[0].item.itemName
   end
-
-
-
 
   def add_item
     @cartitem =Cartitem.new(cartitem_params)
@@ -37,14 +28,13 @@ class Public::CartitemsController < ApplicationController
   def update
     @cartitem = Cartitem.find(params[:id])
     @cartitem.update(quantity: params[:quantity])
-
     redirect_to cartitems_path, success: "#{@cartitem.item.itemName}の数量を変更しました"
   end
 
   def destroy
     @cartitem = Cartitem.find(params[:id])
     @cartitem.destroy
-    redirect_to cartitems_path
+    redirect_to cartitems_path, success: "#{@cartitem.item.itemName}をカートから削除しました"
   end
 
   private
