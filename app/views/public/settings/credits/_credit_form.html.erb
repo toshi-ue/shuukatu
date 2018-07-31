@@ -1,25 +1,33 @@
 <h1>BEGIN app/controllers/public/settings/credits/_credit_form.html.erb</h1>
 
-<%= form_tag(credits_path, method: :post, datakey: ENV['payjp_test_public_key']) do |f| %>
-  <% if @credit.errors.any? %>
+<!--   <%# if e.errors.any? %>
     <div id="error_explanation">
-      <% @credit.errors.full_messages.each do |message| %>
-        <div><%= message %></div>
-      <% end %>
+      <%# e.errors.full_messages.each do |message| %>
+        <div><%# message %></div>
+      <%#  end %>
     </div>
-  <% end %>
+  <%#end %> -->
 
-  <%= f.text_field :, value: current_user.id %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+  <div class="field col-md-12">
+  <%= label_tag :number, 'カード番号', class: 'control-label' %>
+  <%= text_field_tag :number,'', maxlength: '16', placeholder: '4242424242424242', class: 'form-control' %>
   </div>
 
-
-
-  <div class="actions">
-    <%= f.submit @submit %>
+  <div class="field col-md-12">
+  <%= label :cvc, 'セキュリティコード', class: 'control-label' %>
+  <%= text_field_tag :cvc,'', maxlength: '3', placeholder: '000', class: 'form-control' %>
   </div>
-<% end %>
+  <div class="field col-md-12">
+  <%= label_tag :exp_month, '月', class: 'control-label' %>
+  <%= text_field_tag :exp_month,'', maxlength: '2', placeholder: '月', class: 'form-control' %>
+  </div>
+  <div class="field col-md-12">
+  <%= label_tag :exp_year, '年', class: 'control-label' %>
+  <%= text_field_tag :exp_year,'', maxlength: '4', placeholder: '西暦(4桁)', class: 'form-control' %>
+  </div>
+  <div class="field col-md-12">
+  <%= label_tag :user_name, 'カード名義', class: 'control-label' %>
+  <%= text_field_tag :user_name,'', placeholder: 'SHOP ANIMAL', class: 'form-control' %>
+  </div>
+
 

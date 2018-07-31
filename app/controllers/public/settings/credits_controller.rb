@@ -1,72 +1,61 @@
 class Public::Settings::CreditsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_api_key, only:[:index, :show, :create, :destroy]
 
+  # controllers/concern/credits_toshort
+  include CreditsToshort
 
   def index
-    @credits = Credit.where(user_id: current_user.id)
-
+    @cards = []
+    customer_id = Credit.find_by(user_id: current_user.id).customer_id
+    unless customer_id.blank?
+      # binding.pry
+      set_cards_info(customer_id)
+    end
+    # render json:@cards
   end
 
+  # パラメーター確認用
   def show
-
+    set_customer
+    render json: @customer
   end
 
   def new
     @credit = Credit.new
+    @submit = '登録する'
   end
 
   def create
-    binding.pry
-    Payjp.api_key = ENV['payjp_test_private_key']
-
-    #トークン作成
-    token = Payjp::Token.create(
-      user_id: current_user.id,
-      card: {
-        number: params[:number],
-        cvc: params[:cvc],
-        exp_month: params[:exp_month],
-        exp_year: params[:exp_year],
-        name: params[:name]
-      }
-    )
-    Payjp::Customer.create(card: token.id)
-
-    @credit = Credit.new(credit_params)
-    @credit.user_id = current_user.id
-    @credit.customer_id = token.id
-
-    if @credit.save
-      redirect_to credits_path, success: "登録ができました"
-    else
-      binding.pry
-      # ここの処理はどのようにすればいいのか?
-    end
+    # カードトークン作成
+    create_card_token
+    redirect_to settings_credits_path, success:'クレジットカードの登録が完了しました'
 
     # カードエラー発生時
     rescue Payjp::CardError
-      binding.pry
+      # binding.pry
+      @submit = '登録する'
+      flash.now[:danger] = "入力情報に誤りがあります。もう一度入力し直してください"
       render 'new'
-    # end
-
   end
 
-  def edit
-
-    @submit = "更新"
-  end
-
-  def update
-
-  end
-
+  # 未実装
   def destroy
-    @credit.destroy
-    redirect_to credits_path, success: "削除しました"
+    # 顧客トークンの取得
+    set_customer
+    card = @customer.cards.retrieve(params[:id])
+    card.delete
+    redirect_to settings_credits_path, success:'クレジットカード情報を削除しました'
   end
+
+
 
   private
   def credit_params
     params.permit(:credit).permit(:user_id, :customer_id)
   end
+
+  # def set_api_key
+  #   Payjp.api_key = ENV['payjp_test_private_key']
+  # end
 end
