@@ -1,0 +1,23 @@
+  <div id="cart-items" class="row">
+    <table class="col-md-12">
+      <% @cartitems.each_with_index do |cartitem, j| %>
+        <tr>
+          <!--画像-->
+          <td class="col-md-3"><%= image_tag(cartitem.item.mainImage.url, size: '110x110') %></td>
+          <!--品番-->
+          <!-- <td><%# cartitem.item.partNumber %></td> -->
+          <!--商品名-->
+          <td class="col-md-3 text-left"><%= cartitem.item.itemName %></td>
+          <!--値段-->
+          <td class="col-md-2 text-right"><%= dispYen(cartitem.item.price) %></td>
+          <!--数量-->
+          <td class="text-right col-md-1 text-right"><%= cartitem.quantity %></td>
+          <!--小計-->
+          <td class="text-right col-md-3 text-center">
+              <% subtotal_price = ((cartitem.item.price) * (cartitem.quantity)).to_s %>
+              <%= dispYen(subtotal_price) %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>

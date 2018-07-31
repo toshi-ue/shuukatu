@@ -10,17 +10,30 @@
       #delivery-and-credential{
         border: 1.2px solid silver;
         border-radius: 10px;
-        min-height: 200px;
+        min-height: 220px;
         margin-bottom: 30px;
 
-        #delivery{
-          border: 1.2px solid silver;
-          border-collapse: collapse;
+        #delivery, #credential{
+
+          h4{
+            margin-bottom: -15px;
+          }//h4
+
+          hr{
+            border: 1px solid silver;
+            margin-bottom: -1px;
+          }//hr
+
+          a{
+            margin: 5px 0 10px 40px;
+            // margin-left: 40px;
+          }
         }//#delivery
 
         #credential{
-          border: 1.2px solid silver;
-          border-collapse: collapse;
+          hr{
+            border: 1px solid silver;
+          }//hr
         }//#credential
 
       }//#delivery-and-credential
@@ -30,7 +43,7 @@
         // align-items: center;
         border: 1.2px solid silver;
         border-radius: 10px;
-        min-height: 200px;
+        min-height: 131px;
 
         table{
           text-align: center;
@@ -41,21 +54,41 @@
             border-bottom: 1.2px solid silver;
           }//td
 
+          tr:last-child td{
+            border-bottom:none;
+          }
         }//table
 
       }//#cart-items
 
       #confirm-orders{
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         border: 1.2px solid silver;
         border-radius: 10px;
         min-height: 250px;
 
+        input[type="submit"]{
+          margin-bottom: 30px;
+        }//input[type="submit"]
+
+        strong{
+          color: #FF6633;
+          font-size: 15px;
+        }//strong
+
+        #keep-shopping{
+          margin-top: 20px;
+        }//#keep-shopping
       }//#confirm-orders
 
     }//#new
+
+    #create{
+
+    }//#create
 
   }//#public-orders
 }//@media (min-width: 999px)

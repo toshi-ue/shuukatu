@@ -1,0 +1,27 @@
+<div id="delivery" class="col-md-4 col-md-offset-1">
+  <div class="text-center">
+    <h4>配送先</h4>
+    <hr>
+  </div>
+  <div style="<%= address_padding %>">
+    <%= order.address.user_name %>様
+  </div>
+  <div style="<%= address_padding %>">
+    <%= order.address.tel %>
+  </div>
+  <div style="<%= address_padding %>">
+    〒<%= order.address.postalcode %>
+  </div>
+  <div style="<%= address_padding %>">
+    <%= order.address.prefecture.name %>
+  </div>
+  <div style="<%= address_padding %>">
+    <%= order.address.city %>
+  </div>
+  <div style="<%= address_padding %>">
+    <%= order.address.set_address_details %>
+  </div>
+  <div class="text-center">
+    <%= link_to '変更', public_orders_addresses_index_path, class: 'btn btn-default btn-sm col-md-6' %>
+  </div>
+</div>
