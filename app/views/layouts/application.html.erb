@@ -2,34 +2,27 @@
 <html>
 <head>
   <title>Shuukatu</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= stylesheet_link_tag    controller.controller_path, media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'true' %>
+  <%= stylesheet_link_tag    controller.controller_path, media: 'all', 'data-turbolinks-track': 'true' %>
   <%# include_gon %>
-  <%= Gon::Base.render_data %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag controller.controller_path, 'data-turbolinks-track': 'reload' %>
+  <%# Gon::Base.render_data %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'true' %>
+  <%= javascript_include_tag controller.controller_path, 'data-turbolinks-track': 'true' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-
-
-
 <%= render 'layouts/judgement_header' %>
 
-<div class="text-center">現在の階層:　 </div>
-
-<div class="text-center">現在の階層:　<%= @path %> </div>
-<div class="text-center">css用:　<%= css_development %></div>
+<div class="text-center">現在の階層:　<%= @path %>、</div>
+<div class="text-center">css用:　<%= css_development %>, #<%= controller.action_name %></div>
 <div class="text-center">
-  session[1]:　<%= session[:first_controller] %>　　　
-  session[2]:　<%= session[:second_controller] %>
+  session[1]:　<%= session[:first_controller] %>　　　session[2]:　<%= session[:second_controller] %>
 </div>
-<div class="text-center">現在地のパス:　</div>
+<div class="text-center">現在地のパス:　<%= jump_path %></div>
 
 <div class="container-fluid">
-    <!-- <div class="col-md-12"> -->
-      <!-- <main  id="<%# controller_name %>-<%# controller.action_name == 'index' ? 'main' : controller.action_name %>"> -->
+
       <main  id="<%= for_css %>">
         <div id="<%= action_name %>">
           <% flash.each do |key, value| %>
@@ -42,24 +35,6 @@
 
         </div>
       </main>
-    <!-- </div> -->
 </div>
-
-
-
-
-
-
-<!--
-<div>session[:3]</div>
-<p><%# session[:third_controller] %></p>
-
-<div>session[:4]</div>
-<p><%# session[:fourth_controller] %></p>
-
-<div>session[:5]</div>
-<p><%# session[:fifth_controller] %></p>
- -->
-
 </body>
 </html>
