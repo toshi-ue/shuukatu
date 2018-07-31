@@ -1,14 +1,38 @@
-<div class="col-md-10 col-md-offset-1">
+<div class="row col-md-4 col-md-offset-4">
 
-<p><strong>BEGIN app/controllers/public/settings/credits/index.html.erb</strong></p>
+<!-- <p><strong>BEGIN app/controllers/public/settings/credits/index.html.erb</strong></p> -->
 
-<p>クレジット情報詳細</p>
-<% unless @credits.blank? %>
-
+<strong class="text-center">クレジットカード情報</strong>
+<% unless @cards.empty? %>
+  <table class="table">
+    <tr>
+      <th class="text-center col-md-4">カード種類</th>
+      <th class="text-center col-md-4">下4桁</th>
+      <th class="text-center col-md-4">有効期限</th>
+      <th></th>
+    </tr>
+  <% @cards.each do |card| %>
+    <tr>
+      <td class="text-center"><%= image_tag "credits/#{(card["brand"].gsub(" ","")).downcase}", size: '40x25' %></td>
+      <td class="text-center"><%= card["last4"] %></td>
+      <td class="text-center"><%= card["exp_month"] %> / <%= card["exp_year"] %></td>
+      <td><%= link_to '削除', settings_credit_path(id: card["card_token"]), method: :delete, data: { disable_with: '処理中'},class: 'btn btn-default btn-sm' %></td>
+    </tr>
+  <% end %>
+  </table>
 <% else %>
 <p><strong>まだクレジットカードの登録がありません</strong></p>
 <% end %>
-
-<p><strong>END app/controllers/public/settings/credits/index.html.erb</strong></p>
+<div class="text-center">
+  <%= link_to(new_settings_credit_path, id: 'new_card', class: 'btn btn-primary btm-md') do %>
+    <div class="glyphicon glyphicon-plus icon-10x" aria-hidden="true"></div>
+    <div>新しく登録する</div>
+  <% end %>
+</div>
+<br>
+<!-- <div class="text-center"> -->
+<%# link_to '受信情報確認', settings_credit_path(4), class: 'btn btn-default btm-md' %>
+<!-- </div> -->
+<!-- <p><strong>END app/controllers/public/settings/credits/index.html.erb</strong></p> -->
 
 </div>

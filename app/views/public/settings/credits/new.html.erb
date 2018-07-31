@@ -1,16 +1,22 @@
-<p><strong>BEGIN app/controllers/public/settings/credits/new.html.erb</strong></p>
+<div class="row col-md-10 col-md-offset-1">
 
-<%= form_tag(credits_path, method: :post, datakey: ENV['payjp_test_public_key']) do |f| %>
+<!-- <p><strong>BEGIN app/controllers/public/settings/credits/new.html.erb</strong></p> -->
 
-  <%= f.text_field :number, maxlength: '16', placeholder: 'カード番号' %>
-  <%= f.text_field :cvc, maxlength: '3', placeholder: 'CVC' %>
-  <%= f.text_field :exp_month, maxlength: '2', placeholder: '月' %>
-  <%= f.text_field :exp_year, maxlength: '4', placeholder: '西暦(4桁)' %>
-  <div class="actions">
-    <%= f.submit @submit %>
+  <div class="col-md-4">
+    <%= form_tag(settings_credits_path, method: :post, datakey: ENV['payjp_test_public_key']) do %>
+      <%= render 'credit_form' %>
+      <div class="actions">
+        <%= submit_tag @submit,  data: { disable_with: '処理中'}, class: 'btn btn-default btn-md' %>
+      </div>
+    <% end %>
   </div>
-<% end %>
 
+  <div class="col-md-7 col-md-offset-1">
+    <div>
+      <%= render 'credit_demo' %>
+    </div>
+  </div>
 
+<!-- <p><strong>END app/controllers/public/settings/credits/new.html.erb</strong></p> -->
 
-<p><strong>END app/controllers/public/settings/credits/new.html.erb</strong></p>
+</div>
