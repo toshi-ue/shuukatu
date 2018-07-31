@@ -1,0 +1,51 @@
+  <% if @address.errors.any? %>
+    <div class="alert alert-danger">
+      <% @address.errors.full_messages.each do |message| %>
+        <div><%= message %></div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div id="parent" class="row col-md-6 col-md-offset-3">
+    <!-- 名前 -->
+    <div class="field col-md-12">
+      <%= f.label :user_name, '名前',class: 'control-label' %>
+      <%= f.text_field :user_name, placeholder: '上野敏弘', class: 'form-control' %>
+    </div>
+    <!-- 名前(ひらがな) -->
+    <div class="field col-md-12">
+      <%= f.label :name_kana, '名前(ひらがな)', class: 'control-label' %>
+      <%= f.text_field :name_kana, placeholder: 'うえのとしひろ', class: 'form-control' %>
+    </div>
+    <!-- 電話番号 -->
+    <div class="field col-md-12">
+      <%= f.label :tel, '電話番号', class: 'control-label' %>
+      <%= f.text_field :tel, placeholder: '080-1111-2222', class: 'form-control' %>
+    </div>
+    <!-- 郵便番号 -->
+    <div id="yoko">
+      <div class="field col-md-6">
+        <%= f.label :postalcode, '郵便番号', class: 'control-label' %>
+        <%= f.text_field :postalcode, placeholder: '450-0001', class: 'form-control' %>
+      </div>
+      <!-- 都道府県 -->
+      <div class="field col-md-6">
+        <%= f.label :prefecture_id, '都道府県', class: 'control-label' %>
+        <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: true}, {class: 'form-control'}  %>
+      </div>
+    </div>
+    <!-- 市区町村 -->
+    <div class="field col-md-12">
+      <%= f.label :city, '市町村', class: 'control-label' %>
+      <%= f.text_field :city, placeholder: '名古屋市中村区名駅南', class: 'form-control' %>
+    </div>
+    <!-- 番地 -->
+    <div class="field col-md-12">
+      <%= f.label :street, '番地', class: 'control-label' %>
+      <%= f.text_field :street, placeholder: '1-1-1',class: 'form-control' %>
+    </div>
+    <!-- その他 -->
+    <div class="field col-md-12">
+      <%= f.label :others, 'その他詳細', class: 'control-label' %>
+      <%= f.text_field :others, placeholder: 'マンション　101号室', class: 'form-control' %>
+    </div>

@@ -14,15 +14,19 @@
       <div class="box col-md-3 offset-md-1">
         <div><strong><%= address.user_name %></strong></div>
         <div><%= address.name_kana %></div>
-        <div><%= address.postalcode %></div>
+        <div>〒<%= address.postalcode %></div>
         <div><%= address.prefecture.name %><%= address.city %></div>
         <div><%= address.street %></div>
         <div><%= address.others %></div>
         <div id="tel"><strong>電話番号</strong></div>
         <div><%= address.tel %></div><br>
+
         <%=link_to '変更する', edit_settings_address_path(address), class: 'btn btn-default btn-md ' %>
         <% if @addresses.count > 1 %>
-        <%=link_to '削除する', settings_address_path(address), method: :delete, class: 'btn btn-default btn-md', data:{ confirm: '削除しますか?'} %>
+        <%=link_to '削除する', settings_address_path(address), method: :delete, class: 'btn btn-default btn-md', data:{ confirm: '削除しますか?'} %><br>
+        <% end %>
+        <% if address.defaultflg == false %>
+        <%=link_to '既定の住所にする', change_main_address_settings_address_path(address), class: 'btn btn-default btn-md ' %>
         <% end %>
       </div>
     <% end %>

@@ -34,32 +34,25 @@
 
         .box, .box_without_border{
           width: 300px;
-          height: 260px;
+          height: 300px;
           padding: 20px;
           margin-bottom: 10px;
 
           #tel{
             margin-top: 10px;
           }//#tel
+
+          .btn-md{
+            margin-bottom: 10px;
+          }//.btn-md
         }//.box, .box_without_border
 
         .box{
           border: 1.4px solid silver;
-        }
+        }//.box
 
 
       }//#parent
-      // .box{
-      //   border: 1.4px solid silver;
-      //   width: 300px;
-      //   height: 260px;
-      //   padding: 20px;
-
-      //   #tel{
-      //     margin-top: 10px;
-      //   }//#tel
-      // }//.box
-
     }//#index
 
     #show{

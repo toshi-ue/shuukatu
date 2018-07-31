@@ -1,0 +1,19 @@
+<h1>Public::Orders::Credits#index</h1>
+<p>Find me in app/views/public/orders/credits/index.html.erb</p>
+<strong>クレジットカード選択</strong>
+  <table class="table">
+    <tr>
+      <th class="text-center col-md-3">カード種類</th>
+      <th class="text-center col-md-3">下4桁</th>
+      <th class="text-center col-md-3">有効期限</th>
+      <th class="text-center col-md-3"></th>
+    </tr>
+<% @cards.each do |card| %>
+  <tr>
+    <td class="text-center"><%= image_tag "credits/#{(card["brand"].gsub(" ","")).downcase}", size: '40x25' %></td>
+    <td class="text-center"><%= card.last4 %></td>
+    <td class="text-center"><%= card["exp_month"] %> / <%= card["exp_year"] %></td>
+    <td class="text-center"><%= link_to 'このカードを使用',new_order_path(card_token: card.id) %></td>
+  </tr>
+<% end %>
+  </table>
