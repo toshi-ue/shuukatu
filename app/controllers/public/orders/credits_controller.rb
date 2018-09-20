@@ -21,7 +21,8 @@ class Public::Orders::CreditsController < ApplicationController
 
   def create
     create_card_token
-    redirect_to new_order_path(card_token: @token), success: "クレジットカードを登録しました"
+    # binding.pry
+    redirect_to new_order_path(card_token: @customer.default_card), success: "クレジットカードを登録しました"
 
   rescue Payjp::CardError
     @submit = '登録する'
@@ -34,5 +35,9 @@ class Public::Orders::CreditsController < ApplicationController
   private
   def set_api_key
     Payjp.api_key = ENV['payjp_test_private_key']
+  end
+
+  def credit_params
+    params.permit(:credit).permit(:user_id, :customer_id)
   end
 end

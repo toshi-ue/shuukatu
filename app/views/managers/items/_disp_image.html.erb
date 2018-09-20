@@ -1,0 +1,52 @@
+<!-- _disp_image.html.erb -->
+<div>
+<!-- ラベル表示 -->
+<div id="image_label" class="row col-md-12">
+  <div class="text-center col-md-4"><span>※</span><%= f.label :price, 'メイン画像',class: 'control-label' %></div>
+  <div class="text-center col-md-4"><%= f.label :image2, '画像2',class: 'control-label' %></div>
+  <div class="text-center col-md-4"><%= f.label :image3, '画像3',class: 'control-label' %></div>
+</div>
+<!-- 画像表示 -->
+<div id="image_capture" class="row col-md-12">
+  <!-- 画像1 -->
+  <div class="text-center col-md-4">
+    <% if item.mainImage? %>
+      <%= image_tag item.mainImage.url, name: "#{item.mainImage}" %>
+    <% else %>
+      <%= image_tag '/assets/no-image.png', name: "#{item.mainImage}" %>
+    <% end %>
+  </div>
+    <!-- 画像2 -->
+    <div class="text-center col-md-4">
+      <% if @item.image2? %>
+        <%= f.label :price, 'メイン画像',class: 'control-label' %>
+        <%= image_tag @item.image2.url %>
+      <% else %>
+        <%= image_tag '/assets/no-image.png' %>
+      <% end %>
+    </div>
+    <!-- 画像3 -->
+    <div class="text-center col-md-4">
+      <% if @item.image3? %>
+        <%= f.label :price, 'メイン画像',class: 'control-label' %>
+        <%= image_tag @item.image3.url %>
+      <% else %>
+        <%= image_tag '/assets/no-image.png' %>
+      <% end %>
+    </div>
+  </div>
+
+<!-- 画像選択 -->
+  <div id="image_insert" class="col-md-12">
+    <div class="col-md-4">
+      <%= f.file_field :mainImage %><%= f.hidden_field :mainImage_cache %>
+    </div>
+    <div class="col-md-4">
+      <%= f.file_field :image2 %><%= f.hidden_field :image2_cache %>
+    </div>
+    <div class="col-md-4 text-center">
+      <%= f.file_field :image3 %><br>
+      <%= f.hidden_field :image3_cache %>
+    </div>
+  </div>
+</div>

@@ -1,2 +1,35 @@
-<h1>Public::Orders#create</h1>
-<p>Find me in app/views/public/orders/create.html.erb</p>
+<!-- <h1>Public::Orders#create</h1>
+<p>Find me in app/views/public/orders/create.html.erb</p> -->
+<div class="row col-md-6 col-md-offset-3"">
+    <div class="pull-left">注文番号： <%= @order.order_no %></div>
+    <div class="pull-right">注文日時： <%= @order.created_at.to_s(:time_user) %></div>
+    <div style="clear: both;"></div>
+    <div>合計金額： <%= number_to_currency(@order.total_price, :format => "%u%n", :precision => 0, :unit =>"¥") %></div>
+    <div>
+      お届け先：
+    <!-- </div> -->
+      <strong>
+        <%= @order.address.user_name %>
+      </strong>　
+    <!-- <div> -->
+      〒<%= @order.address.postalcode %>　
+      <%= @order.address.prefecture.name %>
+      <%= @order.address.city %>
+      <%= @order.address.street %>
+      <%= @order.address.others %><br>
+    <div>
+      電話番号： <%= @order.address.tel %>
+    </div>
+    <table class="table table-hover">
+        <% @order.cartitems.each do |cartitem| %>
+          <tr>
+            <td class="text-center"><%= image_tag cartitem.item.mainImage.url %></td>
+            <td class="text-center"><%= cartitem.item.itemName %></td>
+            <td class="text-center">価格： <%= number_to_currency(cartitem.item.price, :format => "%u%n", :precision => 0, :unit =>"¥") %></td>
+            <td class="text-center">数量： <%= cartitem.quantity %></td>
+            <td class="text-center">小計： <%= disp_subtotal(cartitem.quantity, cartitem.item.price) %></td>
+            <td></td>
+          </tr>
+        <% end %>
+    </table>
+</div>

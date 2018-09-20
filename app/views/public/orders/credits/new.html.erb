@@ -1,10 +1,14 @@
-<h1>Public::Orders::Credits#new</h1>
-<p>Find me in app/views/public/orders/credits/new.html.erb</p>
+<!-- <h1>Public::Orders::Credits#new</h1>
+<p>Find me in app/views/public/orders/credits/new.html.erb</p> -->
 
 
 <div class="col-md-4">
   <%= form_tag(public_orders_credits_create_path, datakey: ENV['payjp_test_public_key']) do %>
     <%= render 'public/settings/credits/credit_form' %>
+
+  <div class="actions text-center">
+    <%= submit_tag @submit,  data: { disable_with: '処理中'}, class: 'btn btn-default btn-md' %>
+  </div>
   <% end %>
 </div>
 

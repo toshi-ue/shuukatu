@@ -1,3 +1,5 @@
+//= require Chart.min
+//= require moment
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery.jpostal

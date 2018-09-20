@@ -1,3 +1,42 @@
-<h1>Managers::Tops#dash_board</h1>
-<p>Find me in app/views/managers/tops/dash_board.html.erb</p>
-<%= link_to '住所一覧', managers_positions_path %>
+<!-- <h1>Managers::Tops#dash_board</h1>
+<p>Find me in app/views/managers/tops/dash_board.html.erb</p> -->
+
+<%# render 'managers/partials/sidebar' %>
+
+<div class="col-md-10 col-md-offset-1">
+  <h3 class="text-center">売上</h3>
+  <div class="row aggregates">
+    <div class="monthly_sales">
+      <div class="frame_midasi">
+        <strong>今月</strong>
+      </div>
+      <div class="frame">
+        <strong><%= number_to_currency(@total_sales_monthly, :format => "%u%n", :precision => 0, :unit =>"¥") %></strong>
+      </div>
+    </div>
+    <div class="weekly_sales">
+      <div class="frame_midasi">
+        <strong>1週間</strong>
+      </div>
+      <div class="frame">
+        <strong><%= number_to_currency(@total_sales_weekly.sum, :format => "%u%n", :precision => 0, :unit =>"¥") %></strong>
+      </div>
+    </div>
+
+    <% @days.zip(@total_sales_weekly) do |day, sales|%>
+      <div>
+        <div class="frame_midasi">
+          <strong><%= day.strftime("%m/%d(#{%w(日 月 火 水 木 金 土)[day.wday]})") %></strong>
+        </div>
+        <div class="frame">
+          <strong><%= number_to_currency(sales, :format => "%u%n", :precision => 0, :unit =>"¥") %></strong>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <h3 class="text-center">受注履歴</h3>
+  <%= render partial: 'partials/orders', locals: {orders: @orders} %>
+<!--   <canvas id="oneWeekChart">
+
+  </canvas> -->
+</div>

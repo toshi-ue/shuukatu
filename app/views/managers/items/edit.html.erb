@@ -1,0 +1,16 @@
+<!-- <h1>Managers::Items#edit</h1>
+<p>Find me in app/views/managers/items/edit.html.erb</p> -->
+
+<%# render 'managers/partials/sidebar' %>
+
+<div class="col-md-8 col-md-offset-2">
+  <h3 class="text-center">商品登録</h3>
+
+  <%= form_for @item, url: managers_item_path, method: :put do |f| %>
+    <%= render partial: 'item_form', locals: {f: f} %>
+
+    <div class="actions text-center">
+      <%= f.submit '変更する', class: 'btn btn-default btn-md'%>
+    </div>
+  <% end %>
+</div>

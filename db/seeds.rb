@@ -1,17 +1,17 @@
 # Position(googlemap位置情報)テーブルのデータ
-Position.create(title: '東京', description: '就職希望エリア', address: '東京', latitude: 35.681241, longitude: 139.767041)
-Position.create(title: 'HAL名古屋', description: '勉強場所', address: '名古屋市中村区 名駅4丁目27−1', latitude: 35.168266, longitude: 136.885762)
-Position.create(title: '岐阜市', description: '出身地', address: '岐阜県岐阜市', latitude: 35.409570, longitude: 136.757041)
-Position.create(title: '名古屋市', description: '現住所', address: '愛知県中村区名駅南', latitude: 35.171152, longitude: 136.881558)
+# Position.create(title: '東京', description: '就職希望エリア', address: '東京', latitude: 35.681241, longitude: 139.767041)
+# Position.create(title: 'HAL名古屋', description: '勉強場所', address: '名古屋市中村区 名駅4丁目27−1', latitude: 35.168266, longitude: 136.885762)
+# Position.create(title: '岐阜市', description: '出身地', address: '岐阜県岐阜市', latitude: 35.409570, longitude: 136.757041)
+# Position.create(title: '名古屋市', description: '現住所', address: '愛知県中村区名駅南', latitude: 35.171152, longitude: 136.881558)
 
 
 # 配達業者テーブルのデータ
-Dvendor.create(name: 'ヤマト', for_api_name: 'yamato', created_at: nil, updated_at: nil)
-Dvendor.create(name: '西濃運輸', for_api_name: 'seino', created_at: nil, updated_at: nil)
-Dvendor.create(name: '佐川急便', for_api_name: 'sagawa', created_at: nil, updated_at: nil)
-Dvendor.create(name: 'ゆうパック', for_api_name: 'jppost_pack', created_at: nil, updated_at: nil)
-Dvendor.create(name: '郵便書留', for_api_name: 'jppost_mail', created_at: nil, updated_at: nil)
-Dvendor.create(name: '福山通運', for_api_name: 'fukutsu', created_at: nil, updated_at: nil)
+# Dvendor.create(name: 'ヤマト', for_api_name: 'yamato', created_at: nil, updated_at: nil)
+# Dvendor.create(name: '西濃運輸', for_api_name: 'seino', created_at: nil, updated_at: nil)
+# Dvendor.create(name: '佐川急便', for_api_name: 'sagawa', created_at: nil, updated_at: nil)
+# Dvendor.create(name: 'ゆうパック', for_api_name: 'jppost_pack', created_at: nil, updated_at: nil)
+# Dvendor.create(name: '郵便書留', for_api_name: 'jppost_mail', created_at: nil, updated_at: nil)
+# Dvendor.create(name: '福山通運', for_api_name: 'fukutsu', created_at: nil, updated_at: nil)
 
 
 
@@ -114,24 +114,24 @@ Prefecture.create(name: "鹿児島県")
 Prefecture.create(name: "沖縄県")
 
 
-# Manager.create(
-#     email: '999@gmail.com',
-#     password: 'lolo1212'
+# User.create(
+#     email: '1@gmail.com',
+#     password: 'asdfghjk'
 # )
 
-User.create(
-    email: '1@gmail.com',
-    password: 'lolo1212'
+Manager.create(
+  email: '2@gmail.com',
+  password: 'asdfghjk'
 )
 
-Address.create(
-    user_id: 1,
-    user_name: 'ユーザー1',
-    name_kana: 'ゆーざー１',
-    tel: '000-0000-0001',
-    postalcode: 0000001,
-    prefecture_id: 1,
-    city: 'サンプル市',
-    street: 'サンプル町',
-    others: 'サンプルビル1'
-)
+# Address.create(
+#     user_id: 1,
+#     user_name: 'ユーザー1',
+#     name_kana: 'ゆーざー１',
+#     tel: '000-0000-0001',
+#     postalcode: 0000001,
+#     prefecture_id: 1,
+#     city: 'サンプル市',
+#     street: 'サンプル町',
+#     others: 'サンプルビル1'
+# )

@@ -1,0 +1,10 @@
+<!-- <h1>Managers::Orders#index</h1>
+<p>Find me in app/views/managers/orders/index.html.erb</p> -->
+  <div class="text-center">
+    <h3>受注履歴一覧</h3>
+  </div>
+
+<%# render 'managers/partials/sidebar' %>
+<div class="col-md-10 col-md-offset-1">
+  <%= render partial: 'partials/orders', locals: {orders: @orders} %>
+</div>

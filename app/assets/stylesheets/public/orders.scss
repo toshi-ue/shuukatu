@@ -1,9 +1,15 @@
 //  app/assets/stylesheets/public/orders.scss
 
 // デスクトップ用
-@media (min-width: 999px) {
+@media (min-width: 900px) {
 
   #public-orders{
+    min-height: 750px;
+    #index{
+      img{
+        width: 50px;
+      }
+    }//#index
 
     #new{
 
@@ -87,6 +93,10 @@
     }//#new
 
     #create{
+      img{
+        width: 50px;
+      }
+
 
     }//#create
 

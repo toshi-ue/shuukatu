@@ -1,0 +1,140 @@
+// デスクトップ用
+@media (min-width: 900px) {
+
+  .nav-search{
+    margin-left: 0%;
+  }
+
+  #managers-orders{
+    min-height: 1000px;
+
+    ul{
+      list-style-type: none;
+      padding: 0;
+
+      li{
+        // padding-left: -30px;
+        width: 170px;
+        height: 50px;
+        line-height: 50px;
+        background-color: #f1be0f;
+        border: 1px solid silver;
+        border-collapse: collapse;
+
+        a{
+          text-decoration: none;
+
+          &:link, &:visited, &:active{
+            color: white;
+          }//&:link, &:visited, &:active
+
+          &:hover{
+            opacity: 0.5;
+          }//&:hover
+        }//a
+
+      }//li
+    }//ul
+
+    #index{
+
+      // .container-fluid{
+      //   height: 1000px;
+      // }
+
+      img{
+        width: 50px;
+      }
+    }//#index
+
+    #new{
+
+      #delivery-and-credential{
+        border: 1.2px solid silver;
+        border-radius: 10px;
+        min-height: 220px;
+        margin-bottom: 30px;
+
+        #delivery, #credential{
+
+          h4{
+            margin-bottom: -15px;
+          }//h4
+
+          hr{
+            border: 1px solid silver;
+            margin-bottom: -1px;
+          }//hr
+
+          a{
+            margin: 5px 0 10px 40px;
+            // margin-left: 40px;
+          }
+        }//#delivery
+
+        #credential{
+          hr{
+            border: 1px solid silver;
+          }//hr
+        }//#credential
+
+      }//#delivery-and-credential
+
+      #cart-items{
+        justify-content: center;
+        // align-items: center;
+        border: 1.2px solid silver;
+        border-radius: 10px;
+        min-height: 131px;
+
+        table{
+          text-align: center;
+
+          td{
+            min-height:200px;
+            padding: 10px 0;
+            border-bottom: 1.2px solid silver;
+          }//td
+
+          tr:last-child td{
+            border-bottom:none;
+          }
+        }//table
+
+      }//#cart-items
+
+      #confirm-orders{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1.2px solid silver;
+        border-radius: 10px;
+        min-height: 250px;
+
+        input[type="submit"]{
+          margin-bottom: 30px;
+        }//input[type="submit"]
+
+        strong{
+          color: #FF6633;
+          font-size: 15px;
+        }//strong
+
+        #keep-shopping{
+          margin-top: 20px;
+        }//#keep-shopping
+      }//#confirm-orders
+
+    }//#new
+
+    #create{
+      #rough-detail{
+
+      }//#rough-detail
+
+
+    }//#create
+
+  }//#public-orders
+}//@media (min-width: 999px)

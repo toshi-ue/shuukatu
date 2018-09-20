@@ -1,0 +1,14 @@
+<div class="col-md-4 text-right">電話番号：</div>
+<div class="col-md-8"><%= address.tel %></div>
+<div class="col-md-4 text-right">宛名：</div>
+<div class="col-md-8"><%= address.user_name %>(<%= address.name_kana %>)</div><br>
+<div class="col-md-4 text-right">住所：</div>
+<div class="col-md-8 text-left">
+  〒<%= address.postalcode %><br>
+  <%= address.prefecture.name %>
+  <%= address.city %>
+  <%= address.street %>
+  <%= address.others %>
+</div>
+<br>
+<br>

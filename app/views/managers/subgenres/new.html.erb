@@ -1,0 +1,19 @@
+<!-- <h1>Managers::Subgenres#new</h1>
+<p>Find me in app/views/managers/subgenres/new.html.erb</p> -->
+
+<%# render 'managers/partials/sidebar' %>
+
+<div class="col-md-4 col-md-offset-4">
+  <h3 class="text-center">サブジャンル名登録</h3>
+
+  <%= form_for @subgenre, url: managers_subgenres_path, method: :post do |f| %>
+
+    <%= render partial: 'subgenre_form', locals: {f: f} %>
+
+    <%= f.hidden_field :approval_id, value: 0 %>
+
+    <div class="actions text-center">
+      <%= f.submit '登録する', class: 'btn btn-default btn-md'%>
+    </div>
+  <% end %>
+</div>

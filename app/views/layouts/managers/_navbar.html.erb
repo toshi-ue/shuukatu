@@ -1,4 +1,4 @@
-<div>BEGIN app/views/layouts/managers/_navbar.html.erb</div>
+<!-- <div>BEGIN app/views/layouts/managers/_navbar.html.erb</div> -->
 
 
 
@@ -10,36 +10,29 @@
         </div>
 
         <div class="collapse navbar-collapse" id="navbarEexample">
-          <ul class="nav navbar-nav">
-            <li><a href="#">メニュー <span class="sr-only">(current)</span></a></li>
-            <li class="active"><a href="#">メニュー</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">ドロップダウン <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">リンク・リスト１</a></li>
-                <li><a href="#">リンク・リスト２</a></li>
-                <li><a href="#">リンク・リスト３</a></li>
-              </ul>
-            </li>
-          </ul>
-          <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search">
-            </div>
-            <button type="submit" class="btn btn-default">検索</button>
-          </form>
           <ul class="nav navbar-nav navbar-right">
+              <%= search_form_for @q, url: managers_tops_search_path, html:{class: 'navbar-form navbar-left nav-search', role:"search"} do |f|%>
+                <!-- <div class="row col-md-12"> -->
+                <%= f.search_field :order_no_cont, placeholder: '注文番号で検索', class: 'form-control' %>
+                <!-- </div> -->
+                <%= f.submit "検索", class: "btn btn-default" %>
+              <% end %>
 <!--             <li><a href="#">メニュー</a></li> -->
-            <li><a>注文履歴</a></li>
-            <li class="dropdown">
+            <li class="text-center"><%= link_to 'ユーザー一覧', managers_users_path %></li>
+            <li class="text-center"><%= link_to '受注履歴一覧', managers_orders_path %></li>
+            <li class="text-center"><%= link_to '商品一覧' , managers_items_path%></li>
+            <li class="text-center"><%= link_to 'ジャンル一覧', managers_genres_path %></li>
+            <li class="text-center"><%= link_to 'サブジャンル一覧', managers_subgenres_path %></li>
+            <li><%= link_to 'ログアウト', destroy_manager_session_path %></li>
+<!--             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">メニュー<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="#">注文履歴(未リンク)</a></li>
                 <li><a href="#">登録情報(未リンク)</a></li>
                 <li><a href="#">おしらせ(未リンク)</a></li>
-                <li><%= link_to 'ログアウト', destroy_manager_session_path %></li>
+                <li><%# link_to 'ログアウト', destroy_manager_session_path %></li>
               </ul>
-            </li>
+            </li> -->
 
           </ul>
         </div>
@@ -47,4 +40,4 @@
     </nav>
 </div>
 
-<div>END app/views/layouts/managers/_navbar.html.erb</div>
+<!-- <div>END app/views/layouts/managers/_navbar.html.erb</div> -->

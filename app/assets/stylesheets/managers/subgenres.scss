@@ -1,0 +1,51 @@
+@media (min-width: 900px) {
+
+  .nav-search{
+    margin-left: 0%;
+  }
+
+  #managers-subgenres{
+
+    ul{
+      list-style-type: none;
+      padding: 0;
+
+      li{
+        // padding-left: -30px;
+        width: 170px;
+        height: 50px;
+        line-height: 50px;
+        background-color: #f1be0f;
+        border: 1px solid silver;
+        border-collapse: collapse;
+
+        a{
+          text-decoration: none;
+
+          &:link, &:visited, &:active{
+            color: white;
+          }//&:link, &:visited, &:active
+
+          &:hover{
+            opacity: 0.5;
+          }//&:hover
+        }//a
+
+      }//li
+    }//ul
+
+    #new{
+      input[type="submit"]{
+        margin-top: 20px;
+      }//input[type="submit"]
+    }//#new
+
+    #edit{
+      input[type="submit"]{
+        margin-top: 20px;
+      }//input[type="submit"]
+    }//#edit
+
+  }//#managers-genres
+
+}//@media (min-width: 999px)

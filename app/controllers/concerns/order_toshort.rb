@@ -8,10 +8,9 @@ module OrderToshort
     @customer = Payjp::Customer.retrieve(@customer_id)
   end
 
-  def check_existing_address_and_card
-    redirect_to public_orders_addresses_new_path and return if current_user.addresses.blank?
-    redirect_to public_orders_credits_new_path and return if @customer.default_card.blank?
-  end
+  # def check_existing_address_and_card
+  #   redirect_to public_orders_credits_new_path and return if @customer.default_card.blank?
+  # end
 
   def change_cartitems_order_id
     @cartitems.each do |cartitem|

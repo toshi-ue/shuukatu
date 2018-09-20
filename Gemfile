@@ -25,8 +25,9 @@ gem 'therubyracer'
 # gem 'capistrano-rails', group: :development
 gem 'autonumeric-rails'
 gem 'bootstrap-sass'
-gem 'bullet'
+# gem 'bullet'
 gem 'carrierwave'
+gem 'chart-js-rails'
 # gem 'credit_card_validator'
 gem 'devise'
 gem 'devise-i18n'
@@ -34,20 +35,26 @@ gem 'devise-i18n-views'
 gem 'dotenv-rails'
 gem 'gmaps4rails'
 gem 'gon'
+gem 'kakurenbo-puti'
 gem 'kaminari'
 gem 'less-rails'
 gem 'mini_magick'
+gem 'momentjs-rails'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 gem 'payjp'
 gem 'rails-i18n'
+gem 'ransack'
 gem 'squasher'
-
+# gem 'whenever', require: false
 
 group :development, :test do
   gem 'annotate'
   # gem 'bullet'
   gem 'hirb'
   gem 'hirb-unicode'
-  gem 'letter_opener_web'
+  # gem 'letter_opener_web'
   gem 'pry-byebug'
   gem 'pry-doc'
   gem 'pry-rails'
@@ -56,8 +63,13 @@ group :development, :test do
 end
 
 group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'bullet'
   gem 'faker', require: false # for sample data in development
   # Access an IRB console on exception pages or by using <%= console %> in views
+  # gem 'letter_opener'
+  gem 'letter_opener_web'
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring

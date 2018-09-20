@@ -1,0 +1,36 @@
+<%= render partial: 'partials/validation_error', locals: {instance: @item} %>
+
+<%= f.hidden_field :brand_id, value: 1 %>
+
+<div class="field col-md-12">
+  <span>※</span><%= f.label :itemCodeNo, '商品コード',class: 'control-label' %>
+  <%= f.text_field :itemCodeNo, placeholder: '半角数字のみ', class: 'form-control' %>
+</div>
+<div class="field col-md-12">
+  <span>※</span><%= f.label :partNumber, '品番',class: 'control-label' %>
+  <%= f.text_field :partNumber, placeholder: 'ITEM-77', class: 'form-control' %>
+</div>
+<div class="field col-md-12">
+  <span>※</span><%= f.label :itemName, '商品名',class: 'control-label' %>
+  <%= f.text_field :itemName, placeholder: 'ITEM-77', class: 'form-control' %>
+</div>
+<div class="field col-md-12">
+  <span>※</span><%= f.label :genre_id, 'ジャンル', class: 'control-label' %><br>
+  <%= f.collection_select :genre_id, Genre.all, :id, :name, class: 'form-control' %>
+</div>
+<div class="field col-md-12">
+  <span>※</span><%= f.label :subgenre_id, 'サブジャンル', class: 'control-label' %><br>
+  <%= f.collection_select :subgenre_id, Subgenre.all, :id, :name, class: 'form-control' %>
+</div>
+<div class="field col-md-12">
+  <span>※</span><%= f.label :price, '価格',class: 'control-label' %>
+  <%= f.text_field :price, placeholder: '半角数字のみ', class: 'form-control' %>
+</div>
+<div class="field col-md-12">
+  <span>※</span><%= f.label :description, '商品説明',class: 'control-label' %>
+  <%= f.text_area :description, rows: 6, placeholder: 'この商品はITEM-77です', class: 'form-control' %>
+</div>
+<!-- 画像 -->
+<%= render partial: 'disp_image', locals: {item: @item, f: f} %>
+
+<%= f.hidden_field :attention, value: "no_value" %>

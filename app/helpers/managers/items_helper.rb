@@ -1,0 +1,2 @@
+module Managers::ItemsHelper
+end

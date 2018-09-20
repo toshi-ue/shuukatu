@@ -1,24 +1,19 @@
-<div>BEGIN app/views/layouts/public/_sidebar.html.erb</div>
+<!-- <div>BEGIN app/views/layouts/public/_sidebar.html.erb</div> -->
 
 <div class="sidebar">
   <h3 class="text-left">ジャンル</h3>
-<!--   <div>
-    <%# 100.times do %>
-      あああああああああああああああああああああああああああああああ
-    <%# end %>
-  </div> -->
   <% genres.each_with_index do |genre, i| %>
-    <!-- <b><%# genre.name %></b> -->
-    <b><%= link_to "#{genre.name}", genre_path(i+1) %></b>
+
+    <b><%= link_to "#{genre.name}", genre_path(genre.id) %></b>
     <ul>
       <% genre.subgenres.each do |subgenre| %>
       <!-- <li style="list-style-type: none;"><%= subgenre.name %></li> -->
       <%# subgenre.id %>
-      <li style="list-style-type: none;"><%= link_to "#{subgenre.name}", subgenre_path(genre_id: genre.id, subgenre_id: subgenre.id) %></li>
+      <li style="list-style-type: none;"><%= link_to "#{subgenre.name}", subgenre_path(id: subgenre.id) %></li>
       <% end %>
     </ul>
   <% end %>
 </div>
 
-<div>END app/views/layouts/public/_sidebar.html.erb</div>
+<!-- <div>END app/views/layouts/public/_sidebar.html.erb</div> -->
 

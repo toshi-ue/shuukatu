@@ -1,0 +1,48 @@
+<!-- <h1>Managers::Genres#index</h1>
+<p>Find me in app/views/managers/genres/index.html.erb</p> -->
+<h3 class="text-center">ジャンル一覧</h3>
+
+<%# render 'managers/partials/sidebar' %>
+
+<div class="col-md-10  col-md-offset-1">
+  <%= link_to '新規登録', new_managers_genre_path, class: 'btn btn-default' %>
+  <table class="table table-hover">
+    <thead>
+      <th class="text-center">ジャンル名</th>
+      <th class="text-center">サブジャンル</th>
+      <th class="text-center">登録日時</th>
+      <th></th>
+    </thead>
+    <% @genres.each_with_index do |genre, i|%>
+    <tr>
+      <td class="text-center">
+        <%= genre.name %>
+      </td>
+      <td class="text-center">
+        <button type="button" class="btn btn-default btn-sm" data-toggle="collapse" data-target=".details<%= i %>">表示</button>
+      </td>
+
+      <td class="text-center"><%= genre.created_at.to_s(:time_manager) %></td>
+      <td><%= link_to '変更する', edit_managers_genre_path(id: genre.id), class: 'btn btn-default' %>　<%= link_to '削除する', managers_genre_path(id: genre.id), method: :delete, class: 'btn btn-default', data:{confirm:'削除しまがよろしいですか?'} %></td>
+    </tr>
+    <% if genre.subgenres.blank? %>
+      <tr class="details<%= i %> collapse">
+        <td></td>
+        <td class="text-center" colspan="2">サブジャンルの登録がありません</td>
+        <td><%= link_to '新規登録', new_managers_subgenre_path, class: 'btn btn-default' %></td>
+
+      </tr>
+    <% else %>
+      <% genre.subgenres.each_with_index do |subgenre, j| %>
+        <tr class="details<%= i %> collapse">
+          <td></td>
+          <td class="text-center"><%= j + 1 %></td>
+          <td class="text-center"><%= subgenre.name %></td>
+          <td></td>
+          <td></td>
+        </tr>
+      <% end %>
+    <% end %>
+    <% end %>
+  </table>
+</div>

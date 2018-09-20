@@ -1,5 +1,13 @@
-@media (min-width: 999px) {
+@media (min-width: 900px) {
   #public-orders-credits{
+
+    min-height: 700px;
+
+    #new{
+      input[type="submit"]{
+        margin-top: 20px;
+      }
+    }
 
     #index{
       .card-frame{

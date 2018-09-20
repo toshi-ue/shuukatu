@@ -1,0 +1,9 @@
+<!-- _validation_error.html.erb -->
+
+<% if instance.errors.any? %>
+  <div class="alert alert-danger">
+    <% instance.errors.full_messages.each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+<% end %>

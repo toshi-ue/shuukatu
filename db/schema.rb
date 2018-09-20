@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180715123105) do
+ActiveRecord::Schema.define(version: 20180917074730) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer  "user_id",       limit: 4
@@ -23,6 +23,34 @@ ActiveRecord::Schema.define(version: 20180715123105) do
     t.string   "city",          limit: 255
     t.string   "street",        limit: 255
     t.string   "others",        limit: 255
+    t.boolean  "defaultflg",                default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "approvalbrands", force: :cascade do |t|
+    t.integer  "brand_id",    limit: 4
+    t.integer  "approval_id", limit: 4
+    t.string   "reason",      limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "approvalbrands", ["brand_id"], name: "index_approvalbrands_on_brand_id", using: :btree
+
+  create_table "approvalitems", force: :cascade do |t|
+    t.integer  "approval_id", limit: 4
+    t.integer  "item_id",     limit: 4
+    t.string   "reason",      limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "approvalitems", ["approval_id"], name: "index_approvalitems_on_approval_id", using: :btree
+  add_index "approvalitems", ["item_id"], name: "index_approvalitems_on_item_id", using: :btree
+
+  create_table "approvals", force: :cascade do |t|
+    t.string   "status",     limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -67,7 +95,8 @@ ActiveRecord::Schema.define(version: 20180715123105) do
   end
 
   create_table "genres", force: :cascade do |t|
-    t.string   "name",       limit: 255, null: false
+    t.string   "name",        limit: 255, null: false
+    t.integer  "approval_id", limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -109,8 +138,13 @@ ActiveRecord::Schema.define(version: 20180715123105) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
+    t.string   "confirmation_token",     limit: 255
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email",      limit: 255
   end
 
+  add_index "managers", ["confirmation_token"], name: "index_managers_on_confirmation_token", unique: true, using: :btree
   add_index "managers", ["email"], name: "index_managers_on_email", unique: true, using: :btree
   add_index "managers", ["reset_password_token"], name: "index_managers_on_reset_password_token", unique: true, using: :btree
 
@@ -125,11 +159,21 @@ ActiveRecord::Schema.define(version: 20180715123105) do
     t.datetime "updated_at"
   end
 
+  create_table "orderdats", force: :cascade do |t|
+    t.date     "dat",                    null: false
+    t.integer  "sum_sales",    limit: 4, null: false
+    t.integer  "sum_register", limit: 4, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "orders", force: :cascade do |t|
     t.string   "order_no",    limit: 255
     t.integer  "user_id",     limit: 4
     t.string   "total_price", limit: 255
     t.integer  "address_id",  limit: 4
+    t.integer  "credit_id",   limit: 4
+    t.string   "card_token",  limit: 255
     t.integer  "dvendor_id",  limit: 4
     t.string   "d_number",    limit: 255
     t.datetime "created_at"
@@ -153,8 +197,9 @@ ActiveRecord::Schema.define(version: 20180715123105) do
   end
 
   create_table "subgenres", force: :cascade do |t|
-    t.string   "name",       limit: 255, null: false
-    t.integer  "genre_id",   limit: 4,   null: false
+    t.string   "name",        limit: 255, null: false
+    t.integer  "genre_id",    limit: 4,   null: false
+    t.integer  "approval_id", limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -172,9 +217,18 @@ ActiveRecord::Schema.define(version: 20180715123105) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
+    t.string   "confirmation_token",     limit: 255
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email",      limit: 255
+    t.string   "provider",               limit: 255
+    t.string   "uid",                    limit: 255
+    t.datetime "soft_destroyed_at"
   end
 
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["soft_destroyed_at"], name: "index_users_on_soft_destroyed_at", using: :btree
 
 end

@@ -11,4 +11,35 @@ ja:
         prefecture_id: "都道府県"
         city: "市区町村"
         street: "番地"
+      genre:
+        name: "ジャンル名"
+      item:
+        brand_id: "ブランド名"
+        itemCodeNo: "商品コード"
+        partNumber: "品番"
+        itemName: "商品名"
+        genre_id: "ジャンル"
+        subgenre_id: "サブジャンル"
+        price: "価格"
+        description: "商品説明"
+      subgenre:
+        name: "サブジャンル名"
+        genre_id: "所属ジャンル名"
+  date:
+    abbr_day_names:
+    - 日
+    - 月
+    - 火
+    - 水
+    - 木
+    - 金
+    - 土
+    day_names:
+    - 日曜日
+    - 月曜日
+    - 火曜日
+    - 水曜日
+    - 木曜日
+    - 金曜日
+    - 土曜日
 

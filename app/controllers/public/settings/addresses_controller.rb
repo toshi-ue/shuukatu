@@ -19,7 +19,11 @@ class Public::Settings::AddressesController < ApplicationController
   end
 
   def create
+    @addresses = current_user.addresses.where(defaultflg: true)
     @address = Address.new(address_params)
+    if @addresses.blank?
+      @address.defaultflg = true
+    end
     if @address.save
       redirect_to settings_addresses_path, success: "住所を登録しました"
     else
@@ -39,6 +43,14 @@ class Public::Settings::AddressesController < ApplicationController
   end
 
   def destroy
+    if @address.defaultflg == true
+      @nextDefaultaddress = Address.where(user_id: current_user.id).where.not(id: @address.id).first
+      unless @nextDefaultaddress.blank?
+        @nextDefaultaddress.defaultflg = true
+        @nextDefaultaddress.save
+      end
+      binding.pry
+    end
     @address.destroy
     redirect_to settings_addresses_path, success: "住所を削除しました"
   end

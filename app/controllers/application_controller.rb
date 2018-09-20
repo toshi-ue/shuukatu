@@ -1,8 +1,17 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+
+
+  rescue_from ActiveRecord::RecordNotFound, with: :render_404
+  rescue_from ActionController::RoutingError, with: :render_404
+  rescue_from Exception, with: :render_500
+
+
   before_action :request_path
+  before_action :set_search_items, if: :disp_user?
   before_action :set_controller_session
   before_action :count_cartitems, if: :user_signed_in?
+  before_action :set_search_orders, if: :disp_manager?
 
   # bootstrapフラッシュメッセージ用
   add_flash_types :success, :info, :warning, :danger
@@ -10,6 +19,32 @@ class ApplicationController < ActionController::Base
   def request_path
     @path = controller_path + '#' + action_name
   end
+
+  def set_search_items
+    @q = Item.ransack(params[:q])
+  end
+
+  def disp_user?
+    if @path.include?("public")
+      true
+    else
+      false
+    end
+  end
+
+  def disp_manager?
+    if @path.include?("manager")
+      true
+    else
+      false
+    end
+  end
+
+  def set_search_orders
+    @q = Order.page(params[:page]).per(20).reverse_order.ransack(params[:q])
+  end
+
+
 
   def set_controller_session
     if session[:first_controller].blank?
@@ -52,4 +87,15 @@ class ApplicationController < ActionController::Base
   #   end
   # end
 
+  def render_404
+    render template: 'errors/error_404', status: 404, layout: 'application', content_type: 'text/html'
+  end
+
+  def render_500
+    render template: 'errors/error_500', status: 500, layout: 'application', content_type: 'text/html'
+  end
+
+
+
 end
+

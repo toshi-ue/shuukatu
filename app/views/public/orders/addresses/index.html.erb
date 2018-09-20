@@ -1,0 +1,38 @@
+<!-- <h1>Public::Orders::Addresses#index</h1>
+<p>Find me in app/views/public/orders/addresses/index.html.erb</p> -->
+<div class="col-md-10 col-md-offset-1">
+<!-- <p><strong>BEGIN app/views/public/settings/addresses/index.html.erb</strong></p> -->
+  <div id="parent">
+  <%= link_to(new_settings_address_path) do %>
+  <div id="add_address" class="box col-md-3">
+    <div>
+      <div class="glyphicon glyphicon-plus icon-10x" aria-hidden="true"></div>
+      <strong>住所を追加する</strong>
+    </div>
+  </div>
+  <% end %>
+    <% @addresses.each do |address| %>
+      <%= link_to(new_order_path(address_id: address.id)) do %>
+      <div class="box col-md-3 offset-md-1">
+        <div><strong><%= address.user_name %></strong></div>
+        <div><%= address.name_kana %></div>
+        <div>〒<%= address.postalcode %></div>
+        <div><%= address.prefecture.name %><%= address.city %></div>
+        <div><%= address.street %></div>
+        <div><%= address.others %></div>
+        <div id="tel"><strong>電話番号</strong></div>
+        <div><%= address.tel %></div><br>
+      </div>
+      <% end %>
+    <% end %>
+    <% @address_count.times do %>
+      <div class="box_without_border"></div>
+    <% end %>
+
+  </div>
+<!-- <p><strong>END app/views/public/settings/addresses/index.html.erb</strong></p>
+ -->
+</div>
+
+
+

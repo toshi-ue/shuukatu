@@ -2,7 +2,7 @@
 
 <!-- <p><strong>BEGIN app/controllers/public/settings/credits/index.html.erb</strong></p> -->
 
-<strong class="text-center">クレジットカード情報</strong>
+<div class="text-center"><h3>クレジットカード情報</h3></div>
 <% unless @cards.empty? %>
   <table class="table">
     <tr>
@@ -21,14 +21,15 @@
   <% end %>
   </table>
 <% else %>
-<p><strong>まだクレジットカードの登録がありません</strong></p>
-<% end %>
+<div class="text-center"><strong>まだクレジットカードの登録がありません</strong></div>
 <div class="text-center">
   <%= link_to(new_settings_credit_path, id: 'new_card', class: 'btn btn-primary btm-md') do %>
     <div class="glyphicon glyphicon-plus icon-10x" aria-hidden="true"></div>
     <div>新しく登録する</div>
   <% end %>
 </div>
+<% end %>
+
 <br>
 <!-- <div class="text-center"> -->
 <%# link_to '受信情報確認', settings_credit_path(4), class: 'btn btn-default btm-md' %>

@@ -26,14 +26,9 @@ module ApplicationHelper
   def css_development
     '#' + controller_path.gsub(/\//, "-")
   end
-  # コントローラー判定
-  # def controller_name
-  #   "#{controller.controller_name}"
-  # end
 
-  # アクション判定
-  # def action_name
-  #   "#{action_name}"
-  # end
+  def jump_path
+    controller_path + '/' + action_name
+  end
 
 end

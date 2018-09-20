@@ -25,9 +25,14 @@ class Public::Settings::Users::RegistrationsController < Devise::RegistrationsCo
   # end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def destroy
+    # super
+    resource.logical_delete
+
+    Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name)
+
+    redirect_to root_path, success: "ご利用ありがとうございました。またのご利用お待ちしております"
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign

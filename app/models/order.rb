@@ -1,7 +1,7 @@
 class Order < ActiveRecord::Base
 
   # pagination
-  paginates_per 20
+  paginates_per 40
 
   #relation
   belongs_to :address

@@ -7,11 +7,15 @@ class Public::Settings::CreditsController < ApplicationController
 
   def index
     @cards = []
-    customer_id = Credit.find_by(user_id: current_user.id).customer_id
-    unless customer_id.blank?
-      # binding.pry
+    @credit = Credit.find_by(user_id: current_user.id)
+    unless @credit.blank?
+      customer_id = @credit.customer_id
       set_cards_info(customer_id)
     end
+    # unless customer_id.blank?
+    #   # binding.pry
+    #   set_cards_info(customer_id)
+    # end
     # render json:@cards
   end
 
@@ -45,6 +49,9 @@ class Public::Settings::CreditsController < ApplicationController
     set_customer
     card = @customer.cards.retrieve(params[:id])
     card.delete
+    @credit = Credit.find_by(customer_id: @customer.id)
+    binding.pry
+    @credit.destroy
     redirect_to settings_credits_path, success:'クレジットカード情報を削除しました'
   end
 
@@ -54,8 +61,4 @@ class Public::Settings::CreditsController < ApplicationController
   def credit_params
     params.permit(:credit).permit(:user_id, :customer_id)
   end
-
-  # def set_api_key
-  #   Payjp.api_key = ENV['payjp_test_private_key']
-  # end
 end

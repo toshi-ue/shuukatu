@@ -1,0 +1,32 @@
+<!-- <h1>Managers::Subgenres#index</h1>
+<p>Find me in app/views/managers/subgenres/index.html.erb</p> -->
+
+<h3 class="text-center">サブジャンル一覧</h3>
+
+<%# render 'managers/partials/sidebar' %>
+
+<div class="col-md-10 col-md-offset-1">
+  <div class="text-center">
+  <%= link_to '新規登録', new_managers_subgenre_path, class: 'btn btn-default' %>
+  </div>
+  <table class="table table-hover">
+    <thead>
+      <th class="text-center">サブジャンル名</th>
+      <th class="text-center">所属ジャンル名</th>
+      <th class="text-center">登録日時</th>
+      <th></th>
+    </thead>
+    <% @subgenres.each_with_index do |subgenre|%>
+      <tr>
+        <td class="text-center">
+          <%= subgenre.name %>
+        </td>
+        <td class="text-center">
+          <%= subgenre.genre.name %>
+        </td>
+        <td class="text-center"><%= subgenre.created_at.to_s(:time_manager) %></td>
+        <td><%= link_to '変更する', edit_managers_subgenre_path(id: subgenre.id), class: 'btn btn-default' %>　<%= link_to '削除する', managers_subgenre_path(id: subgenre.id), method: :delete, class: 'btn btn-default', data:{confirm:'削除しまがよろしいですか?'} %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

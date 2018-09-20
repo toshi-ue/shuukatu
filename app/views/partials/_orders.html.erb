@@ -1,0 +1,51 @@
+<!-- <div>app/views/partials/_orders.html.erb</div> -->
+<% unless @orders.blank? %>
+  <div class="text-center"><%= paginate @orders %></div>
+  <table class="table table-hover">
+    <tr>
+      <th class="text-center">注文日時</th>
+      <th class="text-center">注文番号</th>
+      <% if manager_signed_in? %>
+      <th class="text-center">ユーザー名</th>
+      <% end %>
+      <th class="text-center">購入金額</th>
+      <th class="text-center">注文詳細</th>
+      <th class="text-center">配送先</th>
+      <th class="text-center">配送状況</th>
+    </tr>
+    <% @orders.each_with_index do |order, i| %>
+    <tr>
+      <td class="text-center"><%= order.created_at.to_s(:time_user) %></td>
+      <td class="text-center"><%= order.order_no %></td>
+      <% if manager_signed_in? %>
+      <td class="text-center"><%= link_to "#{order.user.email}", managers_user_path(id: order.user_id) %></td>
+      <% end %>
+      <td class="text-center"><%= number_to_currency(order.total_price, :format => "%u%n", :precision => 0, :unit =>"¥") %></td>
+      <td class="text-center"><button type="button" class="btn btn-default btn-sm" data-toggle="collapse" data-target=".details<%= i %>">表示</button></td>
+      <td class="text-center"><%= disp_address(order) %></td>
+      <td class="text-center">配送状況</td>
+    </tr>
+      <% order.cartitems.each do |cartitem| %>
+        <tr class="details<%= i %> collapse">
+          <td class="text-center"><%= image_tag cartitem.item.mainImage.url %></td>
+          <td class="text-center"><%= cartitem.item.itemName %></td>
+          <td class="text-center">価格： <%= number_to_currency(cartitem.item.price, :format => "%u%n", :precision => 0, :unit =>"¥") %></td>
+          <td class="text-center">数量： <%= cartitem.quantity %></td>
+          <td class="text-center">小計： <%= disp_subtotal(cartitem.quantity, cartitem.item.price) %></td>
+          <td></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+
+  <% else %>
+    <div class="text-center">
+    <strong>まだ注文したことがありません</strong>
+    </div>
+    <div class="text-center">
+      <%= link_to '好きな商品を見つけましょう!!', root_path, class: 'btn btn-primary btn-md' %>
+    </div>
+  <% end %>
+
+<div class="text-center"><%= paginate @orders %></div>
+

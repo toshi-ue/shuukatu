@@ -1,7 +1,7 @@
 
 <div id="frame-border" class="col-md-3 col-md-offset-4">
 
-<div>BEGIN app/views/public/settings/users/sessions/new.html.erb</div>
+<!-- <div>BEGIN app/views/public/settings/users/sessions/new.html.erb</div> -->
 
 <h2>ログイン</h2>
 
@@ -31,7 +31,12 @@
     </div><br><br>
   <!-- </div> -->
 <% end %>
-
+<%- if devise_mapping.omniauthable? %>
+  <%- resource_class.omniauth_providers.each do |provider| %>
+    <%= link_to "#{OmniAuth::Utils.camelize(provider)}でログイン", omniauth_authorize_path(resource_name, provider), class: 'btn btn-default btn-md col-md-12 btn-margin' %><br />
+      <br />
+  <% end -%>
+<% end -%>
 <%= link_to "アカウント作成へ", new_registration_path(resource_name), class: 'btn btn-warning btn-md col-md-12 btn-margin' %><br /><br />
 
 <div class="text-center">
@@ -39,7 +44,7 @@
 </div>
 
 
-<div>END app/views/public/settings/users/sessions/new.html.erb</div>
+<!-- <div>END app/views/public/settings/users/sessions/new.html.erb</div> -->
 
 </div>
 

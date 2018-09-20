@@ -1,17 +1,5 @@
-<div>BEGIN app/views/public/subgenres/show.html.erb</div>
-<!--
-<%# item = @items.first %>
-
-<p>
-  ジャンルID<br>
-  <%# item.genre_id %>
-</p>
-
-<p>
-  サブジャンルID<br>
-<%# item.subgenre_id %>
-</p> -->
-
+<!-- <div>BEGIN app/views/public/subgenres/show.html.erb</div>
+ -->
 <div class="col-md-2">
   <%= render partial: 'layouts/public/sidebar', locals: {genres: @genres} %>
 </div>
@@ -25,4 +13,4 @@
   <div class="text-center"><%= paginate @items, window: 3 %></div>
 </div>
 
-<div>END app/views/public/subgenres/show.html.erb</div>
+<!-- <div>END app/views/public/subgenres/show.html.erb</div> -->

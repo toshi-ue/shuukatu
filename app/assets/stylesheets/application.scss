@@ -7,7 +7,9 @@
 }
 
 // デスクトップ用
-@media (min-width: 999px) {
+@media (min-width: 900px) {
+
+
 
   //共通
   a{
@@ -41,6 +43,14 @@
     display: inline;
   }//.inline
 
+
+  .nav-search{
+    margin-left: 10%;
+  }
+
+  #q_itemName_or_itemCodeNo_or_price_or_genre_id_cont{
+    width: 400px;
+  }
 
   // 商品(カードデザイン)
     .items{
@@ -99,7 +109,23 @@
   }//#public-settings-users-sessions
 
 
-  #public-settings-users-registrations{
+  #managers-devise-managers-sessions{
+
+  // ユーザーログイン画面
+    #new{
+
+      #frame-border{
+        justify-content: center;
+        border: 1.2px solid silver;
+        border-radius: 10px;
+        padding: 0 20px 20px 20px;
+      }//#frame-border
+
+
+    }//#new
+  }//#managers-devise-managers-sessions
+
+  #public-settings-users-sessions{
 
   // ユーザーログイン画面
     #new{
@@ -115,6 +141,9 @@
     }//#new
   }//#public-settings-users-sessions
 
+  main{
+    min-height: 600px;
+  }
 
 
   // navbar設定
@@ -212,5 +241,31 @@
     }//img
   }//#cart-count
 
+  footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f1be0f;
+    height: 100px;
 
+    div{
+
+    }//div
+  }//footer
+
+// エラー(404)
+  #error_404_parent{
+    min-height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+// エラー(500)
+  #error_500_parent{
+    min-height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }//@media (min-width: 999px)

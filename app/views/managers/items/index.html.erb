@@ -1,0 +1,52 @@
+<!-- <h1>Managers::Items#index</h1>
+<p>Find me in app/views/managers/items/index.html.erb</p> -->
+
+<%# render 'managers/partials/sidebar' %>
+
+<div class="col-md-10 col-md-offset-1">
+  <h3 class="text-center">商品一覧</h3>
+  <div class="text-center">
+    <%= link_to '新規登録', new_managers_item_path, class: 'btn btn-default' %>
+  </div>
+  <div>
+    全 <%= @items.total_count %> 件中
+    <%= @items.offset_value %> 〜 <%= @items.offset_value + @items.length %>件
+  </div>
+  <% if @items.blank? %>
+    <h3 class="text-center">商品の登録がまだありません</h3>
+  <% else %>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <td></td>
+        <td class="text-center">商品番号</td>
+        <td class="text-center">品番</td>
+        <td class="text-center">商品名</td>
+        <td class="text-center">価格</td>
+        <td class="text-center">登録日時</td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @items.each do |item| %>
+      <tr>
+        <td class="text-center"><%= image_tag item.mainImage.url %></td>
+        <td class="text-center"><%= item.itemCodeNo %></td>
+        <td class="text-center"><%= item.partNumber %></td>
+        <td class="text-center"><%= item.itemName %></td>
+        <td class="text-center"><%= number_to_currency(item.price, :format => "%u%n", :precision => 0, :unit =>"¥") %></td>
+        <td class="text-center"><%= item.created_at.to_s(:time_manager) %></td>
+        <td>
+          <%= link_to '変更', edit_managers_item_path(id: item.id), class: 'btn btn-default' %>
+          <%= link_to '削除', managers_item_path(id: item.id), method: :delete, class: 'btn btn-default', data:{confirm:'削除しますがよろしいですか?'} %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% end %>
+  <div class="text-center">
+    <%= paginate @items %>
+  </div>
+
+</div>

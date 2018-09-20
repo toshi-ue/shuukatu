@@ -1,4 +1,5 @@
 class Managers::PositionsController < ApplicationController
+
   before_action :set_managers_position, only: [:show, :edit, :update, :destroy]
 
   # GET /managers/positions
