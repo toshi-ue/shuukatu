@@ -115,6 +115,6 @@ Rails.application.routes.draw do
   end
 
 
-  # get '*path', controller: 'application', action: 'render_404'
+  get '*path', controller: 'application', action: 'render_404'
 
 end
