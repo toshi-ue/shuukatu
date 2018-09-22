@@ -11,9 +11,9 @@
 </body>
 </html>
 
-<h1><%= @order.user.email %>様へ</h1>
+<h3><%= @order.user.email %>様へ</h3>
 
-<div>下記の注文を受け付けました</div>
+<div>下記の注文を受け付けました。ご注文いただきありがとうございました</div>
 <div class="row col-md-6 col-md-offset-3"">
     <div class="pull-left">注文番号： <%= @order.order_no %></div>
     <div class="pull-right">注文日時： <%= @order.created_at.to_s(:time_user) %></div>

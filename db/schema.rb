@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180917074730) do
+ActiveRecord::Schema.define(version: 20180922055511) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer  "user_id",       limit: 4
@@ -27,16 +27,6 @@ ActiveRecord::Schema.define(version: 20180917074730) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "approvalbrands", force: :cascade do |t|
-    t.integer  "brand_id",    limit: 4
-    t.integer  "approval_id", limit: 4
-    t.string   "reason",      limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "approvalbrands", ["brand_id"], name: "index_approvalbrands_on_brand_id", using: :btree
 
   create_table "approvalitems", force: :cascade do |t|
     t.integer  "approval_id", limit: 4
@@ -109,7 +99,6 @@ ActiveRecord::Schema.define(version: 20180917074730) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.integer  "brand_id",    limit: 4,   null: false
     t.integer  "itemCodeNo",  limit: 4
     t.string   "partNumber",  limit: 255
     t.string   "itemName",    limit: 255

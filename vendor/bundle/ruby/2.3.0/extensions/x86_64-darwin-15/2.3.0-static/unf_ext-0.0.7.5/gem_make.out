@@ -1,5 +1,5 @@
 current directory: /Users/t41r/projects/u235a42_5_10/shuukatu/vendor/bundle/ruby/2.3.0/gems/unf_ext-0.0.7.5/ext/unf_ext
-/Users/t41r/.rbenv/versions/2.3.5/bin/ruby -r ./siteconf20180812-9612-1ku04vy.rb extconf.rb
+/Users/t41r/.rbenv/versions/2.3.5/bin/ruby -r ./siteconf20180922-31544-q9z6l0.rb extconf.rb
 checking for main() in -lstdc++... yes
 creating Makefile
 
@@ -39,4 +39,4 @@ linking shared-object unf_ext.bundle
 
 current directory: /Users/t41r/projects/u235a42_5_10/shuukatu/vendor/bundle/ruby/2.3.0/gems/unf_ext-0.0.7.5/ext/unf_ext
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 unf_ext.bundle ./.gem.20180812-9612-3r6m5o
+/usr/bin/install -c -m 0755 unf_ext.bundle ./.gem.20180922-31544-d1b2ym

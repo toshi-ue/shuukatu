@@ -44,25 +44,25 @@ end
 
 # ジャンルテーブルのデータ
 3.times do |num|
-  Genre.create(name: "ジャンル#{num + 1}")
+  Genre.create!(name: "ジャンル#{num + 1}")
 end
 
 # サブジャンルテーブルのデータ
-Subgenre.create(name: 'サブジャンル1', genre_id: 1)
-Subgenre.create(name: 'サブジャンル2', genre_id: 1)
-Subgenre.create(name: 'サブジャンル3', genre_id: 1)
-Subgenre.create(name: 'サブジャンル4', genre_id: 1)
-Subgenre.create(name: 'サブジャンル5', genre_id: 1)
-Subgenre.create(name: 'サブジャンル6', genre_id: 2)
-Subgenre.create(name: 'サブジャンル7', genre_id: 2)
-Subgenre.create(name: 'サブジャンル8', genre_id: 2)
-Subgenre.create(name: 'サブジャンル9', genre_id: 2)
-Subgenre.create(name: 'サブジャンル10', genre_id: 2)
-Subgenre.create(name: 'サブジャンル11', genre_id: 3)
-Subgenre.create(name: 'サブジャンル12', genre_id: 3)
-Subgenre.create(name: 'サブジャンル13', genre_id: 3)
-Subgenre.create(name: 'サブジャンル14', genre_id: 3)
-Subgenre.create(name: 'サブジャンル15', genre_id: 3)
+Subgenre.create!(name: 'サブジャンル1', genre_id: 1)
+Subgenre.create!(name: 'サブジャンル2', genre_id: 1)
+Subgenre.create!(name: 'サブジャンル3', genre_id: 1)
+Subgenre.create!(name: 'サブジャンル4', genre_id: 1)
+Subgenre.create!(name: 'サブジャンル5', genre_id: 1)
+Subgenre.create!(name: 'サブジャンル6', genre_id: 2)
+Subgenre.create!(name: 'サブジャンル7', genre_id: 2)
+Subgenre.create!(name: 'サブジャンル8', genre_id: 2)
+Subgenre.create!(name: 'サブジャンル9', genre_id: 2)
+Subgenre.create!(name: 'サブジャンル10', genre_id: 2)
+Subgenre.create!(name: 'サブジャンル11', genre_id: 3)
+Subgenre.create!(name: 'サブジャンル12', genre_id: 3)
+Subgenre.create!(name: 'サブジャンル13', genre_id: 3)
+Subgenre.create!(name: 'サブジャンル14', genre_id: 3)
+Subgenre.create!(name: 'サブジャンル15', genre_id: 3)
 
 # 都道府県テーブルのデータ
 Prefecture.create(name: "北海道")
@@ -114,24 +114,144 @@ Prefecture.create(name: "鹿児島県")
 Prefecture.create(name: "沖縄県")
 
 
-# User.create(
-#     email: '1@gmail.com',
-#     password: 'asdfghjk'
-# )
+today = Time.now()
 
-Manager.create(
-  email: '2@gmail.com',
-  password: 'asdfghjk'
+User.create!(
+    email: '1@gmail.com',
+    password: 'asdfghjk',
+    created_at: today.ago(8.days),
+    last_sign_in_at: today.ago(8.days).since(4.minute),
+    confirmation_sent_at: today.ago(8.days),
+    confirmed_at: today.ago(8.days).since(3.minute)
 )
 
-# Address.create(
-#     user_id: 1,
-#     user_name: 'ユーザー1',
-#     name_kana: 'ゆーざー１',
-#     tel: '000-0000-0001',
-#     postalcode: 0000001,
-#     prefecture_id: 1,
-#     city: 'サンプル市',
-#     street: 'サンプル町',
-#     others: 'サンプルビル1'
-# )
+Manager.create!(
+  email: '2@gmail.com',
+  password: 'asdfghjk',
+  last_sign_in_at: today.since(4.minute),
+  confirmation_sent_at: today,
+  confirmed_at: today.since(3.minute)
+)
+
+Address.create!(
+    user_id: 1,
+    user_name: 'ユーザー1',
+    name_kana: 'ゆーざー１',
+    tel: '000-0000-0001',
+    postalcode: "0000001",
+    prefecture_id: 1,
+    city: 'サンプル市',
+    street: 'サンプル町',
+    others: 'サンプルビル1',
+    defaultflg: 1
+)
+
+# 5日前の売り上げ
+cartitem1 = Cartitem.create(
+  quantity: 1,
+  item_id: 1,
+  order_id: 1,
+  user_id: 1,
+  created_at: today.ago(5.days),
+  updated_at: today.ago(5.days)
+)
+
+cartitem1.save!
+
+order1 = Order.create(
+  order_no: "#{today.ago(5.days).strftime("%y%m%d")}" + "001",
+  user_id: 1,
+  total_price: 27577,
+  address_id: 1,
+  created_at: today.ago(5.days),
+  updated_at: today.ago(5.days)
+)
+order1.save!
+
+# 4日前の売り上げ
+cartitem2 = Cartitem.create(
+  quantity: 2,
+  item_id: 1,
+  order_id: 2,
+  user_id: 1,
+  created_at: today.ago(4.days),
+  updated_at: today.ago(4.days)
+)
+cartitem2.save!
+
+order2 = Order.create!(
+  order_no: "#{today.ago(4.days).strftime("%y%m%d")}" + "001",
+  user_id: 1,
+  total_price: 27577 * 2,
+  address_id: 1,
+  created_at: today.ago(4.days),
+  updated_at: today.ago(4.days)
+)
+
+order2.save!
+
+# 3日前の売り上げ
+cartitem3 = Cartitem.create(
+  quantity: 3,
+  item_id: 1,
+  order_id: 3,
+  user_id: 1,
+  created_at: today.ago(3.days),
+  updated_at: today.ago(3.days)
+)
+cartitem3.save!
+
+order3 = Order.create!(
+  order_no: "#{today.ago(3.days).strftime("%y%m%d")}" + "001",
+  user_id: 1,
+  total_price: 27577 * 3,
+  address_id: 1,
+  created_at: today.ago(3.days),
+  updated_at: today.ago(3.days)
+)
+
+order3.save!
+
+# 2日前の売り上げ
+cartitem4 = Cartitem.create(
+  quantity: 4,
+  item_id: 1,
+  order_id: 4,
+  user_id: 1,
+  created_at: today.ago(2.days),
+  updated_at: today.ago(2.days)
+)
+cartitem4.save!
+
+order4 = Order.create!(
+  order_no: "#{today.ago(2.days).strftime("%y%m%d")}" + "001",
+  user_id: 1,
+  total_price: 27577 * 4,
+  address_id: 1,
+  created_at: today.ago(2.days),
+  updated_at: today.ago(2.days)
+)
+
+order4.save!
+
+# 1日目の売り上げ
+cartitem5 = Cartitem.create(
+  quantity: 5,
+  item_id: 1,
+  order_id: 5,
+  user_id: 1,
+  created_at: today.ago(1.days),
+  updated_at: today.ago(1.days)
+)
+cartitem5.save!
+
+order5 = Order.create!(
+  order_no: "#{today.ago(1.days).strftime("%y%m%d")}" + "001",
+  user_id: 1,
+  total_price: 27577 * 5,
+  address_id: 1,
+  created_at: today.ago(1.days),
+  updated_at: today.ago(1.days)
+)
+
+order3.save!

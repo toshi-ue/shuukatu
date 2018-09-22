@@ -47,7 +47,7 @@ gem 'payjp'
 gem 'rails-i18n'
 gem 'ransack'
 gem 'squasher'
-# gem 'whenever', require: false
+gem 'whenever', require: false
 
 group :development, :test do
   gem 'annotate'

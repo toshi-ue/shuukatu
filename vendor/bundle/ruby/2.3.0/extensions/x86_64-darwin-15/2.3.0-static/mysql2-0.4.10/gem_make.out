@@ -1,5 +1,5 @@
 current directory: /Users/t41r/projects/u235a42_5_10/shuukatu/vendor/bundle/ruby/2.3.0/gems/mysql2-0.4.10/ext/mysql2
-/Users/t41r/.rbenv/versions/2.3.5/bin/ruby -r ./siteconf20180812-9612-1yh7mp4.rb extconf.rb
+/Users/t41r/.rbenv/versions/2.3.5/bin/ruby -r ./siteconf20180922-31544-h6ucdp.rb extconf.rb
 checking for rb_absint_size()... yes
 checking for rb_absint_singlebit_p()... yes
 checking for ruby/thread.h... yes
@@ -52,4 +52,4 @@ linking shared-object mysql2/mysql2.bundle
 
 current directory: /Users/t41r/projects/u235a42_5_10/shuukatu/vendor/bundle/ruby/2.3.0/gems/mysql2-0.4.10/ext/mysql2
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 mysql2.bundle ./.gem.20180812-9612-1tx9bkx/mysql2
+/usr/bin/install -c -m 0755 mysql2.bundle ./.gem.20180922-31544-84hkkq/mysql2

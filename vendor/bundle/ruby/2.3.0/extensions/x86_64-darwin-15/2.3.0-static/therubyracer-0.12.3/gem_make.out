@@ -1,5 +1,5 @@
 current directory: /Users/t41r/projects/u235a42_5_10/shuukatu/vendor/bundle/ruby/2.3.0/gems/therubyracer-0.12.3/ext/v8
-/Users/t41r/.rbenv/versions/2.3.5/bin/ruby -r ./siteconf20180812-9612-1ao8tcj.rb extconf.rb
+/Users/t41r/.rbenv/versions/2.3.5/bin/ruby -r ./siteconf20180922-31544-goitfm.rb extconf.rb
 checking for main() in -lpthread... yes
 checking for main() in -lobjc... yes
 creating Makefile
@@ -87,4 +87,4 @@ linking shared-object v8/init.bundle
 
 current directory: /Users/t41r/projects/u235a42_5_10/shuukatu/vendor/bundle/ruby/2.3.0/gems/therubyracer-0.12.3/ext/v8
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 init.bundle ./.gem.20180812-9612-n92kvi/v8
+/usr/bin/install -c -m 0755 init.bundle ./.gem.20180922-31544-hv5cpc/v8

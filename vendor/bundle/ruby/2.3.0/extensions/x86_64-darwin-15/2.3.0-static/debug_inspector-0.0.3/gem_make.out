@@ -1,5 +1,5 @@
 current directory: /Users/t41r/projects/u235a42_5_10/shuukatu/vendor/bundle/ruby/2.3.0/gems/debug_inspector-0.0.3/ext/debug_inspector
-/Users/t41r/.rbenv/versions/2.3.5/bin/ruby -r ./siteconf20180812-9612-1hd9xvz.rb extconf.rb
+/Users/t41r/.rbenv/versions/2.3.5/bin/ruby -r ./siteconf20180922-31544-11oljfr.rb extconf.rb
 creating Makefile
 
 current directory: /Users/t41r/projects/u235a42_5_10/shuukatu/vendor/bundle/ruby/2.3.0/gems/debug_inspector-0.0.3/ext/debug_inspector
@@ -12,4 +12,4 @@ linking shared-object debug_inspector.bundle
 
 current directory: /Users/t41r/projects/u235a42_5_10/shuukatu/vendor/bundle/ruby/2.3.0/gems/debug_inspector-0.0.3/ext/debug_inspector
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 debug_inspector.bundle ./.gem.20180812-9612-1yr4310
+/usr/bin/install -c -m 0755 debug_inspector.bundle ./.gem.20180922-31544-euswqe

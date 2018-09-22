@@ -41,7 +41,7 @@ class Managers::ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:id, :brand_id, :itemCodeNo, :partNumber, :itemName, :genre_id, :subgenre_id, :price, :description, :attention, :mainImage, :image2, :image3)
+    params.require(:item).permit(:id, :itemCodeNo, :partNumber, :itemName, :genre_id, :subgenre_id, :price, :description, :attention, :mainImage, :image2, :image3)
   end
 
   def set_item

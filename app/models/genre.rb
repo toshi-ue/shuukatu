@@ -5,6 +5,6 @@ class Genre < ActiveRecord::Base
 
   # validation
   validates :name, presence: true
-  validates :approval_id, presence: true
+  # validates :approval_id, presence: true
 
 end

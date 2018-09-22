@@ -1,6 +1,6 @@
 have_func: checking for rb_absint_size()... -------------------- yes
 
-"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc "
+"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -lgmp -ldl -lobjc "
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -11,7 +11,7 @@ checked program was:
 6: }
 /* end */
 
-"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc "
+"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -lgmp -ldl -lobjc "
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -33,7 +33,7 @@ checked program was:
 
 have_func: checking for rb_absint_singlebit_p()... -------------------- yes
 
-"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc "
+"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -lgmp -ldl -lobjc "
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -67,7 +67,7 @@ checked program was:
 
 have_func: checking for rb_thread_call_without_gvl() in ruby/thread.h... -------------------- yes
 
-"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc "
+"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -lgmp -ldl -lobjc "
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -91,7 +91,7 @@ checked program was:
 
 have_func: checking for rb_thread_blocking_region()... -------------------- no
 
-"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc "
+"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -lgmp -ldl -lobjc "
 conftest.c:13:57: error: use of undeclared identifier 'rb_thread_blocking_region'
 int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_thread_blocking_region; return !p; }
                                                         ^
@@ -113,10 +113,10 @@ checked program was:
 13: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_thread_blocking_region; return !p; }
 /* end */
 
-"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc "
+"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -lgmp -ldl -lobjc "
 Undefined symbols for architecture x86_64:
   "_rb_thread_blocking_region", referenced from:
-      _t in conftest-990d6e.o
+      _t in conftest-03d870.o
 ld: symbol(s) not found for architecture x86_64
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 checked program was:
@@ -141,7 +141,7 @@ checked program was:
 
 have_func: checking for rb_wait_for_single_fd()... -------------------- yes
 
-"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc "
+"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -lgmp -ldl -lobjc "
 conftest.c:13:57: error: use of undeclared identifier 'rb_wait_for_single_fd'
 int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_wait_for_single_fd; return !p; }
                                                         ^
@@ -163,7 +163,7 @@ checked program was:
 13: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_wait_for_single_fd; return !p; }
 /* end */
 
-"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc "
+"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -lgmp -ldl -lobjc "
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -186,7 +186,7 @@ checked program was:
 
 have_func: checking for rb_hash_dup()... -------------------- yes
 
-"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc "
+"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -lgmp -ldl -lobjc "
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -208,7 +208,7 @@ checked program was:
 
 have_func: checking for rb_intern3()... -------------------- yes
 
-"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc "
+"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -lgmp -ldl -lobjc "
 conftest.c:13:57: error: use of undeclared identifier 'rb_intern3'
 int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_intern3; return !p; }
                                                         ^
@@ -230,7 +230,7 @@ checked program was:
 13: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_intern3; return !p; }
 /* end */
 
-"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc "
+"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -lgmp -ldl -lobjc "
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -253,7 +253,7 @@ checked program was:
 
 have_func: checking for rb_big_cmp()... -------------------- yes
 
-"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -ldl -lobjc "
+"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib     -lruby-static -framework CoreFoundation  -lpthread -lgmp -ldl -lobjc "
 checked program was:
 /* begin */
  1: #include "ruby.h"
@@ -439,7 +439,7 @@ checked program was:
 
 --------------------
 
-"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Weverything -lpthread -ldl -lobjc "
+"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Weverything -lpthread -lgmp -ldl -lobjc "
 In file included from conftest.c:1:
 In file included from /Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby.h:33:
 In file included from /Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/ruby.h:24:
@@ -458,13 +458,13 @@ In file included from /Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/
 /Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15/ruby/config.h:19:9: error: macro name is a reserved identifier [-Werror,-Wreserved-id-macro]
 #define _TANDEM_SOURCE 1
         ^
-/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15/ruby/config.h:298:9: error: macro name is a reserved identifier [-Werror,-Wreserved-id-macro]
+/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15/ruby/config.h:299:9: error: macro name is a reserved identifier [-Werror,-Wreserved-id-macro]
 #define __STDC_WANT_LIB_EXT1__ 1
         ^
-/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15/ruby/config.h:325:9: error: macro name is a reserved identifier [-Werror,-Wreserved-id-macro]
+/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15/ruby/config.h:326:9: error: macro name is a reserved identifier [-Werror,-Wreserved-id-macro]
 #define _REENTRANT 1
         ^
-/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15/ruby/config.h:326:9: error: macro name is a reserved identifier [-Werror,-Wreserved-id-macro]
+/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15/ruby/config.h:327:9: error: macro name is a reserved identifier [-Werror,-Wreserved-id-macro]
 #define _THREAD_SAFE 1
         ^
 In file included from conftest.c:1:
@@ -510,7 +510,7 @@ checked program was:
 3: int main() {return 0;}
 /* end */
 
-"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-bad-function-cast -lpthread -ldl -lobjc "
+"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-bad-function-cast -lpthread -lgmp -ldl -lobjc "
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -518,7 +518,7 @@ checked program was:
 3: int main() {return 0;}
 /* end */
 
-"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-conditional-uninitialized -lpthread -ldl -lobjc "
+"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-conditional-uninitialized -lpthread -lgmp -ldl -lobjc "
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -526,7 +526,7 @@ checked program was:
 3: int main() {return 0;}
 /* end */
 
-"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-covered-switch-default -lpthread -ldl -lobjc "
+"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-covered-switch-default -lpthread -lgmp -ldl -lobjc "
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -534,7 +534,7 @@ checked program was:
 3: int main() {return 0;}
 /* end */
 
-"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-declaration-after-statement -lpthread -ldl -lobjc "
+"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-declaration-after-statement -lpthread -lgmp -ldl -lobjc "
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -542,7 +542,7 @@ checked program was:
 3: int main() {return 0;}
 /* end */
 
-"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-disabled-macro-expansion -lpthread -ldl -lobjc "
+"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-disabled-macro-expansion -lpthread -lgmp -ldl -lobjc "
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -550,7 +550,7 @@ checked program was:
 3: int main() {return 0;}
 /* end */
 
-"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-documentation-unknown-command -lpthread -ldl -lobjc "
+"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-documentation-unknown-command -lpthread -lgmp -ldl -lobjc "
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -558,7 +558,7 @@ checked program was:
 3: int main() {return 0;}
 /* end */
 
-"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-missing-field-initializers -lpthread -ldl -lobjc "
+"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-missing-field-initializers -lpthread -lgmp -ldl -lobjc "
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -566,7 +566,7 @@ checked program was:
 3: int main() {return 0;}
 /* end */
 
-"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-missing-variable-declarations -lpthread -ldl -lobjc "
+"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-missing-variable-declarations -lpthread -lgmp -ldl -lobjc "
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -574,7 +574,7 @@ checked program was:
 3: int main() {return 0;}
 /* end */
 
-"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-padded -lpthread -ldl -lobjc "
+"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-padded -lpthread -lgmp -ldl -lobjc "
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -582,7 +582,7 @@ checked program was:
 3: int main() {return 0;}
 /* end */
 
-"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-reserved-id-macro -lpthread -ldl -lobjc "
+"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-reserved-id-macro -lpthread -lgmp -ldl -lobjc "
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -590,7 +590,7 @@ checked program was:
 3: int main() {return 0;}
 /* end */
 
-"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-sign-conversion -lpthread -ldl -lobjc "
+"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-sign-conversion -lpthread -lgmp -ldl -lobjc "
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -598,7 +598,7 @@ checked program was:
 3: int main() {return 0;}
 /* end */
 
-"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-static-in-inline -lpthread -ldl -lobjc "
+"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-static-in-inline -lpthread -lgmp -ldl -lobjc "
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -606,7 +606,7 @@ checked program was:
 3: int main() {return 0;}
 /* end */
 
-"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-switch-enum -lpthread -ldl -lobjc "
+"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-switch-enum -lpthread -lgmp -ldl -lobjc "
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -614,7 +614,7 @@ checked program was:
 3: int main() {return 0;}
 /* end */
 
-"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-undef -lpthread -ldl -lobjc "
+"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-undef -lpthread -lgmp -ldl -lobjc "
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -622,7 +622,7 @@ checked program was:
 3: int main() {return 0;}
 /* end */
 
-"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-unreachable-code -lpthread -ldl -lobjc "
+"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-unreachable-code -lpthread -lgmp -ldl -lobjc "
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -630,7 +630,7 @@ checked program was:
 3: int main() {return 0;}
 /* end */
 
-"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-used-but-marked-unused -lpthread -ldl -lobjc "
+"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation -Werror -Wno-used-but-marked-unused -lpthread -lgmp -ldl -lobjc "
 checked program was:
 /* begin */
 1: #include "ruby.h"
@@ -638,7 +638,7 @@ checked program was:
 3: int main() {return 0;}
 /* end */
 
-"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT -Wno-bad-function-cast -Wno-conditional-uninitialized -Wno-covered-switch-default -Wno-declaration-after-statement -Wno-disabled-macro-expansion -Wno-documentation-unknown-command -Wno-missing-field-initializers -Wno-missing-variable-declarations -Wno-padded -Wno-reserved-id-macro -Wno-sign-conversion -Wno-static-in-inline -Wno-switch-enum -Wno-undef -Wno-unreachable-code -Wno-used-but-marked-unused conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation  -Wl,-rpath,/usr/local/Cellar/mysql/5.7.18_1/lib -lpthread -ldl -lobjc "
+"clang -o conftest -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/x86_64-darwin15 -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0/ruby/backward -I/Users/t41r/.rbenv/versions/2.3.5/include/ruby-2.3.0 -I. -I/usr/local/Cellar/mysql/5.7.18_1/include/mysql -I/Users/t41r/.rbenv/versions/2.3.5/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe -DFULL_SSL_MODE_SUPPORT -Wno-bad-function-cast -Wno-conditional-uninitialized -Wno-covered-switch-default -Wno-declaration-after-statement -Wno-disabled-macro-expansion -Wno-documentation-unknown-command -Wno-missing-field-initializers -Wno-missing-variable-declarations -Wno-padded -Wno-reserved-id-macro -Wno-sign-conversion -Wno-static-in-inline -Wno-switch-enum -Wno-undef -Wno-unreachable-code -Wno-used-but-marked-unused conftest.c  -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib -L. -L/Users/t41r/.rbenv/versions/2.3.5/lib  -fstack-protector -L/usr/local/lib    -L/usr/local/Cellar/mysql/5.7.18_1/lib -lmysqlclient -lssl -lcrypto  -lruby-static -framework CoreFoundation  -Wl,-rpath,/usr/local/Cellar/mysql/5.7.18_1/lib -lpthread -lgmp -ldl -lobjc "
 checked program was:
 /* begin */
 1: #include "ruby.h"

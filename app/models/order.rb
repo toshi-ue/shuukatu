@@ -15,8 +15,8 @@ class Order < ActiveRecord::Base
   validates :order_no, presence: true
   validates :user_id, presence: true
   validates :address_id, presence: true
-  validates :dvendor_id, presence: true, on: :update
-  validates :d_number, length: {in: 10..13}, on: :update
+  # validates :dvendor_id, presence: true, on: :update
+  # validates :d_number, length: {in: 10..13}, on: :update
 
 
   def set_order_no

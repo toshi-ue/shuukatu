@@ -5,7 +5,7 @@ class Item < ActiveRecord::Base
   mount_uploader :image3, ImageUploader
 
   # relation
-  belongs_to :approvalitem
+  # belongs_to :approvalitem
   has_many :orders, through: :cartitems
   belongs_to :genre
   belongs_to :subgenre
@@ -13,7 +13,7 @@ class Item < ActiveRecord::Base
   has_many :cartitems
 
   # validation
-  validates :brand_id, presence: true
+  # validates :brand_id, presence: true
   validates :itemCodeNo, presence: true,
              uniqueness: true,
              numericality: {only_integer: true, greater_than: 0}
@@ -26,7 +26,7 @@ class Item < ActiveRecord::Base
   validates :price, presence: true,
              numericality: {only_integer: true, greater_than: 0}
   validates :description, presence: true
-  validates :attention, presence: true
+  # validates :attention, presence: true
   validates :mainImage, presence: true
 
 end

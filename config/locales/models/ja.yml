@@ -14,7 +14,7 @@ ja:
       genre:
         name: "ジャンル名"
       item:
-        brand_id: "ブランド名"
+        # brand_id: "ブランド名"
         itemCodeNo: "商品コード"
         partNumber: "品番"
         itemName: "商品名"
