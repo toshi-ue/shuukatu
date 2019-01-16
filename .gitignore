@@ -100,3 +100,4 @@ modules.xml
 public/uploads/
 .idea
 config/secrets.yml
+.ruby-version
