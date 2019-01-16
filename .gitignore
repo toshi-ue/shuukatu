@@ -101,3 +101,6 @@ public/uploads/
 .idea
 config/secrets.yml
 .ruby-version
+
+memos/
+vendor/bundle
