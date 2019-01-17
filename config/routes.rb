@@ -114,7 +114,8 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
-
-  get '*path', controller: 'application', action: 'render_404'
+  if Rails.env =='production'
+    get '*path', controller: 'application', action: 'render_404'
+  end
 
 end
