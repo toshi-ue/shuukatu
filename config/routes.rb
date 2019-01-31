@@ -114,7 +114,7 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
-
-  get '*path', controller: 'application', action: 'render_404'
+  # TODOS 404エラーの復帰
+  # get '*path', controller: 'application', action: 'render_404'
 
 end
