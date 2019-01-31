@@ -15,22 +15,60 @@
 
 
 
-# 商品テーブルのデータ
-75.times do |num|
+
+# item datas for preventing empty
+# genre = (0..2).to_a
+# z_num = (0..4).to_a
+
+# genre.product(z_num) do |genre_no, z|
+3.times do |genre_no|
+  5.times do |z|
+    # TODOS
+    # item_numberが配列になる原因がわからない
+    item_number = (genre_no * 5) + z + 1
+    # no = (genre_no * 5) + z + 1
+    # binding.pry
+    item = Item.create(
+        itemCodeNo: item_number,
+        partNumber: "ITEM-#{item_number}",
+        itemName:"商品-#{item_number}",
+        genre_id: genre_no + 1,
+        subgenre_id: item_number,
+        price: rand(1..100000),
+        description: "商品-#{item_number}のせつめいです" * 16,
+        attention: nil,
+        mainImage: File.open("#{Rails.root}/db/fixtures/#{item_number
+        .to_s}_1.jpg"),
+        image2: File.open("#{Rails.root}/db/fixtures/#{item_number}_2.jpg"),
+        image3: File.open("#{Rails.root}/db/fixtures/#{item_number}_3.jpg"),
+        created_at: (Time.local(2018, 4, 1, 0, 0, 0) + (item_number * 60)),
+        updated_at: nil
+
+    )
+    # binding.pry
+    item.save!
+  end
+end
+# end
+
+
+# item datas at random
+60.times do |num|
   genre_id = rand(1..3)
   subgenre_id_range = (genre_id * 5 - 4)..(genre_id * 5)
   item = Item.create(
-      itemCodeNo: num+1,
-      partNumber: "ITEM-#{num+1}",
-      itemName:"商品-#{num+1}",
+      # id: num + 16,
+      itemCodeNo: num+16,
+      partNumber: "ITEM-#{num+16}",
+      itemName:"商品-#{num+16}",
       genre_id: genre_id,
       subgenre_id: rand(subgenre_id_range),
       price: rand(1..100000),
-      description: "商品-#{num+1}のせつめいです。商品-#{num+1}のせつめいです。商品-#{num+1}のせつめいです。商品-#{num+1}のせつめいです。商品-#{num+1}のせつめいです。商品-#{num+1}のせつめいです。商品-#{num+1}のせつめいです。商品-#{num+1}のせつめいです。商品-#{num+1}のせつめいです。商品-#{num+1}のせつめいです。商品-#{num+1}のせつめいです。商品-#{num+1}のせつめいです。商品-#{num+1}のせつめいです。商品-#{num+1}のせつめいです。商品-#{num+1}のせつめいです。商品-#{num+1}のせつめいです。",
+      description: "商品-#{num+16}" * 16,
       attention: nil,
-      mainImage: File.open("#{Rails.root}/db/fixtures/#{num+1}_1.jpg"),
-      image2: File.open("#{Rails.root}/db/fixtures/#{num+1}_2.jpg"),
-      image3: File.open("#{Rails.root}/db/fixtures/#{num+1}_3.jpg"),
+      mainImage: File.open("#{Rails.root}/db/fixtures/#{num+16}_1.jpg"),
+      image2: File.open("#{Rails.root}/db/fixtures/#{num+16}_2.jpg"),
+      image3: File.open("#{Rails.root}/db/fixtures/#{num+16}_3.jpg"),
       created_at: (Time.local(2018, 4, 1, 0, 0, 0) + (num * 60)),
       updated_at: nil
 
