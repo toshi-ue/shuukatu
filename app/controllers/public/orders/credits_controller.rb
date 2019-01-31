@@ -20,9 +20,10 @@ class Public::Orders::CreditsController < ApplicationController
   end
 
   def create
-    create_card_token
-    # binding.pry
-    redirect_to new_order_path(card_token: @customer.default_card), success: "クレジットカードを登録しました"
+    get_payjp_customer
+    associate_payjp_customer_and_token
+
+    redirect_to new_order_path(card_token: @payjp_customer.default_card), success: "クレジットカードを登録しました"
 
   rescue Payjp::CardError
     @submit = '登録する'

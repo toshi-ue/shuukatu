@@ -10,12 +10,8 @@ class Public::Settings::CreditsController < ApplicationController
     @credit = Credit.find_by(user_id: current_user.id)
     unless @credit.blank?
       customer_id = @credit.customer_id
-      set_cards_info(customer_id)
+      get_cards_info(customer_id)
     end
-    # unless customer_id.blank?
-    #   # binding.pry
-    #   set_cards_info(customer_id)
-    # end
     # render json:@cards
   end
 
