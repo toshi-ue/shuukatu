@@ -1,5 +1,4 @@
 class Order < ActiveRecord::Base
-
   # pagination
   paginates_per 40
 

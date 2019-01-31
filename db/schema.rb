@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180922055511) do
+ActiveRecord::Schema.define(version: 20190131210116) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer  "user_id",       limit: 4
@@ -161,8 +161,6 @@ ActiveRecord::Schema.define(version: 20180922055511) do
     t.integer  "user_id",     limit: 4
     t.string   "total_price", limit: 255
     t.integer  "address_id",  limit: 4
-    t.integer  "credit_id",   limit: 4
-    t.string   "card_token",  limit: 255
     t.integer  "dvendor_id",  limit: 4
     t.string   "d_number",    limit: 255
     t.datetime "created_at"
