@@ -1,15 +1,21 @@
 module CartitemsToshort
   extend ActiveSupport::Concern
 
-  def set_price_and_quantity
-    # カート内の合計商品数
-    @totalcount = 0
+  def get_cartitems
+    @cartitems = Cartitem.includes(:item).where(order_id: nil ,user_id: current_user.id)
 
-    # カート内の合計金額
+    @total_count = 0
     @total_price = 0
     @cartitems.each do |cartitem|
-      @totalcount += cartitem.quantity
-      @total_price += (cartitem.quantity * cartitem.item.price)
+      @total_count += cartitem.quantity.to_i
+      @total_price += ((cartitem.item.price).to_i * (cartitem.quantity)).to_i
+    end
+  end
+
+  def migrate_column_values
+    @cartitems.each do |cartitem|
+      cartitem.order_id = @order.id
+      cartitem.save
     end
   end
 end

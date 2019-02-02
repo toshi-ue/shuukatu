@@ -6,8 +6,7 @@ class Public::CartitemsController < ApplicationController
   include CartitemsToshort
 
   def index
-    @cartitems = Cartitem.includes(:item).where(order_id: nil, user_id: current_user.id)
-    set_price_and_quantity
+    get_cartitems
     # render json: @cartitems[0].item.itemName
   end
 
