@@ -57,7 +57,6 @@ end
   genre_id = rand(1..3)
   subgenre_id_range = (genre_id * 5 - 4)..(genre_id * 5)
   item = Item.create(
-      # id: num + 16,
       itemCodeNo: num+16,
       partNumber: "ITEM-#{num+16}",
       itemName:"商品-#{num+16}",
