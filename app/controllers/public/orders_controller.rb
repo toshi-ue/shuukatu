@@ -5,6 +5,8 @@ class Public::OrdersController < ApplicationController
 
   # controllers/concerns/order_toshort.rb
   include CartitemsToshort
+  include CreditsToshort
+  include AddressesToshort
 
   def index
     @orders = Order.includes(:cartitems).where(user_id: current_user.id).page(params[:page]).reverse_order
@@ -20,13 +22,14 @@ class Public::OrdersController < ApplicationController
 
     # check_existing_address_and_card
     redirect_to(public_orders_addresses_new_path) and return if current_user.addresses.blank?
-    redirect_to public_orders_credits_new_path and return if current_user.credits.blank?
+    redirect_to public_orders_credits_new_path and return if current_user.credit.blank?
     get_payjp_customer
 
+    puts "\n\n\n0\n\n\n\n"
     @order = Order.new
-    @order.address_id = session[:order]['address_id'] || current_user.addresses.find_by(defaultflg: true).id
-    @order.card_token = session[:order]['card_token'] || @payjp_customer.default_card
-    @card = @payjp_customer.cards.retrieve(@order.card_token)
+    get_order_address
+    get_card_token
+    @card = @payjp_customer.cards.retrieve(@card_token)
     get_cartitems
     # render json: @card
     # render json: @payjp_customer

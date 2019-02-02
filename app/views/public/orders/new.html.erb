@@ -17,10 +17,7 @@
     <%= form_for @order, url: orders_path, method: :post do |f| %>
       <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.hidden_field :total_price, value: @total_price %>
-      <%= f.hidden_field :address_id, value: @order.address_id %>
-      <%= f.hidden_field :credit_id, value: @order.credit_id %>
-      <%= f.hidden_field :card_token, value: @order.card_token %>
-      <%= f.submit '注文を確定する', data: { disable_with: '送信中' }, class: 'btn btn-warning btm-md' %>
+      <%= f.hidden_field :address_id, value: @order.address_id %>      <%= f.submit '注文を確定する', data: { disable_with: '送信中' }, class: 'btn btn-warning btm-md' %>
     <% end %>
 
     <div>
