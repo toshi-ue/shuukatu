@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable
 
   # relation
-  has_many :credits, dependent: :destroy
+  has_one :credit, dependent: :destroy
   has_many :addresses
   has_many :orders
 
