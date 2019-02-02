@@ -16,6 +16,14 @@ class ApplicationController < ActionController::Base
   # bootstrapフラッシュメッセージ用
   add_flash_types :success, :info, :warning, :danger
 
+  def render_404
+    render template: 'errors/error_404', status: 404, layout: 'application', content_type: 'text/html'
+  end
+
+  def render_500
+    render template: 'errors/error_500', status: 500, layout: 'application', content_type: 'text/html'
+  end
+
   def request_path
     @path = controller_path + '#' + action_name
   end
@@ -61,14 +69,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-
-  # def after_sign_up_path_for(resource)
-  #   case resources
-  #     when User
-  #       redirect_to root_path and return
-  #   end
-  # end
-
+  # devise
   def after_sign_in_path_for(resource)
     case resource
     when User
@@ -86,15 +87,4 @@ class ApplicationController < ActionController::Base
   #     new_manager_session_path
   #   end
   # end
-
-  def render_404
-    render template: 'errors/error_404', status: 404, layout: 'application', content_type: 'text/html'
-  end
-
-  def render_500
-    render template: 'errors/error_500', status: 500, layout: 'application', content_type: 'text/html'
-  end
-
-
-
 end

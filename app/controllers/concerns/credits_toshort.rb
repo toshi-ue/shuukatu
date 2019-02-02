@@ -1,10 +1,7 @@
-=begin
-TODOS
-このconcern自体の削除を検討する
-=end
 module CreditsToshort
   extend ActiveSupport::Concern
 
+  # payjp
   def get_cards_info(customer_id)
     # binding.pry
     infos = Payjp::Customer.retrieve(customer_id)
@@ -13,34 +10,71 @@ module CreditsToshort
     end
   end
 
-  def create_card_token
+  def get_payjp_customer
+    payjp_info = Credit.find_by(user_id: current_user.id)
 
-    token = Payjp::Token.create(
-      :card => {
-        number: params[:number],
-        cvc: params[:cvc],
-        exp_month: params[:exp_month],
-        exp_year: params[:exp_year],
-        name: params[:name]
+    if payjp_info.present?
+      @payjp_customer = Payjp::Customer.retrieve(payjp_info.customer_id)
+    else
+      create_payjp_customer
+    end
+
+    return @payjp_customer
+  end
+
+  def create_payjp_card_token
+    @token = Payjp::Token.create({
+        :card => {
+          number: params[:number],
+          cvc: params[:cvc],
+          exp_month: params[:exp_month],
+          exp_year: params[:exp_year],
+          name: params[:name]
+        }
+      },
+      {
+        'X-Payjp-Direct-Token-Generate': 'true'
       }
     )
   end
 
-  def create_card_token
-    @token = create_card_token.id
-    if Credit.where(user_id: current_user.id).blank?
-      # 顧客トークン作成
-      # binding.pry
-      @customer = Payjp::Customer.create(card: @token)
-      @credit = Credit.new(credit_params)
-      @credit.user_id = current_user.id
-      @credit.customer_id = @customer.id
-      @credit.save
-    else
-      set_customer
-      # 顧客トークンとカードトークンの紐付け
-      @customer.cards.create(card: @token)
-    end
+  def create_payjp_customer
+    @payjp_customer = Payjp::Customer.create(
+      email: current_user.email,
+    )
+    @credit = Credit.new(credit_params)
+    @credit.user_id = current_user.id
+    @credit.customer_id = @payjp_customer.id
+    @credit.save!
   end
 
+  def associate_payjp_customer_and_token
+    create_payjp_card_token
+    @card_token = @token.id
+    @customer = Payjp::Customer.retrieve(@payjp_customer.id)
+
+    if @payjp_customer.cards.count == 0
+      default_value = true
+    else
+      default_value = false
+    end
+    @customer.cards.create(
+      card: @card_token,
+      default: default_value
+    )
+  end
+
+  def get_card_token
+    if session[:order]['card_token'].blank?
+      if @payjp_customer.default_card.present?
+        @card_token = @payjp_customer.default_card
+      else
+        @card_token = @payjp_customer.cards.data.last
+      end
+    else
+      @card_token = session[:order]['card_token']
+    end
+
+    return @card_token
+  end
 end

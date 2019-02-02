@@ -1,5 +1,5 @@
 class Public::Orders::CreditsController < ApplicationController
-  before_action :set_api_key, only:[:index, :create]
+  # before_action :set_api_key, only:[:index, :create]
 
   # controllers/concern/credits_toshort
   include CreditsToshort
@@ -23,7 +23,9 @@ class Public::Orders::CreditsController < ApplicationController
     get_payjp_customer
     associate_payjp_customer_and_token
 
-    redirect_to new_order_path(card_token: @payjp_customer.default_card), success: "クレジットカードを登録しました"
+    card_token = Payjp::Customer.retrieve(current_user.credit.customer_id).cards.data.last.id
+    # render json: @payjp_customer
+    redirect_to new_order_path(card_token: card_token), success: "クレジットカードを登録しました"
 
   rescue Payjp::CardError
     @submit = '登録する'
@@ -39,6 +41,6 @@ class Public::Orders::CreditsController < ApplicationController
   end
 
   def credit_params
-    params.permit(:credit).permit(:user_id, :customer_id)
+    params.permit(:credit).permit(:user_id, :customer_id, :card_token)
   end
 end
