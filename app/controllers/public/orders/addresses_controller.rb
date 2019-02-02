@@ -24,4 +24,8 @@ class Public::Orders::AddressesController < ApplicationController
     end
   end
 
+  private
+  def address_params
+    params.require(:address).permit(:user_id, :user_name, :name_kana, :tel, :postalcode, :prefecture_id, :city, :street, :others, :defaultflg, :address_id)
+  end
 end
