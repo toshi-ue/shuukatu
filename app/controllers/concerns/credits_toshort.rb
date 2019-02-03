@@ -2,24 +2,42 @@ module CreditsToshort
   extend ActiveSupport::Concern
 
   # payjp
-  def get_cards_info(customer_id)
-    # binding.pry
-    infos = Payjp::Customer.retrieve(customer_id)
-    (infos.cards.data).each_with_index do |info, i|
-      @cards[i] = {'brand'=>(info.brand).to_s, 'last4'=>(info.last4).to_s, 'card_token'=>(info.id).to_s, 'exp_month'=>(info.exp_month).to_s, 'exp_year'=>(info.exp_year).to_s}
-    end
-  end
-
   def get_payjp_customer
-    payjp_info = Credit.find_by(user_id: current_user.id)
-
-    if payjp_info.present?
-      @payjp_customer = Payjp::Customer.retrieve(payjp_info.customer_id)
+    credit = Credit.find_by(user_id: current_user.id)
+    if credit.present?
+      @payjp_customer = Payjp::Customer.retrieve(credit.customer_id)
     else
-      create_payjp_customer
+      @payjp_customer = nil
     end
 
     return @payjp_customer
+  end
+
+  def get_card(card_token)
+    @card = @payjp_customer.cards.retrieve(card_token)
+  end
+
+  def get_cards
+    if  @payjp_customer.present?
+      if @payjp_customer.cards.count != 0
+        @cards = []
+        (@payjp_customer.cards.data).each_with_index do |card, i|
+          @cards[i] = {
+            'brand'=>(card.brand).to_s,
+            'last4'=>(card.last4).to_s,
+            'card_token'=>(card.id).to_s,
+            'exp_month'=>(card.exp_month).to_s,
+            'exp_year'=>(card.exp_year).to_s
+          }
+        end
+      else
+        @cards = nil
+      end
+    else
+      @cards = nil
+    end
+
+    return @cards
   end
 
   def create_payjp_card_token
@@ -49,6 +67,9 @@ module CreditsToshort
   end
 
   def associate_payjp_customer_and_token
+    if @payjp_customer.blank?
+      create_payjp_customer
+    end
     create_payjp_card_token
     @card_token = @token.id
     @customer = Payjp::Customer.retrieve(@payjp_customer.id)
@@ -76,5 +97,14 @@ module CreditsToshort
     end
 
     return @card_token
+  end
+
+  private
+  def credit_params
+    params.permit(:credit).permit(:user_id, :customer_id, :card_token)
+  end
+
+  def set_api_key
+    Payjp.api_key = ENV['payjp_test_private_key']
   end
 end

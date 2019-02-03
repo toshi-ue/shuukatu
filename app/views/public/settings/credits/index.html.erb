@@ -3,7 +3,7 @@
 <!-- <p><strong>BEGIN app/controllers/public/settings/credits/index.html.erb</strong></p> -->
 
 <div class="text-center"><h3>クレジットカード情報</h3></div>
-<% unless @cards.empty? %>
+<% if @cards.present? %>
   <table class="table">
     <tr>
       <th class="text-center col-md-4">カード種類</th>
