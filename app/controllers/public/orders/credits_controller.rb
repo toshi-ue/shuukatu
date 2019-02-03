@@ -32,15 +32,4 @@ class Public::Orders::CreditsController < ApplicationController
     flash.now[:danger] = "入力情報に誤りがあります。もう一度入力し直してください"
     render 'new'
   end
-
-
-
-  private
-  def set_api_key
-    Payjp.api_key = ENV['payjp_test_private_key']
-  end
-
-  def credit_params
-    params.permit(:credit).permit(:user_id, :customer_id, :card_token)
-  end
 end
