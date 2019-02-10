@@ -1,9 +1,9 @@
 class Public::TopsController < ApplicationController
   def index
-    @newItems = Item.latest_5items(nil)
-    @genre1Items = Item.latest_5items(1)
-    @genre2Items = Item.latest_5items(2)
-    @genre3Items = Item.latest_5items(3)
+    @newItems = Item.latest_5_items(nil)
+    @genre1Items = Item.latest_5_items(1)
+    @genre2Items = Item.latest_5_items(2)
+    @genre3Items = Item.latest_5_items(3)
   end
 
   def company
