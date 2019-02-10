@@ -1,5 +1,5 @@
 class Item < ActiveRecord::Base
-
+  # tops#index
   scope :latest_5_items, -> (genre_id){
     if genre_id == nil
       includes(:genre, :subgenre)
@@ -11,6 +11,11 @@ class Item < ActiveRecord::Base
         .order(updated_at: :desc)
         .limit(5)
     end
+  }
+
+  # items#show
+  scope :get_item, -> (itemName){
+    find_by(itemName: itemName)
   }
 
   # uploader

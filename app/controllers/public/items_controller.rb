@@ -1,7 +1,7 @@
 class Public::ItemsController < ApplicationController
 
   def show
-    @item = Item.find(params[:id])
+    @item = Item.get_item(params[:item_name])
     @genres = Genre.includes(:subgenres)
   end
 end
