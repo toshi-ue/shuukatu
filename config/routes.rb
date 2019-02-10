@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  # BEGIN 公開用 ------------------------------------------------------------------
+  # BEGIN for users ------------------------------------------------------------------
 
   # ユーザー設定用
   devise_for :users, controllers: {
@@ -18,18 +18,13 @@ Rails.application.routes.draw do
       # クレジット情報
       resources :credits, only: [:index, :show, :new, :create, :destroy]
 
-      # 住所情報
       resources :addresses do
         get 'change_main_address', on: :member
       end
 
     # ユーザー情報の一覧画面
-      # resources :users, only: [:index, :show] do
-        # collection do
-          get 'users/dashboard'#, on: :collection
-          get 'users/security'
-        # end
-      # end
+      get 'users/dashboard'#, on: :collection
+      get 'users/security'
     end
 
     # トップ画面
@@ -38,9 +33,6 @@ Rails.application.routes.draw do
         get 'company'
         get 'search'
       end
-      # member do
-      #   get 'search'
-      # end
     end
 
     # カート
@@ -55,16 +47,18 @@ Rails.application.routes.draw do
 
     # googlemap表示用
     resources :positions
+
     # ジャンル
-    resources :genres, only: [:show], shallow: true do
-      resources :subgenres, only: [:show], shallow: true do
-        resources :items, only: [:show]# do
+    resources :genres, only: [:index, :show], shallow: true do
+      resources :subgenres, only: [:index, :show], shallow: true do
+        # resources :items, only: [:show]# do
           # collection do
           #   get 'search'
           # end
         #end
       end
     end
+    get ':genre_name/:subgenre_name/:item_name', to: 'items#show', as: 'item'
 
     # ユーザー情報の一覧画面
     # resources :users, only: [:index, :show]
@@ -80,8 +74,9 @@ Rails.application.routes.draw do
       post 'credits/create'
     end
   end
+  # END for users ------------------------------------------------------------------
 
-  # BEGIN ショッパー用 ------------------------------------------------------------------
+  # BEGIN for managers ------------------------------------------------------------------
   devise_for :managers, controllers: {
     sessions:      'managers/devise/managers/sessions',
     passwords:     'managers/devise/managers/passwords',
@@ -101,14 +96,17 @@ Rails.application.routes.draw do
     get 'ordersdat/sum_dat'
 
   end
+  # END for managers ------------------------------------------------------------------
 
-  # master用 --------------------------------------------------------------------------
+  # BEGIN for masters --------------------------------------------------------------------------
   namespace :master do
     resources :genres
   end
+  # BEGIN for masters --------------------------------------------------------------------------
 
-  # ルート
+  # root
   root to: "public/tops#index"
+
 # メール確認用
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
