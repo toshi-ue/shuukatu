@@ -25,7 +25,6 @@ gem 'therubyracer'
 # gem 'capistrano-rails', group: :development
 gem 'autonumeric-rails'
 gem 'bootstrap-sass'
-# gem 'bullet'
 gem 'carrierwave'
 gem 'chart-js-rails'
 # gem 'credit_card_validator'
@@ -51,7 +50,6 @@ gem 'whenever', require: false
 
 group :development, :test do
   gem 'annotate'
-  # gem 'bullet'
   gem 'hirb'
   gem 'hirb-unicode'
   # gem 'letter_opener_web'

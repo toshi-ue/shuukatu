@@ -1,4 +1,18 @@
 class Item < ActiveRecord::Base
+
+  scope :latest_5_items, -> (genre_id){
+    if genre_id == nil
+      includes(:genre, :subgenre)
+        .order(updated_at: :desc)
+        .limit(5)
+    else
+      includes(:genre, :subgenre)
+        .where(genre_id: genre_id)
+        .order(updated_at: :desc)
+        .limit(5)
+    end
+  }
+
   # uploader
   mount_uploader :mainImage, ImageUploader
   mount_uploader :image2, ImageUploader

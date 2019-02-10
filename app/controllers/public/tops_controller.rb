@@ -1,9 +1,9 @@
 class Public::TopsController < ApplicationController
   def index
-    @newItems = Item.order(updated_at: :desc).limit(5)
-    @genre1Items = Item.where(genre_id: 1).order(updated_at: :desc).limit(5)
-    @genre2Items = Item.where(genre_id: 2).order(updated_at: :desc).limit(5)
-    @genre3Items = Item.where(genre_id: 3).order(updated_at: :desc).limit(5)
+    @newItems = Item.latest_5items(nil)
+    @genre1Items = Item.latest_5items(1)
+    @genre2Items = Item.latest_5items(2)
+    @genre3Items = Item.latest_5items(3)
   end
 
   def company
