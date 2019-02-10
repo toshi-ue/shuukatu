@@ -31,6 +31,10 @@ module ApplicationHelper
     controller_path + '/' + action_name
   end
 
+  def item_url_params(item)
+    {genre_name: item.genre.name, subgenre_name: item.subgenre.name, item_name: item.itemName}
+  end
+
   def devise_error_messages
     return "" if resource.errors.empty?
     html = ""
