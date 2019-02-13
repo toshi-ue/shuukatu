@@ -11,6 +11,11 @@ class User < ActiveRecord::Base
   has_many :addresses
   has_many :orders
 
+  # validation
+  validates :password,
+    format: {with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,126}+\z/i }
+
+
 
   # logical-delete user
   def logical_delete
