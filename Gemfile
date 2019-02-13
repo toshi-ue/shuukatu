@@ -58,6 +58,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-stack_explorer'
   gem 'rspec-rails', '~> 3.6.0'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -69,7 +70,6 @@ group :development do
   # gem 'letter_opener'
   gem 'letter_opener_web'
   gem 'web-console', '~> 2.0'
-
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-commands-rspec'
