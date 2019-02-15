@@ -10,6 +10,11 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'public/settings/users/omniauth_callbacks'
   }
 
+  # メール確認用(letter_opener_web)
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
   scope module: :public do
 
     # ユーザー設定用
@@ -106,11 +111,6 @@ Rails.application.routes.draw do
 
   # root
   root to: "public/tops#index"
-
-# メール確認用
-  if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: "/letter_opener"
-  end
 
   # TODOS 404エラーの復帰
   # get '*path', controller: 'application', action: 'render_404'

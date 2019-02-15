@@ -52,7 +52,6 @@ group :development, :test do
   gem 'annotate'
   gem 'hirb'
   gem 'hirb-unicode'
-  # gem 'letter_opener_web'
   gem 'pry-byebug'
   gem 'pry-doc'
   gem 'pry-rails'
@@ -67,7 +66,6 @@ group :development do
   gem 'bullet'
   gem 'faker', require: false # for sample data in development
   # Access an IRB console on exception pages or by using <%= console %> in views
-  # gem 'letter_opener'
   gem 'letter_opener_web'
   gem 'web-console', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
