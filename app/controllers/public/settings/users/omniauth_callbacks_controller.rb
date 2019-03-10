@@ -16,7 +16,11 @@ class Public::Settings::Users::OmniauthCallbacksController < Devise::OmniauthCal
 
   private
   def callback_from(provider)
-    provider = provider.to_s
+     if provider.to_s == "google_oauth2"
+      provider = "Google"
+     else
+      provider = "Facebook"
+     end
 
     @user = User.find_for_oauth(request.env['omniauth.auth'])
 
@@ -25,7 +29,7 @@ class Public::Settings::Users::OmniauthCallbacksController < Devise::OmniauthCal
       sign_in_and_redirect @user, event: :authentication
     else
       session["devise.#{provider}_data"] = request.env['omniauth.auth'].except("extra")
-      redirect_to new_user_registration_url
+      redirect_to new_user_registration_url, warning: @user.errors.full_messages.join("\n")
     end
   end
 end
