@@ -133,3 +133,5 @@ vendor/
 .rspec
 .ruby-version
 Guardfile
+table_structure/
+memos/
