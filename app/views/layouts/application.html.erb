@@ -29,7 +29,7 @@
         <div id="<%= action_name %>">
           <% flash.each do |key, value| %>
             <% key = "success" if key == "notice" %>
-            <% key = "error" if key == "alert" %>
+            <% key = "danger" if key == "alert" %>
             <%= content_tag :div, value, class: "alert alert-#{key}" %>
           <% end %>
 
