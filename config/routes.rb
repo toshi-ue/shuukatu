@@ -56,14 +56,14 @@ Rails.application.routes.draw do
     # ジャンル
     resources :genres, only: [:index, :show], shallow: true do
       resources :subgenres, only: [:index, :show], shallow: true do
-        # resources :items, only: [:show]# do
-          # collection do
-          #   get 'search'
-          # end
-        #end
+        resources :items, only: [:show] do
+          collection do
+            get 'search'
+          end
+        end
       end
     end
-    get ':genre_name/:subgenre_name/:item_name', to: 'items#show', as: 'item'
+    # get '/:genre_name/:subgenre_name/:item_name', to: 'items#show', as: 'item'
 
     # ユーザー情報の一覧画面
     # resources :users, only: [:index, :show]

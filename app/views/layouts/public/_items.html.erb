@@ -2,8 +2,8 @@
   <div class="items">
     <% items.each do | item | %>
       <!-- <div class="item"> -->
-        <%# link_to(item_path(genre_name: item.genre.name, subgenre_name: item.subgenre.name, item_name: item.itemName)) do %>
-        <%= link_to(item_path(item_url_params(item))) do %>
+        <%# link_to(item_path(item_url_params(item))) do %>
+        <%= link_to(item_path(item)) do %>
           <article class="card pull-left">
             <%= image_tag item.mainImage.url, class: 'card-img' %>
             <div class="card-content">

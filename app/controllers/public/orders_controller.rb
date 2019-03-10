@@ -9,7 +9,7 @@ class Public::OrdersController < ApplicationController
   include AddressesToshort
 
   def index
-    @orders = Order.includes(:cartitems).where(user_id: current_user.id).page(params[:page]).reverse_order
+    @orders = Order.includes(:address, :cartitems).where(user_id: current_user.id).page(params[:page]).reverse_order
   end
 
   def show
