@@ -45,16 +45,21 @@ RSpec.describe User, type: :model do
     end
 
     context "invalid" do
-      context "when sign up" do
+      context "when sign-up" do
         context "by email" do
           it "email が未入力" do
             @user.email = nil
             expect(@user.valid?).to eq(false)
           end
 
-          it "password が8文字以下" do
+          it "password が7文字以下" do
             @user.password = "a"
-            expect(@user.valid?).to eq(false)
+            expect(@user.valid?).to be_falsey
+          end
+
+          it "password が未入力" do
+            @user.password = ""
+            expect(@user.valid?).to be_falsey
           end
 
           it "password, password_confirmation が異なる値" do
