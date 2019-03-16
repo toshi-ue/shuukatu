@@ -46,8 +46,10 @@ gem 'omniauth-google-oauth2'
 gem 'payjp'
 gem 'rails-i18n'
 gem 'ransack'
+gem 'seed-fu'
 gem 'squasher'
 gem 'whenever', require: false
+
 
 group :development, :test do
   gem 'annotate'
