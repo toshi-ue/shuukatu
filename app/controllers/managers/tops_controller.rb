@@ -5,7 +5,7 @@ class Managers::TopsController < ApplicationController
 
   def dash_board
     # now = Time.current
-    @orders = Order.includes(:cartitems).page(params[:page]).per(40).reverse_order
+    @orders = Order.include_other_models.page(params[:page]).per(40).reverse_order
     # binding.pry
     count_register_everyday_a_week
     # binding.pry

@@ -16,7 +16,7 @@ module OrderdatsToshort
   def totalsales_this_month
     now = Time.current
     @total_sales_monthly = 0
-    @monthly_orders = @orders.where(created_at: now.beginning_of_month..now.end_of_month)
+    @monthly_orders = @orders.include_other_models.where(created_at: now.beginning_of_month..now.end_of_month)
     @monthly_orders.each do |order|
       @total_sales_monthly += (order.total_price).to_i
       # binding.pry
@@ -34,7 +34,7 @@ module OrderdatsToshort
     # binding.pry
     6.times do |i|
       @days.push(now.ago(i.days))
-      @daily_orders = @orders.where(created_at: now.ago(i.days).beginning_of_day..now.ago(i.days).end_of_day)
+      @daily_orders = @orders.include_other_models.where(created_at: now.ago(i.days).beginning_of_day..now.ago(i.days).end_of_day)
       # binding.pry
       @sales = 0
       @daily_orders.each do |order|
