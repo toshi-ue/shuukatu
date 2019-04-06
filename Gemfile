@@ -48,6 +48,7 @@ gem 'rails-i18n'
 gem 'ransack'
 gem 'seed-fu'
 gem 'squasher'
+gem 'trix-rails', '~> 0.11.4.1', require: 'trix'
 gem 'whenever', require: false
 
 

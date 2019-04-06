@@ -17,9 +17,9 @@
   <% end %>
 
 
-
+<div class="text-center">
 <%= link_to "退会する", user_registration_path(current_user.id), data: { confirm: "退会すると今までのデータを見ることができません？それでもいいですか？" }, method: :delete, id: 'delete_button', class: 'btn btn-warning' %>
-
+</div>
 
 
 <!-- registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete -->

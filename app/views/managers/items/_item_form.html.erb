@@ -28,7 +28,9 @@
 </div>
 <div class="field col-md-12">
   <span>※</span><%= f.label :description, '商品説明',class: 'control-label' %>
-  <%= f.text_area :description, rows: 6, placeholder: 'この商品はITEM-77です', class: 'form-control' %>
+  <%# f.text_area :description, rows: 6, placeholder: 'この商品はITEM-77です', class: 'form-control' %>
+  <%= f.hidden_field :description, id: :item_description %>
+  <trix-editor input="item_description"></trix-editor>
 </div>
 <!-- 画像 -->
 <%= render partial: 'disp_image', locals: {item: @item, f: f} %>
