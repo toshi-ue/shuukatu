@@ -15,7 +15,7 @@ class Address < ActiveRecord::Base
 
   # combine_columns
   def set_address_details
-    self.street + self.others
+    self.others.nil? ? self.street : self.street + self.others
   end
 
 end

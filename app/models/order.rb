@@ -1,4 +1,8 @@
 class Order < ActiveRecord::Base
+
+  # includes
+  scope :include_other_models, -> { includes({ address: :prefecture }, :cartitems, :item, :user) }
+
   # pagination
   paginates_per 40
 
@@ -8,7 +12,7 @@ class Order < ActiveRecord::Base
   belongs_to :dvendor
   belongs_to :user
   has_many :cartitems
-  has_many :items, through: :cartitems
+  has_many :item, through: :cartitems
 
   #validation
   validates :order_no, presence: true

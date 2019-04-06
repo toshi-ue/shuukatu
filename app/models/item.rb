@@ -23,11 +23,12 @@ class Item < ActiveRecord::Base
 
   # relation
   # belongs_to :approvalitem
+  has_many :cartitems
   has_many :orders, through: :cartitems
   belongs_to :genre
   belongs_to :subgenre
   belongs_to :brand
-  has_many :cartitems
+
 
   # validation
   # validates :brand_id, presence: true
