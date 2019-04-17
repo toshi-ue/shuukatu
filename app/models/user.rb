@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   has_one :credit, dependent: :destroy
   has_many :addresses
   has_many :orders
+  has_many :reviews
+  has_many :items, through: :reviews
 
   # validation
   validates :password,

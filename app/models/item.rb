@@ -28,6 +28,9 @@ class Item < ActiveRecord::Base
   belongs_to :genre
   belongs_to :subgenre
   belongs_to :brand
+  has_many :reviews, dependent: :destroy
+  has_many :users, through: :reviews
+  accepts_nested_attributes_for :reviews
 
 
   # validation

@@ -1,5 +1,37 @@
 Rails.application.routes.draw do
 
+  # namespace :public do
+  # get 'reviews/index'
+  # end
+
+  # namespace :public do
+  # get 'reviews/edit'
+  # end
+
+  # namespace :public do
+  # get 'reviews/update'
+  # end
+
+  # namespace :public do
+  # get 'reviews/preview'
+  # end
+
+  # namespace :public do
+  # get 'reviews/index'
+  # end
+
+  # namespace :public do
+  # get 'reviews/edit'
+  # end
+
+  # namespace :public do
+  # get 'reviews/update'
+  # end
+
+  # namespace :public do
+  # get 'reviews/preview'
+  # end
+
   # BEGIN for users ------------------------------------------------------------------
 
   # ユーザー設定用
@@ -67,6 +99,11 @@ Rails.application.routes.draw do
 
     # ユーザー情報の一覧画面
     # resources :users, only: [:index, :show]
+    resources :reviews, only: %i(index edit update) do
+      member do
+        get 'preview'
+      end
+    end
   end
 
   namespace :public do
