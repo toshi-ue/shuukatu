@@ -69,6 +69,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'bullet'
   gem 'faker', require: false # for sample data in development
+  gem 'guard-livereload', require: false
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'letter_opener_web'
   gem 'web-console', '~> 2.0'
