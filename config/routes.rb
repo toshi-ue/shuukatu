@@ -99,7 +99,7 @@ Rails.application.routes.draw do
 
     # ユーザー情報の一覧画面
     # resources :users, only: [:index, :show]
-    resources :reviews, only: %i(index edit update) do
+    resources :reviews, only: %i(index show create) do
       member do
         get 'preview'
       end
