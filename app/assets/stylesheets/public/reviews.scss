@@ -1,0 +1,44 @@
+// Place all the styles related to the public/reviews controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@media (min-width: 900px) {
+
+
+
+  // topsコントローラー
+  #public-reviews{
+
+    #index{
+      // .review-lists{
+      //   margin: 0 10px;
+
+      .review-lists{
+        padding: 10px 0;
+        border-top: 1px solid #aaa;
+
+        .review_img {
+          max-width: 60%;
+        }
+
+        .review-detail {
+          display: table;
+          padding: 0 20px;
+
+          .review-content {
+            // display: table-cell;
+            // vertical-align: middle;
+            height: 100%;
+          }
+
+          .item-content {
+            padding: 5px 0;
+          }
+
+          a {
+            margin: 10px 0;
+          }
+        }
+      }
+    }
+  }
+}//@media (min-width: 999px)
