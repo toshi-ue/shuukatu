@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   # relation
   has_one :credit, dependent: :destroy
   has_many :addresses
+  has_many :cartitems, through: :orders
   has_many :orders
   has_many :reviews
   has_many :items, through: :reviews

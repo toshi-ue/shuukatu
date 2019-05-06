@@ -25,6 +25,8 @@ class Item < ActiveRecord::Base
   # belongs_to :approvalitem
   has_many :cartitems
   has_many :orders, through: :cartitems
+  # has_many :reviews, through: :cartitems
+  has_many :reviews
   belongs_to :genre
   belongs_to :subgenre
   belongs_to :brand
