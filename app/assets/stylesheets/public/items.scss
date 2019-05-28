@@ -1,19 +1,97 @@
 @import "trix";
 
+.breadcrumb{
+  background-color: #FFFFFF;
+}
+
+#price{
+  color: #B12603;
+}
+
 @media (min-width: 900px) {
 
   #public-items{
-    #cart{
-      display: flex;
-      flex-direction: column;
-      justify-content:center;
-      align-items: center;
-      height: 150px;
-
-      select{
-        margin-bottom: 30px;
+    #show{
+      .breadcrumb {
+        margin: 10px 0;
       }
 
+      #codeNo {
+        font-size: 12px;
+      }
+
+      #price-content {
+
+        #price_lbl{
+          line-height: 25px;
+        }
+
+        #price {
+          font-size: 25px;
+          font-weight: bold;
+
+          span{
+            font-size: 15px;
+            font-weight: normal;
+          }
+        }
+      }
+
+
+
+      #cart {
+        min-height: 200px;
+        border: 1px solid #E0E0E0;
+        border-radius: 25px;
+
+        select{
+          margin-bottom: 30px;
+        }
+
+        #add-to-cart{
+          margin: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  #public-items {
+    #show{
+      #codeNo{
+        font-size: 12px;
+      }
+
+      #price-content{
+        margin: 20px 0;
+
+        #price_lbl{
+          font-size: 15px;
+        }
+
+        #price{
+          font-size: 25px;
+        }
+          span {
+            font-size: 15px;
+            font-weight: normal;
+            // margin-left: 10px;
+          }
+      }
+
+      #cart {
+        border: 1px solid #E0E0E0;
+        border-radius: 25px;
+
+        select {
+          margin-bottom: 10px;
+        }
+
+        #add-to-cart {
+          margin: 10px;
+        }
+      }
     }
   }
 }
