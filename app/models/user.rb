@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   has_many :orders
   has_many :reviews
   has_many :items, through: :reviews
-
+  has_many :likes, dependent: :destroy
   # validation
   validates :password,
     format: {with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,126}+\z/i }

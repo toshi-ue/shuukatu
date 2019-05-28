@@ -33,6 +33,7 @@ class Item < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
   has_many :users, through: :reviews
   accepts_nested_attributes_for :reviews
+  has_many :likes, dependent: :destroy
 
 
   # validation
