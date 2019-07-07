@@ -61,6 +61,7 @@
   }
 }
 
+// mobile
 @media (max-width: 767px) {
   #public-items {
     #show{
@@ -69,7 +70,7 @@
       }
 
       #price-content{
-        margin: 20px 0;
+        // margin: 20px 0;
 
         #price_lbl{
           font-size: 15px;
@@ -85,12 +86,8 @@
           }
       }
 
-      #new_like.new_like {
-        margin: 10px 0px 10px 0;
-      }
-
-      .edit_like {
-        margin: 10px 0px 10px 0;
+      .new_like, .edit_like {
+        margin: 5px 0px 5px 0;
       }
 
       #cart {
