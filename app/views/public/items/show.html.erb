@@ -26,7 +26,6 @@
       <%# description %>
       <div class="col-xs-12 col-sm-12 col-md-5">
         <h3 class="hidden-xs"><%= @item.itemName %><span id="codeNo"> (CodeNo： <%= @item.itemCodeNo %>)</span></h3>
-        <%# <hr> %>
         <div id="price-content" class="text-center">
           <span id="price_lbl">価格：</span>
           <span id="price"><%= dispYen(@item.price) %></span>
@@ -34,7 +33,7 @@
         </div>
         <%= sanitize (@item.description * 3).truncate(60), tags: %w(h1 h2 h3 h4 h5 h6 ul ol li p a img table tr td em br strong div), attributes:  %w(id class href)  %>
       </div>
-      <div id="cart" class="col-xs-12 col-sm-12 col-md-3">
+      <div id="cart" class="col-xs-10 col-xs-offset-1 col-sm-12 col-md-3">
         <% if user_signed_in? %>
         <%= form_tag(add_item_cartitems_path, method: :post) do %>
         <%= hidden_field_tag :item_id, @item.id %>

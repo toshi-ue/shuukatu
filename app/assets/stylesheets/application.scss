@@ -6,7 +6,165 @@
   @extend .has-error;
 }
 
-// デスクトップ用
+// navbar設定
+$bgDefault : #f1be0f;
+$bgHighlight : #f1be0f;
+$colDefault : #edf7f9;
+$colHighlight : #423b35;
+$dropDown : true;
+
+.navbar-default {
+  background-color: $bgDefault;
+  border-color: $bgHighlight;
+
+  .navbar-brand {
+    color: $colDefault;
+
+    &:hover,
+    &:focus {
+      color: $colHighlight;
+    }
+  }
+
+  .navbar-text {
+    color: $colDefault;
+  }
+
+  .navbar-nav {
+    >li {
+      >a {
+        color: $colDefault;
+
+        &:hover,
+        &:focus {
+          color: $colHighlight;
+        }
+      }
+
+      @if $dropDown {
+        >.dropdown-menu {
+          background-color: $bgDefault;
+
+          >li {
+            >a {
+              color: $colDefault;
+
+              &:hover,
+              &:focus {
+                color: $colHighlight;
+                background-color: $bgHighlight;
+              }
+            }
+
+            &.divider {
+              background-color: $bgHighlight;
+            }
+          }
+        }
+      }
+    }
+
+    @if $dropDown {
+      .open .dropdown-menu>.active {
+
+        >a,
+        >a:hover,
+        >a:focus {
+          color: $colHighlight;
+          background-color: $bgHighlight;
+        }
+      }
+    }
+
+    >.active {
+
+      >a,
+      >a:hover,
+      >a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight;
+      }
+    }
+
+    >.open {
+
+      >a,
+      >a:hover,
+      >a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight;
+      }
+    }
+  }
+
+  .navbar-toggle {
+    border-color: $bgHighlight;
+
+    &:hover,
+    &:focus {
+      background-color: $bgHighlight;
+    }
+
+    .icon-bar {
+      background-color: $colDefault;
+    }
+  }
+
+  .navbar-collapse,
+  .navbar-form {
+    border-color: $colDefault;
+  }
+
+  .navbar-link {
+    color: $colDefault;
+
+    &:hover {
+      color: $colHighlight;
+    }
+  }
+}
+
+// mobile-navbar
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu {
+    >li>a {
+      color: $colDefault;
+
+      &:hover,
+      &:focus {
+        color: $colHighlight;
+      }
+    }
+
+    >.active {
+
+      >a,
+      >a:hover,
+      >a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight;
+      }
+    }
+  }
+}
+
+
+
+
+// navbar余白削除
+div.panel.panel-default {
+  // margin: 0 0 50px 0;
+  margin: 0 0 0 0;
+  border: none;
+}//div.panel.panel-default
+
+nav.navbar.navbar-default {
+  margin: 0;
+  border: none;
+}//nav.navbar.navbar-default
+
+
+// desktop
 @media (min-width: 900px) {
 
 
@@ -23,21 +181,6 @@
   .sidebar{
     border-right: 2px solid #F8F8F8;
   }//.sidebar
-
-
-  // navbar余白削除
-  div.panel.panel-default{
-    // margin: 0 0 50px 0;
-    margin: 0 0 0 0;
-    border: none;
-  }//div.panel.panel-default
-
-  nav.navbar.navbar-default{
-    margin: 0;
-    border: none;
-  }//nav.navbar.navbar-default
-
-
 
   .inline{
     display: inline;
@@ -146,76 +289,6 @@
   }
 
 
-  // navbar設定
-  $bgDefault      : #f1be0f;
-  $bgHighlight    : #f1be0f;
-  $colDefault     : #edf7f9;
-  $colHighlight   : #423b35;
-  $dropDown       : true;
-  .navbar-default {
-    background-color: $bgDefault;
-    border-color: $bgHighlight;
-    .navbar-brand {
-      color: $colDefault;
-      &:hover, &:focus {
-        color: $colHighlight; }}
-    .navbar-text {
-      color: $colDefault; }
-    .navbar-nav {
-      > li {
-        > a {
-          color: $colDefault;
-          &:hover,  &:focus {
-            color: $colHighlight; }}
-        @if $dropDown {
-          > .dropdown-menu {
-            background-color: $bgDefault;
-            > li {
-              > a {
-                color: $colDefault;
-                &:hover,  &:focus {
-                  color: $colHighlight;
-                  background-color: $bgHighlight; }}
-              &.divider {
-                background-color: $bgHighlight;}}}}}
-      @if $dropDown {
-        .open .dropdown-menu > .active {
-          > a, > a:hover, > a:focus {
-            color: $colHighlight;
-            background-color: $bgHighlight; }}}
-      > .active {
-        > a, > a:hover, > a:focus {
-          color: $colHighlight;
-          background-color: $bgHighlight; }}
-      > .open {
-        > a, > a:hover, > a:focus {
-          color: $colHighlight;
-          background-color: $bgHighlight; }}}
-    .navbar-toggle {
-      border-color: $bgHighlight;
-      &:hover, &:focus {
-        background-color: $bgHighlight; }
-      .icon-bar {
-        background-color: $colDefault; }}
-    .navbar-collapse,
-    .navbar-form {
-      border-color: $colDefault; }
-    .navbar-link {
-      color: $colDefault;
-      &:hover {
-        color: $colHighlight; }}}
-  @media (max-width: 767px) {
-    .navbar-default .navbar-nav .open .dropdown-menu {
-      > li > a {
-        color: $colDefault;
-        &:hover, &:focus {
-          color: $colHighlight; }}
-      > .active {
-        > a, > a:hover, > a:focus {
-          color: $colHighlight;
-          background-color: $bgHighlight; }}}
-  }//@media (max-width: 767px)
-
 
   // カード画像の余白を削除
   #no-padding{
@@ -241,17 +314,17 @@
     }//img
   }//#cart-count
 
-  footer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f1be0f;
-    height: 100px;
+  // footer{
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   background-color: #f1be0f;
+  //   height: 100px;
 
-    div{
+  //   div{
 
-    }//div
-  }//footer
+  //   }//div
+  // }//footer
 
 // エラー(404)
   #error_404_parent{
@@ -268,4 +341,28 @@
     justify-content: center;
     align-items: center;
   }
-}//@media (min-width: 999px)
+
+  footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f1be0f;
+    height: 100px;
+  }
+}// Desktop @media (min-width: 999px)
+
+
+// mobile
+@media (max-width: 767px) {
+  footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f1be0f;
+    height: 100px;
+  }
+
+//footer
+}//@media (max-width: 767px)

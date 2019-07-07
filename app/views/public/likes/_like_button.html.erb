@@ -5,7 +5,7 @@
     <%# binding.pry %>
     <%# delete item from user's like list %>
       <%= form_for(item.likes.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
-        <%= button_tag(class: "btn btn-default btn-lg") do %>
+        <%= button_tag(class: "btn btn-default") do %>
           <%= content_tag :span, "#{item.likes_count}", class: "glyphicon glyphicon-heart" %>
         <% end %>
       <% end %>
@@ -14,8 +14,8 @@
     <%# binding.pry %>
       <%= form_for(item.likes.build(user_id: current_user.id), method: :post, remote: true) do |f| %>
         <div><%= hidden_field_tag :item_id, item.id %></div>
-        <%= button_tag(class: "btn btn-default btn-lg") do %>
-        <%= content_tag :span, "#{item.likes_count}", class: "glyphicon glyphicon-heart-empty" %>
+        <%= button_tag(class: "btn btn-default") do %>
+          <%= content_tag :span, "#{item.likes_count}", class: "glyphicon glyphicon-heart-empty" %>
         <% end %>
       <% end %>
     <% end %>

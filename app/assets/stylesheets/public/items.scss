@@ -13,7 +13,7 @@
   #public-items{
     #show{
       .glyphicon-heart{
-        color: red;
+        color: #E65100;
       }
       .breadcrumb {
         margin: 10px 0;
@@ -40,7 +40,7 @@
         }
       }
 
-      #new_like.new_like{
+      .new_like, .edit_like {
         margin: 10px 0px 10px 0;
       }
 
@@ -88,9 +88,18 @@
 
       .new_like, .edit_like {
         margin: 5px 0px 5px 0;
+
+        .btn, .btn-default {
+          border-style: none;
+
+          .glyphicon-heart {
+            color: #E65100;
+          }
+        }
       }
 
       #cart {
+        // margin: 20px;
         border: 1px solid #E0E0E0;
         border-radius: 25px;
 
