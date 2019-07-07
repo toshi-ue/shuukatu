@@ -16,6 +16,23 @@ class Item < ActiveRecord::Base
     find_by(itemName: itemName)
   }
 
+  # check existence like list
+  def loved?(user)
+    like_lists.include?(user)
+  end
+
+
+  # add item to user's like list
+  def love(user)
+    likes.create(user_id: user.id)
+  end
+
+  # delete item from user's like list
+  def unlove(user)
+    # binding.pry
+    likes.find_by(user_id: user.id).destroy
+  end
+
   # uploader
   mount_uploader :mainImage, ImageUploader
   mount_uploader :image2, ImageUploader
@@ -34,6 +51,7 @@ class Item < ActiveRecord::Base
   has_many :users, through: :reviews
   accepts_nested_attributes_for :reviews
   has_many :likes, dependent: :destroy
+  has_many :like_lists, through: :likes, source: :user
 
 
   # validation

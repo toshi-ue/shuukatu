@@ -1,36 +1,15 @@
 Rails.application.routes.draw do
+  namespace :public do
+  get 'likes/index'
+  end
 
-  # namespace :public do
-  # get 'reviews/index'
-  # end
+  namespace :public do
+  get 'likes/create'
+  end
 
-  # namespace :public do
-  # get 'reviews/edit'
-  # end
-
-  # namespace :public do
-  # get 'reviews/update'
-  # end
-
-  # namespace :public do
-  # get 'reviews/preview'
-  # end
-
-  # namespace :public do
-  # get 'reviews/index'
-  # end
-
-  # namespace :public do
-  # get 'reviews/edit'
-  # end
-
-  # namespace :public do
-  # get 'reviews/update'
-  # end
-
-  # namespace :public do
-  # get 'reviews/preview'
-  # end
+  namespace :public do
+  get 'likes/destroy'
+  end
 
   # BEGIN for users ------------------------------------------------------------------
 
@@ -104,6 +83,8 @@ Rails.application.routes.draw do
         get 'preview'
       end
     end
+
+    resources :likes, only: %i(index create destroy)
   end
 
   namespace :public do
@@ -116,6 +97,8 @@ Rails.application.routes.draw do
       post 'credits/create'
     end
   end
+
+  # resources :likes, only: %i(index create destroy)
   # END for users ------------------------------------------------------------------
 
   # BEGIN for managers ------------------------------------------------------------------

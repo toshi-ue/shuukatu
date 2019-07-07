@@ -1,60 +1,74 @@
 <!-- <div>BEGIN app/views/public/items/show.html.erb</div> -->
-
-<div class="col-md-2">
-  <%= render partial: 'layouts/public/sidebar', locals: {genres: @genres} %>
-</div>
-<div class="col-md-10">
-
-<!--   <p>
-    ジャンルID:
-    <%# @item.genre_id %>
-  </p>
-
-  <p>
-    サブジャンルID<br>
-    <%# @item.subgenre_id %>
-  </p>
-
-  <p>
-    商品ID<br>
-    <%# @item.id %>
-  </p> -->
-<% item = @item %>
-
-<div class="col-md-5 text-center pull-left">
-  <%= image_tag item.mainImage.url %>
-</div>
-<div class="col-md-4 pull-left">
-  <h3><%= item.itemName %></h3>
-  <p>商品番号： <%= item.itemCodeNo %></p>
-  <p>
-    <h3 class="text-center"><%= dispYen(item.price) %>&nbsp;&nbsp;<span style="font-size: 10px;">(税込)</span></h3>
-  </p>
-  <br>
-  <p>ジャンル：  <%= item.genre.name %></p>
-  <p>サブジャンル：  <%= item.subgenre.name %></p>
-  <p>
-    <b>商品詳細：</b><br>
-    <%= sanitize item.description, tags: %w(h1 h2 h3 h4 h5 h6 ul ol li p a img table tr td em br strong div), attributes:  %w(id class href)  %>
-  </p>
-</div>
-<div id="cart" class="col-md-3" style="border: 1px solid gray; border-radius: 5px; min-height: 200px;">
-    <% if user_signed_in? %>
-      <%= form_tag(add_item_cartitems_path, method: :post) do %>
+<div class="row">
+  <div class="hidden-xs col-md-2">
+    <%= render partial: 'layouts/public/sidebar', locals: {genres: @genres} %>
+  </div>
+  <div class="col-xs-12 col-sm-12 col-md-10">
+    <ol class="breadcrumb hidden-xs">
+      <li><%= link_to 'Home', root_path %></li>
+      <li>
+        <%= link_to  genre_path(@item.genre_id) do %>
+          <%= @item.genre.name %>
+        <% end %>
+      </li>
+      <li class="active"><%= @item.itemName %></li>
+    </ol>
+    <div class="visible-xs col-xs-12">
+      <h3><%= @item.itemName %><span id="codeNo"> (CodeNo： <%= @item.itemCodeNo %>)</span></h3>
+    </div>
+    <div class="row">
+      <%# image %>
+      <div class="col-xs-10 col-xs-offset-1 col-sm-12 col-md-4">
+        <%= image_tag @item.mainImage.url, class: 'img-responsive center-block' %>
+      <%# like_button %>
+      <%= render "public/likes/like_button", item: @item %>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-5">
+        <h3 class="hidden-xs"><%= @item.itemName %><span id="codeNo"> (CodeNo： <%= @item.itemCodeNo %>)</span></h3>
+        <hr>
+        <div id="price-content">
+          <span id="price_lbl">価格：</span>
+          <span id="price"><%= dispYen(@item.price) %></span>
+          <span>(税込)</span>
+        </div>
+        <%= sanitize @item.description, tags: %w(h1 h2 h3 h4 h5 h6 ul ol li p a img table tr td em br strong div), attributes:  %w(id class href)  %>
+      </div>
+      <div id="cart" class="col-xs-12 col-sm-12 col-md-3">
+        <% if user_signed_in? %>
+        <%= form_tag(add_item_cartitems_path, method: :post) do %>
         <%= hidden_field_tag :item_id, @item.id %>
         <%= hidden_field_tag :user_id, current_user.id %>
         <!-- <div class="text-center"> -->
-          個数：<%= select_tag :quantity, options_for_select(5.times.map{|i| [i+1, i+1]}), class: 'form-control' %>
-          <%= submit_tag 'カートに入れる', data: { disable_with: '送信中' }, class: 'btn btn-primary btm-md' %>
+        <div class="form-group">
+          <p class="text-center">
+          個数
+          </p>
+          <div class="col-xs-6 col-xs-offset-3 col-sm-8 col-sm-offset-2">
+            <%= select_tag :quantity, options_for_select(5.times.map{|i| [i+1, i+1]}), class: 'form-control' %>
+          </div>
+        </div>
+        <div id="add-to-cart" class="text-center">
+        <%= submit_tag 'カートに入れる', data: { disable_with: '送信中' }, class: 'btn btn-primary btm-md' %>
+        </div>
         <!-- </div> -->
-      <% end %>
-    <% else %>
-      <p>ログインしてください</p>
-      <%= link_to 'ログインする', new_user_session_path, class: "btn btn-primary btn-md" %>
-    <% end %>
+        <% end %>
+        <% else %>
+        <div class="text-center">
+          <p>ログインしてください</p>
+          <%= link_to 'ログインする', new_user_session_path, class: "btn btn-primary btn-md" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="clearfix"></div>
 
-</div>
+
+
+<!--
+ジャンルID:<%# @item.genre_id %><br>
+サブジャンルID:<%# @item.subgenre_id %>
+商品ID:<%# @item.id %>
+-->
 
 <!-- <div>END app/views/public/items/show.html.erb</div> -->

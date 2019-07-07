@@ -1,0 +1,31 @@
+<%# <h1>Public::Likes#index</h1>
+<p>Find me in app/views/public/likes/index.html.erb</p> %>
+
+<div class="row">
+  <h3>あなたのLike一覧</h3>
+  <% if @likes.present? %>
+    <p>なにかある</p>
+    <% @likes.each do |like| %>
+      <%# image_tag %>
+      <div class="row itemList">
+        <%= link_to item_path(like.item_id) do %>
+          <div class="col-xs-4">
+            <%= image_tag like.item.mainImage.url, class: 'like-img img-responsive' %>
+          </div>
+          <div class="col-xs-8">
+            <div class="row">
+                <div class="col-xs-10">
+                  <strong class="itemName"><%= like.item.itemName * 4 %></strong>
+                </div>
+                <div class="col-xs-2">
+                  <span class="glyphicon glyphicon-chevron-right"   aria-hidden="true"></span>
+                </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <p>LikeされたItemはまだありません。</p>
+  <% end %>
+</div>

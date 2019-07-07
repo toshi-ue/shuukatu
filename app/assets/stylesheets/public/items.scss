@@ -12,6 +12,9 @@
 
   #public-items{
     #show{
+      .glyphicon-heart{
+        color: red;
+      }
       .breadcrumb {
         margin: 10px 0;
       }
@@ -37,7 +40,9 @@
         }
       }
 
-
+      #new_like.new_like{
+        margin: 10px 0px 10px 0;
+      }
 
       #cart {
         min-height: 200px;
@@ -78,6 +83,14 @@
             font-weight: normal;
             // margin-left: 10px;
           }
+      }
+
+      #new_like.new_like {
+        margin: 10px 0px 10px 0;
+      }
+
+      .edit_like {
+        margin: 10px 0px 10px 0;
       }
 
       #cart {

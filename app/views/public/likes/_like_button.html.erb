@@ -1,0 +1,25 @@
+<% if user_signed_in? %>
+<%# already sign in %>
+  <span class="like">
+    <% if item.loved?(current_user) %>
+    <%# binding.pry %>
+    <%# delete item from user's like list %>
+      <%= form_for(item.likes.find_by(user_id: current_user.id), method: :delete, remote: true) do |f| %>
+        <%= button_tag(class: "btn btn-default btn-lg") do %>
+          <%= content_tag :span, '#', class: "glyphicon glyphicon-heart" %>
+        <% end %>
+      <% end %>
+    <% else %>
+    <%# add item to user's like list %>
+    <%# binding.pry %>
+      <%= form_for(item.likes.build(user_id: current_user.id), method: :post, remote: true) do |f| %>
+        <div><%= hidden_field_tag :item_id, item.id %></div>
+        <%= button_tag(class: "btn btn-default btn-lg") do %>
+        <%= content_tag :span, '#', class: "glyphicon glyphicon-heart-empty" %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </span>
+<% else %>
+<%# not yet sign in %>
+<% end %>

@@ -1,0 +1,32 @@
+// mobile
+@media screen and (max-width: 767px) {
+  main#public-likes {
+    #index {
+      .itemList{
+        padding: 10px 0;
+        border-bottom: 1px solid lightgray;
+        margin: 0 10px;
+
+        a {
+          color: black;
+
+          &:hover {
+            color: grey;
+          }
+        }
+
+        &:first-of-type {
+          border-top: 1px solid lightgray;
+        }
+        .like-img {
+          margin: 0;
+        }
+
+        .itemName {
+          margin: 0;
+          // font-size: 1px;
+        }
+      }
+    }
+  }
+}
