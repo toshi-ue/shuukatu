@@ -10,6 +10,7 @@ class Public::LikesController < ApplicationController
     # binding.pry
     unless @item.loved?(current_user)
       @item.love(current_user)
+      @item.reload
       respond_to do |format|
         format.html { redirect_to request.referrer || root_url }
         format.js
@@ -24,6 +25,7 @@ class Public::LikesController < ApplicationController
 
       # binding.pry
       @item.unlove(current_user)
+      @item.reload
       respond_to do |format|
         format.html { redirect_to request.referrer || root_url }
         format.js
