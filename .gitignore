@@ -135,3 +135,5 @@ vendor/
 Guardfile
 table_structure/
 memos/
+
+spec/
