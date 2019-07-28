@@ -1,16 +1,38 @@
+// common
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+html,body{
+  height: 100%;
+}
+
+$mobile: 767px;
 
 .field_with_errors {
   @extend .form-group;
   @extend .has-error;
 }
 
+a {
+  color: #77777B;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}//a
+
+.row-eq-height {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+
 // navbar設定
 $bgDefault : #f1be0f;
 $bgHighlight : #f1be0f;
-$colDefault : #edf7f9;
-$colHighlight : #423b35;
+$colDefault : #ecf0f1;
+$colHighlight : #ecf0f1;
 $dropDown : true;
 
 .navbar-default {
@@ -125,7 +147,7 @@ $dropDown : true;
 }
 
 // mobile-navbar
-@media (max-width: 767px) {
+@media (max-width: $mobile) {
   .navbar-default .navbar-nav .open .dropdown-menu {
     >li>a {
       color: $colDefault;
@@ -148,9 +170,6 @@ $dropDown : true;
   }
 }
 
-
-
-
 // navbar余白削除
 div.panel.panel-default {
   // margin: 0 0 50px 0;
@@ -164,19 +183,8 @@ nav.navbar.navbar-default {
 }//nav.navbar.navbar-default
 
 
-// desktop
-@media (min-width: 900px) {
-
-
-
-  //共通
-  a{
-    color: #77777B;
-
-    &:hover{
-      opacity: 0.2;
-    }//&:hover
-  }//a
+// not-mobile
+@media (min-width: $mobile) {
 
   .sidebar{
     border-right: 2px solid #F8F8F8;
@@ -234,10 +242,10 @@ nav.navbar.navbar-default {
     }//.items
 
 
-
+  // login user
   #public-settings-users-sessions{
 
-  // ユーザーログイン画面
+
     #new{
 
       #frame-border{
@@ -251,10 +259,8 @@ nav.navbar.navbar-default {
     }//#new
   }//#public-settings-users-sessions
 
-
+  // login manager
   #managers-devise-managers-sessions{
-
-  // ユーザーログイン画面
     #new{
 
       #frame-border{
@@ -288,8 +294,6 @@ nav.navbar.navbar-default {
     min-height: 600px;
   }
 
-
-
   // カード画像の余白を削除
   #no-padding{
     padding: 0px;
@@ -313,18 +317,6 @@ nav.navbar.navbar-default {
       // vertical-align: middle;
     }//img
   }//#cart-count
-
-  // footer{
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   background-color: #f1be0f;
-  //   height: 100px;
-
-  //   div{
-
-  //   }//div
-  // }//footer
 
 // エラー(404)
   #error_404_parent{
@@ -350,19 +342,32 @@ nav.navbar.navbar-default {
     background-color: #f1be0f;
     height: 100px;
   }
-}// Desktop @media (min-width: 999px)
+}//not-mobile
 
 
 // mobile
-@media (max-width: 767px) {
-  footer {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f1be0f;
-    height: 100px;
+@media (max-width: $mobile) {
+  html, body{
+    // position: relative;
+    height: 100%;
   }
 
-//footer
+  #wrap{
+    min-height: 100%;
+    height: auto;
+    margin: 0 0 60px;
+  }
+
+  #pusher, footer{
+    height: 60px;
+  }
+
+  footer {
+    // position: absolute;
+    bottom: 0;
+    min-width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #f1be0f;
+  }//footer
 }//@media (max-width: 767px)
