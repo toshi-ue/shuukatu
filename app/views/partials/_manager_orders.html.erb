@@ -1,42 +1,152 @@
 <!-- <div>app/views/partials/_orders.html.erb</div> -->
 <% unless @orders.blank? %>
-  <div class="text-center"><%= paginate @orders %></div>
-  <table class="table table-hover">
-    <tr>
-      <th class="text-center">注文日時</th>
-      <th class="text-center">注文番号</th>
-      <% if manager_signed_in? %>
-      <th class="text-center">ユーザー名</th>
-      <% end %>
-      <th class="text-center">購入金額</th>
-      <th class="text-center">注文詳細</th>
-      <th class="text-center">配送先</th>
-      <th class="text-center">配送状況</th>
-    </tr>
-    <% @orders.each_with_index do |order, i| %>
-    <tr>
-      <td class="text-center"><%= order.created_at.to_s(:time_user) %></td>
-      <td class="text-center"><%= order.order_no %></td>
-      <% if manager_signed_in? %>
-      <td class="text-center"><%= link_to "#{order.user.email}", managers_user_path(id: order.user_id) %></td>
-      <% end %>
-      <td class="text-center"><%= number_to_currency(order.total_price, :format => "%u%n", :precision => 0, :unit =>"¥") %></td>
-      <td class="text-center"><button type="button" class="btn btn-default btn-sm" data-toggle="collapse" data-target=".details<%= i %>">表示</button></td>
-      <td class="text-center"><%= disp_address(order) %></td>
-      <td class="text-center">配送状況</td>
-    </tr>
+  <% @orders.each_with_index do |order, i| %>
+  <%# mobile %>
+  <div class="row">
+    <div class="visible-xs orderLists<%= " odd" if i % 2 == 1 %>">
+      <ul class="orderList">
+        <%# 注文 %>
+        <li class="orderInfo">
+          <%# 注文番号 %>
+          <strong class="orderNo col-xs-3"><%= order.order_no %></strong>
+          <%# 注文日時 %>
+          <div class="orderDate col-xs-9"><%= order.created_at.to_s(:time_manager) %></div>
+          <div class="row-eq-height col-xs-12">
+            <div class="dispButton col-xs-3 sample_line">
+              <button type="button" class="showDetails btn btn-default" data-toggle="collapse"
+                data-target="#order_<%= i %>">詳細</button>
+            </div>
+            <div class="col-xs-9 sample_line">
+              <%# ユーザー名 %>
+              <div class="linkUser"><%= order.user.email %>(ユーザー)</div><br>
+              <%# 配送状況 %>
+              <div class="deliveryStatus">配達中</div><br>
+              <%# 合計金額 %>
+              <div
+                class="totalPrice"><%= number_to_currency(order.total_price, :format => "%u%n", :precision => 0, :unit =>"¥")%></span>
+            </div>
+          </div>
+        </li>
+        <li id="order_<%= i %>" class="collapse">
+          <ul>
+            <li>
+              <%# ユーザー情報の詳細へ %>
+              <% unless "#{controller.controller_path}##{action_name}" == "managers/users#show"%>
+              <div class="text-center">
+                <%= link_to "#{order.user.email}の詳細", managers_user_path(id: order.user_id), class: 'btn btn-default'%>
+              </div>
+              <% end %>
+            </li>
+            <li class="delivery">
+              <%# 配送先 %>
+              <div class="row-eq-height col-xs-12">
+                <div class="col-xs-2"></div>
+                <div class="shippingParent col-xs-2">
+                  <div class="shippingChild">
+                    配送先
+                  </div>
+                </div>
+                <div class="Addressee col-xs-7">
+                  <%= "〒#{order.address.postalcode}" %><br>
+                  <%= sanitize(disp_address_mobile(order)) %>
+                </div>
+              </div>
+            </li>
+            <li>
+              <% order.cartitems.each do |cartitem| %>
+              <div class="itemLists">
+                <div class="row-eq-height">
+                  <%# 商品画像 %>
+                  <div class="col-xs-2"></div>
+                  <div class="col-xs-3 itemImg">
+                    <%= image_tag cartitem.item.mainImage.url, class: "img-responsive" %>
+                  </div>
+                  <%# 商品概要 %>
+                  <div class="itemname col-xs-7">
+                    <%# 商品名 %>
+                    <span class="itemname"><%= cartitem.item.itemName %></span><br>
+                    <%# 個々詳細 %>
+                    <div class="pull-right">
+                      <%# 単価 %>
+                      <span><%= number_to_currency(cartitem.item.price, :format => "%u%n", :precision => 0, :unit =>"¥") %></span>
+                      <%# 数量 %>
+                      <span>( x <%= cartitem.quantity %>)</span>
+                    </div>
+                    <br>
+                    <span class="pull-right">小計： <%= disp_subtotal(cartitem.quantity, cartitem.item.price) %></span>
+                  </div>
+                </div>
+              </div>
+              <% end %>
+            </li>
+          </ul>
+        </li>
+        <%# 注文商品 %>
+      </ul>
+    </div>
+  </div>
+  <% end %>
+  <%# not_mobile %>
+  <div class="hidden-xs">
+    <div class=" text-center"><%# paginate @orders %></div>
+    <table class="table table-hover">
+      <tr>
+        <th class="text-center">注文日時</th>
+        <th class="text-center">注文番号</th>
+        <% if manager_signed_in? %>
+        <th class="text-center">ユーザー名</th>
+        <% end %>
+        <th class="text-center">購入金額</th>
+        <th class="text-center">注文詳細</th>
+        <th class="text-center">配送状況</th>
+      </tr>
+      <% @orders.each_with_index do |order, i| %>
+      <tr>
+      <%# 注文番号 %>
+        <td class="orderno text-center"><%= order.order_no %></td>
+      <%# 注文日時 %>
+        <td class="orderdate text-center"><%= order.created_at.to_s(:time_manager) %></td>
+      <%# ユーザー情報へのリンク %>
+        <% if manager_signed_in? %>
+        <td class="linkUser text-center"><%= link_to "#{order.user.email}", managers_user_path(id: order.user_id) %>
+        </td>
+        <% end %>
+        <%# 購入金額 %>
+        <td class="text-center">
+          <%= number_to_currency(order.total_price, :format => "%u%n", :precision => 0, :unit =>"¥") %></td>
+        <%# 注文詳細確認ボタン %>
+        <td class="text-center"><button type="button" class="btn btn-default btn-sm" data-toggle="collapse"
+            data-target=".details<%= i %>">表示</button></td>
+        <%# 配送状況 %>
+        <td class="text-center">配送状況</td>
+      </tr>
+      <tr class="shippingAddress details<%= i %> collapse">
+        <td></td>
+        <td class="text-right">配送先</td>
+        <td class="text-left" colspan="4"><%= disp_address(order) %></td>
+      </tr>
+      <tr class="detailcategorys details<%= i %> collapse">
+        <td></td>
+        <td class="text-center">画像</td>
+        <td class="text-center">商品名</td>
+        <td class="text-center">単価</td>
+        <td class="text-center">数量</td>
+        <td class="text-center">小計</td>
+      </tr>
+      <%# 注文内容詳細 %>
       <% order.cartitems.each do |cartitem| %>
-        <tr class="details<%= i %> collapse">
-          <td class="text-center"><%= image_tag cartitem.item.mainImage.url %></td>
-          <td class="text-center"><%= cartitem.item.itemName %></td>
-          <td class="text-center">価格： <%= number_to_currency(cartitem.item.price, :format => "%u%n", :precision => 0, :unit =>"¥") %></td>
-          <td class="text-center">数量： <%= cartitem.quantity %></td>
-          <td class="text-center">小計： <%= disp_subtotal(cartitem.quantity, cartitem.item.price) %></td>
+        <tr class="detail details<%= i %> collapse">
           <td></td>
+          <td class="text-center"><%= image_tag cartitem.item.mainImage.url %></td>
+          <td class="text-left"><%= cartitem.item.itemName %></td>
+          <td class="text-center"><%= number_to_currency(cartitem.item.price, :format => "%u%n", :precision => 0, :unit =>"¥") %></td>
+          <td class="text-center"><%= cartitem.quantity %></td>
+          <td class="text-center"><%= disp_subtotal(cartitem.quantity, cartitem.item.price) %></td>
         </tr>
       <% end %>
-    <% end %>
-  </table>
+      <% end %>
+    </table>
+  </div>
 
   <% else %>
     <div class="text-center">
@@ -45,4 +155,3 @@
   <% end %>
 
 <div class="text-center"><%= paginate @orders %></div>
-
