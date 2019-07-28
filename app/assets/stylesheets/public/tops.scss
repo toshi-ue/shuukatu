@@ -1,4 +1,7 @@
-@media (min-width: 900px) {
+@import "application";
+
+// not-mobile
+@media (min-width: $mobile) {
 
 
 
@@ -48,4 +51,29 @@
       }//#genres-show
 
 
-}//@media (min-width: 999px)
+}// not-mobile
+
+
+// mobile
+@media (max-width: $mobile) {
+  #public-tops {
+    #index {
+      .items{
+        .item{
+          overflow: hidden;
+          width: 33.333%;
+          padding: 2%;
+
+          .card{
+            overflow: hidden;
+            width: 100%;
+            .card-img{
+              overflow: hidden;
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -11,6 +11,10 @@ module Public::OrdersHelper
     "〒#{order.address.postalcode} #{order.address.prefecture.name}#{order.address.city}#{order.address.street} #{order.address.others}"
   end
 
+  def disp_address_mobile(order)
+    "#{order.address.prefecture.name}#{order.address.city}#{order.address.street}#{order.address.others}".gsub(/\n/, '<br />')
+  end
+
   def disp_subtotal(quantity, price)
     subtotal = quantity.to_i * price.to_i
     number_to_currency(subtotal, :format => "%u%n", :precision => 0, :unit =>"¥")
