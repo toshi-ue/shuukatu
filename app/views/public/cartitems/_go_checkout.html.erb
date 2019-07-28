@@ -1,10 +1,26 @@
 <!-- _go_checkout.html.erb -->
 
 <% unless @cartitems.blank? %>
-<div id="go-checkout" class="col-md-2">
-  <div id="total_count">小計(<%= @totalcount %>点)</div>
-  <div id="total_price"><%= number_to_currency(@total_price, :format => "%u%n", :precision => 0, :unit =>"¥") %></div>
-  <%= link_to 'レジへ進む', new_order_path, class: 'btn btn-warning btn-md btn-margin col-md-9' %>
+<div id="go-checkout" class="col-xs-12 col-md-2">
+  <div class="hidden-xs">
+    <div id="total_count">
+      小計(<%= @totalcount %>点)
+    </div>
+    <div id="total_price">
+      <%= number_to_currency(@total_price, :format => "%u%n", :precision => 0, :unit =>"¥") %>
+    </div>
+      <%= link_to 'レジへ進む', new_order_path, class: 'btn btn-warning btn-md btn-margin col-md-9' %>
+  </div>
+  <div class="visible-xs">
+    <p class="text-center">
+      <span class="total_count">小計(<%= @totalcount %>点)</span>
+      <span
+        class="total_price"><%= number_to_currency(@total_price, :format => "%u%n", :precision => 0, :unit =>"¥") %></span>
+    </p>
+    <div class="text-center">
+      <%= link_to 'レジへ進む', new_order_path, class: 'btn btn-warning btn-md btn-margin col-md-9' %>
+    </div>
+  </div>
 </div>
 
 <% end %>

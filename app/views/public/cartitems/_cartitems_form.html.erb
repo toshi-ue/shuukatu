@@ -1,7 +1,6 @@
-<!-- <p>Find me in app/views/public/cartitems/_caritems_form.html.erb</p> -->
 <% unless @cartitems.blank? %>
-
-<div class="col-md-9">
+<%# not_mobile %>
+<div class="col-md-9 hidden-xs">
   <table class="col-md-10 col-md-offset-1">
     <% @cartitems.each_with_index do |cartitem, j| %>
       <tr>
@@ -37,13 +36,62 @@
     <% end %>
   </table>
 </div>
+<%# mobile %>
+<div class="visible-xs">
+  <table>
+    <% @cartitems.each_with_index do |cartitem, j| %>
+    <tr>
+      <td>
+        <%# 画像 %>
+        <div class="col-xs-4 row-eq-height">
+          <%= image_tag(cartitem.item.mainImage.url, id: "#{j}-#{cartitem.id}_img", class: 'img-responsive',size: '110x110') %>
+        </div>
+        <div class="col-xs-8">
+          <div class="row">
+            <div class="col-xs-12">
+            <%# 商品名 %>
+            <%= cartitem.item.itemName.concat(20) %><br>
+            <%# 値段 %>
+            <%= dispYen(cartitem.item.price) %>
+            </div>
+            <div class="col-xs-6">
+              <%# 数量 %>
+              <%= dispSelectBox(cartitem.quantity, j) %>
+            </div>
+            <div class="col-xs-6">
+              <%# 小計 %>
+              <% subtotal_price = ((cartitem.item.price) * (cartitem.quantity)).to_s %>
+              <%= dispYen(subtotal_price) %>
+            </div>
+            <div class="col-xs-12 text-right">
+              <%# 削除ボタン %>
+              <%= link_to '削除', cartitem_path(cartitem), class: 'btn btn-default btn-sm',method: :delete, data: { disable_with: '変更中'} %>
+            </div>
+
+          </div>
+        </div>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
 
 <% else %>
-
-<div id="no-item_in_cart" class="col-md-6 col-md-offset-3">
-  <h3>カート一覧</h3>
-  <p class="text-center">カートにはまだ商品がありません</p>
+<%# not_mobile %>
+<div id="no-item_in_cart" class="hidden-xs col-md-6 col-md-offset-3">
+  <div class="text-center">
+    <p>カートにはまだ商品がありません</p>
+  </div>
   <%= link_to '買い物を続ける', root_path, class: 'btn btn-default btn-sm' %>
 </div>
 
+<%# mobile %>
+<div class="no-item_in_cart col-xs-12 visible-xs">
+  <div class="text-center">
+  <p>カートにはまだ商品がありません</p>
+  </div>
+  <div class="text-center">
+    <%= link_to '買い物を続ける', root_path, class: 'btn btn-default btn-sm' %>
+  </div>
+</div>
 <% end %>

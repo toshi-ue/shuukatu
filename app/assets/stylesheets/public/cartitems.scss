@@ -1,4 +1,7 @@
-@media (min-width: 900px) {
+@import "application";
+
+// not_mobile
+@media (min-width: $mobile) {
 
   #public-cartitems{
 
@@ -56,4 +59,42 @@
   }//#public-cartitems
 
 
-}//@media (min-width: 999px)
+}// not-mobile
+
+
+
+// mobile
+@media (max-width: $mobile) {
+  #public-cartitems {
+    #index {
+
+      // .visible-xs{
+      //   overflow: hidden;
+      // }
+      // table{
+      //   width: 100%;
+      // }
+      .row-eq-height{
+        margin: 5px 0;
+      }
+      .total_count {
+        font-size: 17px;
+        margin-bottom: 10px;
+      }
+
+      .total_price {
+        color: #B12704;
+        font-size: 17px;
+      }
+
+      .no-item_in_cart {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+    }
+  }
+}
