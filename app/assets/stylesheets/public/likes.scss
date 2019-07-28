@@ -1,5 +1,7 @@
+@import "application";
+
 // mobile
-@media screen and (max-width: 767px) {
+@media screen and (max-width: $mobile) {
   main#public-likes {
     #index {
       .itemList{
