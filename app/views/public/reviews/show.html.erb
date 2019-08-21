@@ -1,64 +1,75 @@
 <%= stylesheet_link_tag "jquery.rateyo.min.css", :media => "all" %>
+<div class="text-center">
+  <h3>レビュー投稿画面</h3>
+</div>
+<%= render partial: 'partials/validation_error', locals: {instance: @review} %>
+<div id="review-content">
+<div class="review-img col-xs-8 col-xs-offset-2 col-md-4">
+  <%= image_tag @review.item.mainImage.url, class: 'review-img center-block img-responsive img-rounded' %><br>
+</div>
 
-<h1>Public::Reviews#show</h1>
-<p>Find me in app/views/public/reviews/edit.html.erb</p>
-<h1>レビュー投稿画面</h1>
-<%# image_tag item.mainImage.url %>
-<div class="row">
-  <div class="col-xs-10 col-xs-offset1 col-sm-10 col-sm-offset1 col-md-10 col-md-offset1"></div>
-  <%= render partial: 'partials/validation_error', locals: {instance: @review} %>
-  <div class="col-sm-4 col-md-4">
-    <%= image_tag @review.item.mainImage.url, class: 'img-rounded' %><br>
-  </div>
-
-  <div class="col-sm-8 col-md-8">
-    <h3><%= @review.item.itemName %></h3>
-    <%= form_for @review, url: reviews_path, method: :post do |f| %>
-    <div class="field" id="rateYo" data-star="<%= @review.score %>"></div>
-    <div class="field col-md-8">
+<div class="col-xs-12 col-md-7">
+  <h3><%= @review.item.itemName %></h3>
+  <%= form_for @review, url: reviews_path, method: :post do |f| %>
+  <div class="field center-block" id="rateYo" data-star="<%= @review.score %>"></div>
+  <div class="field">
     <p>
       <%= f.label :commnet, 'コメント' %><br />
-      <%= f.text_field :comment, autofocus: true, row: 4, class: 'form-control' %>
+      <%= f.text_area :comment, autofocus: true, row: 4, class: 'form-control' %>
     </p>
-    </div>
-    <%= f.hidden_field :item_id, value: @review.item_id %>
-    <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.hidden_field :score, value: @review.score %><br />
-    <%# binding.pry %>
-
-    <div class="actions text-center">
-      <%= f.submit '送信', class: 'btn btn-default btn-md'%>
-    </div>
-    <% end %>
   </div>
+  <%= f.hidden_field :item_id, value: @review.item_id %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :score, value: @review.score %><br />
+  <%# binding.pry %>
+
+  <div class="actions text-center">
+    <%= f.submit '送信', class: 'btn btn-default btn-md'%>
+  </div>
+  <% end %>
 </div>
+<div class="visible-md col-md-1"></div>
 
 
 <%= javascript_include_tag 'jquery.rateyo.min.js', 'data-turbolinks-track': 'true' %>
 <script>
 $(function(){
-
-  if($("#rateYo").rating == undefined){
-    initRate = 0
+  // set #rateYo size
+  $ww = window.innerWidth;
+  $responsive_prefix_type = $ww <= 767 ? "xs" : "not_xs" ;
+  if ($responsive_prefix_type == "xs") {
+    // mobile
+    // console.log("mobile");
+    $pbox = Math.floor((($ww / 12 * 10) / 10)) * 10;
+    $star_width = String($pbox / 5 - 16) + "px";
+    $space = "20px";
+  } else {
+    // not_mobile
+    // console.log("not_mobile");
+    $star_width = "50px";
+    $space = "40px";
+  };
+  console.log($("#rateYo").rating);
+  $score = Number("<%= @review.score %>")
+  console.log($score)
+  if($score == 0){
+    $initRate = 0
     document.getElementById("review_score").value = 0
   }else{
-    initRate = $("#rateYo").rating
-    document.getElementById("review_score").value = $("#rateYo").rating
+    $initRate = $score
+    document.getElementById("review_score").value = $initRate
   }
 
   $('#rateYo').rateYo({
-    starWidth: "50px",
-    rating: initRate,
-    fullStar: true,
-    spacing: "40px",
+  starWidth: $star_width,
+  rating: $initRate,
+  fullStar: true,
+  spacing: $space,
   })
-
 
   $('#rateYo').rateYo().on("rateyo.set", function(e, data){
-    // console.log(data.rating)
-    document.getElementById("review_score").value = data.rating
+  // console.log(data.rating)
+  document.getElementById("review_score").value = data.rating
   })
-})
-
-
+});
 </script>

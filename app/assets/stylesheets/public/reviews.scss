@@ -1,11 +1,7 @@
-// Place all the styles related to the public/reviews controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-@media (min-width: 900px) {
+@import "application";
 
-
-
-  // topsコントローラー
+// not-mobile
+@media (min-width: $mobile) {
   #public-reviews{
 
     #index{
@@ -16,9 +12,65 @@
         padding: 10px 0;
         border-top: 1px solid #aaa;
 
-        .review_img {
-          max-width: 60%;
+        .review-list{
+          display: flex;
+          align-items: center;
+
+          .review_img {
+            max-width: 60%;
+          }
+
+          .review-detail {
+            display: flex;
+
+            .review-content {
+              // display: flex;
+            }
+
+            .item-content {
+              padding: 5px 0;
+            }
+
+            a {
+              margin: 10px 0;
+            }
+          }
         }
+
+
+
+
+      }
+    }
+
+    #show{
+      #review-content{
+        display: flex;
+        .review-img{
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}// not-mobile
+
+
+// mobile
+@media (max-width: $mobile) {
+  #public-reviews {
+    #index {
+      // .review-lists{
+      //   margin: 0 10px;
+
+      .review-lists {
+        padding: 10px 0;
+        border-top: 1px solid #aaa;
+          .review-list {
+            display: flex;
+            .review-img{
+              align-self: center;
+            }
+          }
 
         .review-detail {
           display: table;
@@ -40,5 +92,12 @@
         }
       }
     }
+
+    #show{
+      // h3{
+      //   font-size: 100px;
+      // }
+
+    }
   }
-}//@media (min-width: 999px)
+}

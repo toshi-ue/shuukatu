@@ -15,11 +15,9 @@ class Public::ReviewsController < ApplicationController
       @reviewed_flg = false
       # render json: @orderd_items
     end
-    binding.pry
   end
 
   def show
-    # binding.pry
   end
 
   def create

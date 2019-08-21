@@ -1,64 +1,63 @@
-<%# <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> %>
 <%= stylesheet_link_tag "jquery.rateyo.min.css", :media => "all" %>
-
-<h1>Public::Reviews#index</h1>
-<%# <p>Find me in app/views/public/reviews/index.html.erb</p> %>
-<div class="row">
-  <div class="col-sm-12 col-md-10 col-md-offset-1">
-    <% if @orderd_items.blank?%>
-    <p>まだ注文された商品はありません(商品購入後レビューできます)</p>
-    <% else %>
-    <p>購入済みの商品</p>
-    <% @orderd_items.each do |item| %>
-    <div class="review-lists">
-      <div class="row">
-        <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-          <% @reviews.each do |review| %>
-            <% if item.id == review.item_id %>
-              <div class="row">
-                <div class="col-xs-4 col-sm-4 col-md-4 pull-left">
-                  <%= image_tag review.item.mainImage.url, class: 'img-responsive center-block review_img'%>
-                </div>
-                <div class="col-xs-8 col-sm-8 col-md-8 review-detail">
-                  <div class="review-content">
-                      <div class="item-content"><%= review.item.itemName %></div>
-                      <div class="item-content">
-                        <div id="rateYo-<%= review.id %>" data-star="<%= review.score %>"></div>
-                      </div>
-                      <div><%= truncate(review.comment, length: 20) %></div>
-                  </div>
-                  <div>
-                    <%= link_to '評価する', review_path(review.item.id), class: 'btn btn-primary' %>
-                  </div>
-                </div>
-                <% @reviewed_flg = true %>
-              </div>
-            <% end %>
-          <% end %>
-          <% unless @reviewed_flg == true %>
-          <div class="row">
-            <div class="col-xs-4 col-sm-4 col-md-4 pull-left">
-              <%= image_tag item.mainImage.url, class: 'img-responsive center-block review_img' %>
+<div class="col-xs-12 col-md-8 col-md-offset-2">
+  <% if @orderd_items.blank?%>
+  <p>まだ注文された商品はありません(商品購入後レビューできます)</p>
+  <% else %>
+  <p>購入済みの商品</p>
+  <% @orderd_items.each do |item| %>
+  <div class="review-lists">
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1">
+        <% @reviews.each do |review| %>
+          <% if item.id == review.item_id %>
+          <%# レビュー済みの商品を表示 %>
+          <div class="review-list row">
+            <div class="review-img col-xs-5 col-md-5">
+              <%= image_tag review.item.mainImage.url, class: 'img-responsive'%>
             </div>
-            <div class="col-xs-8 col-sm-8 col-md-8 review-detail">
+            <div class="review-detail col-xs-7 col-md-7">
+              <div class="review-content">
+                <%# 商品名 %>
+                <div class="item-content">
+                  <%= review.item.itemName.truncate(13) %>
+                </div>
+                <%# 評価表示 %>
+                <div class="item-content">
+                  <div id="rateYo-<%= review.id %>" data-star="<%= review.score %>"></div>
+                </div>
+                <%# <div>truncate(review.comment, length: 20)</div> %>
+                <div>
+                  <%= link_to '評価する', review_path(review.item.id), class: 'btn btn-primary btn-sm' %>
+                </div>
+              </div>
+            </div>
+            <% @reviewed_flg = true %>
+          </div>
+          <% end %>
+        <% end %>
+        <% unless @reviewed_flg == true %>
+          <div class="review-list row">
+            <div class="review-img col-xs-5">
+              <%= image_tag item.mainImage.url, class: 'img-responsive' %>
+            </div>
+            <div class="col-xs-7 review-detail">
               <div class="review-content">
                 <div class="item-content"><%=  item.itemName %></div>
+                <div class="item-content">未評価</div>
                 <div><%= link_to '評価する', review_path(item.id), class: 'btn btn-primary' %></div>
               </div>
             </div>
           </div>
-          <% end %>
-          <div style="clear: both;"></div>
-          <%# binding.pry %>
-          <% @reviewed_flg = false %>
-        </div>
+        <% end %>
+        <%# binding.pry %>
+        <% @reviewed_flg = false %>
       </div>
     </div>
-    <% end %>
-    <% end %>
   </div>
+  <% end %>
+  <% end %>
 </div>
+
 
 <%= javascript_include_tag 'jquery.rateyo.min.js', 'data-turbolinks-track': 'true' %>
 
