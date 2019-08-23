@@ -1,4 +1,7 @@
-@media (min-width: 900px) {
+@import "application";
+
+// not-mobile
+@media (min-width: $mobile) {
   #public-orders-credits{
 
     min-height: 700px;
@@ -16,4 +19,4 @@
     }//#index
 
   }//#public-orders-credits
-}//@media (min-width: 999px)
+}//not-mobile

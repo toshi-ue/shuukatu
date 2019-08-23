@@ -1,35 +1,39 @@
 <!-- <h1>Public::Orders#create</h1>
 <p>Find me in app/views/public/orders/create.html.erb</p> -->
-<div class="row col-md-6 col-md-offset-3"">
+<div class="row col-xs-12 col-sm-6 col-sm-offset-3"">
     <div class="pull-left">注文番号： <%= @order.order_no %></div>
-    <div class="pull-right">注文日時： <%= @order.created_at.to_s(:time_user) %></div>
+    <div class="pull-left">注文日時： <%= @order.created_at.to_s(:time_user) %></div>
     <div style="clear: both;"></div>
     <div>合計金額： <%= number_to_currency(@order.total_price, :format => "%u%n", :precision => 0, :unit =>"¥") %></div>
     <div>
-      お届け先：
-    <!-- </div> -->
-      <strong>
-        <%= @order.address.user_name %>
-      </strong>　
-    <!-- <div> -->
+      <div>
+      お届け先：<strong><%= @order.address.user_name %></strong>　
+      </div>
+      <div>
       〒<%= @order.address.postalcode %>　
       <%= @order.address.prefecture.name %>
       <%= @order.address.city %>
       <%= @order.address.street %>
       <%= @order.address.others %><br>
+      </div>
     <div>
       電話番号： <%= @order.address.tel %>
     </div>
-    <table class="table table-hover">
-        <% @order.cartitems.each do |cartitem| %>
-          <tr>
-            <td class="text-center"><%= image_tag cartitem.item.mainImage.url %></td>
-            <td class="text-center"><%= cartitem.item.itemName %></td>
-            <td class="text-center">価格： <%= number_to_currency(cartitem.item.price, :format => "%u%n", :precision => 0, :unit =>"¥") %></td>
-            <td class="text-center">数量： <%= cartitem.quantity %></td>
-            <td class="text-center">小計： <%= disp_subtotal(cartitem.quantity, cartitem.item.price) %></td>
-            <td></td>
-          </tr>
-        <% end %>
-    </table>
+    <%# 注文商品詳細 %>
+    <div class="orderedLists">
+      <% @order.cartitems.each do |cartitem| %>
+        <div class="orderedList">
+          <%# 画像 %>
+          <%= image_tag(cartitem.item.mainImage.url, class: 'col-xs-3 col-sm-3 row-eq-height') %>
+          <div class="details col-xs-9 col-sm-9">
+            <%# 商品名 %>
+            <%= cartitem.item.itemName %><br>
+            <%# 価格 %>
+            価格： <%= number_to_currency(cartitem.item.price, :format => "%u%n", :precision => 0, :unit =>"¥") %><br>
+            <%# 数量 %>
+            数量： <%= cartitem.quantity %><br>
+          </div>
+        </div>
+      <% end %>
+    </div>
 </div>

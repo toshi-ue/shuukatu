@@ -1,27 +1,28 @@
-<div id="delivery" class="col-md-4 col-md-offset-1">
-  <div class="text-center">
-    <h4>配送先</h4>
-    <hr>
+<div id="delivery" class="row">
+  <div class="col-sm-9 text-center">
+    <ul>
+      <%# 宛名 %>
+      <li>
+        <span class="first col-xs-4 col-sm-4 row-eq-height text-right">宛名:</span>
+        <span class="next col-xs-8  col-sm-8 row-eq-height text-left"><%= order.address.user_name %>様</span>
+      </li>
+      <%# 電話番号 %>
+      <li>
+        <span class="first col-xs-4 col-sm-4 row-eq-height text-right">TEL:</span>
+        <span class="next col-xs-8 row-eq-height text-left"><%= order.address.tel %></span>
+      </li>
+      <%# 住所 %>
+      <li>
+        <span class="first col-xs-4 col-sm-4 row-eq-height text-right">送付先:</span>
+        <span class="next col-xs-8 col-sm-8 row-eq-height text-left">
+          〒&nbsp;<%= order.address.postalcode %><br class="visible-xs">
+          <%= order.address.prefecture.name %><%= order.address.city %>
+          <%= order.address.set_address_details %>
+        </span>
+      </li>
+    </ul>
   </div>
-  <div style="<%= address_padding %>">
-    <%= order.address.user_name %>様
-  </div>
-  <div style="<%= address_padding %>">
-    <%= order.address.tel %>
-  </div>
-  <div style="<%= address_padding %>">
-    〒<%= order.address.postalcode %>
-  </div>
-  <div style="<%= address_padding %>">
-    <%= order.address.prefecture.name %>
-  </div>
-  <div style="<%= address_padding %>">
-    <%= order.address.city %>
-  </div>
-  <div style="<%= address_padding %>">
-    <%= order.address.set_address_details %>
-  </div>
-  <div class="text-center">
-    <%= link_to '変更', public_orders_addresses_index_path, class: 'btn btn-default btn-sm col-md-6' %>
+  <div id="addressButton" class="col-sm-3 text-center">
+    <%= link_to '変更', public_orders_addresses_index_path, class: 'btn btn-default' %>
   </div>
 </div>

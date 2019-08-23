@@ -17,8 +17,10 @@
                 data-target="#order_<%= i %>">詳細</button>
             </div>
             <div class="col-xs-9 sample_line">
-              <%# ユーザー名 %>
-              <div class="linkUser"><%= order.user.email %>(ユーザー)</div><br>
+              <% if manager_signed_in? %>
+                <%# ユーザー名 %>
+                <div class="linkUser"><%= order.user.email %>(ユーザー)</div><br>
+              <% end %>
               <%# 配送状況 %>
               <div class="deliveryStatus">配達中</div><br>
               <%# 合計金額 %>
@@ -29,14 +31,6 @@
         </li>
         <li id="order_<%= i %>" class="collapse">
           <ul>
-            <li>
-              <%# ユーザー情報の詳細へ %>
-              <% unless "#{controller.controller_path}##{action_name}" == "managers/users#show"%>
-              <div class="text-center">
-                <%= link_to "#{order.user.email}の詳細", managers_user_path(id: order.user_id), class: 'btn btn-default'%>
-              </div>
-              <% end %>
-            </li>
             <li class="delivery">
               <%# 配送先 %>
               <div class="row-eq-height col-xs-12">
@@ -123,20 +117,11 @@
       <tr class="shippingAddress details<%= i %> collapse">
         <td></td>
         <td class="text-right">配送先</td>
-        <td class="text-left" colspan="4"><%= disp_address(order) %></td>
-      </tr>
-      <tr class="detailcategorys details<%= i %> collapse">
-        <td></td>
-        <td class="text-center">画像</td>
-        <td class="text-center">商品名</td>
-        <td class="text-center">単価</td>
-        <td class="text-center">数量</td>
-        <td class="text-center">小計</td>
+        <td class="text-left" colspan="3"><%= disp_address(order) %></td>
       </tr>
       <%# 注文内容詳細 %>
       <% order.cartitems.each do |cartitem| %>
         <tr class="detail details<%= i %> collapse">
-          <td></td>
           <td class="text-center"><%= image_tag cartitem.item.mainImage.url %></td>
           <td class="text-left"><%= cartitem.item.itemName %></td>
           <td class="text-center"><%= number_to_currency(cartitem.item.price, :format => "%u%n", :precision => 0, :unit =>"¥") %></td>

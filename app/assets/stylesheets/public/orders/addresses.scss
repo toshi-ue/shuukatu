@@ -1,4 +1,6 @@
-@media (min-width: 900px) {
+@import "application";
+
+@media (min-width: $mobile) {
 
   #public-orders-addresses{
     #index{
@@ -55,4 +57,4 @@
     }//#index
   }//#public-orders-addresses
 
-}//@media (min-width: 999px)
+}// not-mobile
