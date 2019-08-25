@@ -1,4 +1,6 @@
-@media (min-width: 900px) {
+@import "application";
+
+@media (min-width: $mobile) {
 
   #public-settings-addresses{
 
@@ -96,4 +98,4 @@
 
   }//#public-settings-addresses
 
-}//@media (min-width: 999px)
+}// not-mobile

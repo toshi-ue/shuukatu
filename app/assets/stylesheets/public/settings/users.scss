@@ -1,4 +1,6 @@
-@media (min-width: 900px) {
+@import "application";
+
+@media (min-width: $mobile) {
 
   #public-settings-users{
 
@@ -14,6 +16,7 @@
       }//#box-parent
 
       .content{
+        overflow: hidden;
         display: flex;
         align-items: center;
         padding: 5px auto;
@@ -28,11 +31,24 @@
           background-color: silver;
         }//&:hover
 
-      #delete_button{
-        margin-top: 100px;
+        #delete_button{
+          margin-top: 100px;
+        }
+      }//.content
+
+      #link-to-review {
+        height: 70px;
+        position: relative;
+
+        a{
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
       }
 
-      }//.content
     }//#dashboard
 
     #security{
@@ -41,4 +57,11 @@
 
   }//#public-settings-users
 
-}//@media (min-width: 999px)
+}// not-mobile
+
+@media (max-width: $mobile) {
+  .link-to-review{
+    height: 70px;
+    line-height: 70px;
+  }
+}
