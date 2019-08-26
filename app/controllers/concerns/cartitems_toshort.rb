@@ -10,6 +10,7 @@ module CartitemsToshort
       @total_count += cartitem.quantity.to_i
       @total_price += ((cartitem.item.price).to_i * (cartitem.quantity)).to_i
     end
+
   end
 
   def migrate_column_values

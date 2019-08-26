@@ -1,26 +1,26 @@
 <% unless @cartitems.blank? %>
 <%# not_mobile %>
-<div class="col-md-9 hidden-xs">
-  <table class="col-md-10 col-md-offset-1">
+<div class="col-sm-9 hidden-xs">
+  <table class="col-sm-10 col-sm-offset-1">
     <% @cartitems.each_with_index do |cartitem, j| %>
       <tr>
         <!--画像-->
-        <td class="col-md-3">
+        <td class="col-sm-3">
           <%= image_tag(cartitem.item.mainImage.url, id: "#{j}-#{cartitem.id}_img",size: '110x110') %>
         </td>
 
         <!--商品名-->
-        <td class="col-md-3 text-left">
+        <td class="col-sm-3 text-left">
           <%= cartitem.item.itemName %>
         </td>
 
         <!--値段-->
-        <td class="col-md-2 text-center">
+        <td class="col-sm-2 text-center">
           <%= dispYen(cartitem.item.price) %>
         </td>
 
         <!--数量-->
-        <td class="text-right col-md-1 text-center">
+        <td class="text-right col-sm-1 text-center">
           <div>
             <%= dispSelectBox(cartitem.quantity, j) %>
           </div><br>
@@ -28,7 +28,7 @@
         </td>
 
         <!--小計-->
-        <td class="text-right col-md-3 text-center">
+        <td class="text-right col-sm-3 text-center">
             <% subtotal_price = ((cartitem.item.price) * (cartitem.quantity)).to_s %>
             <%= dispYen(subtotal_price) %>
         </td>
@@ -78,7 +78,7 @@
 
 <% else %>
 <%# not_mobile %>
-<div id="no-item_in_cart" class="hidden-xs col-md-6 col-md-offset-3">
+<div id="no-item_in_cart" class="hidden-xs col-sm-6 col-sm-offset-3">
   <div class="text-center">
     <p>カートにはまだ商品がありません</p>
   </div>
