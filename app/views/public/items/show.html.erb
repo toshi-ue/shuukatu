@@ -1,9 +1,8 @@
-<!-- <div>BEGIN app/views/public/items/show.html.erb</div> -->
 <div class="row">
-  <div class="hidden-xs col-md-2">
+  <div class="hidden-xs col-sm-2">
     <%= render partial: 'layouts/public/sidebar', locals: {genres: @genres} %>
   </div>
-  <div class="col-xs-12 col-sm-12 col-md-10">
+  <div class="col-xs-12 col-sm-10">
     <ol class="breadcrumb hidden-xs">
       <li><%= link_to 'Home', root_path %></li>
       <li>
@@ -18,13 +17,13 @@
     </div>
     <div class="row">
       <%# image %>
-      <div class="col-xs-10 col-xs-offset-1 col-sm-12 col-md-4">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-0">
         <%= image_tag @item.mainImage.url, class: 'img-responsive center-block' %>
       <%# like_button %>
       <%= render "public/likes/like_button", item: @item %>
       </div>
       <%# description %>
-      <div class="col-xs-12 col-sm-12 col-md-5">
+      <div class="col-xs-12 col-sm-4">
         <h3 class="hidden-xs"><%= @item.itemName %><span id="codeNo"> (CodeNo： <%= @item.itemCodeNo %>)</span></h3>
         <div id="price-content" class="text-center">
           <span id="price_lbl">価格：</span>
@@ -33,7 +32,7 @@
         </div>
         <%= sanitize (@item.description * 3).truncate(60), tags: %w(h1 h2 h3 h4 h5 h6 ul ol li p a img table tr td em br strong div), attributes:  %w(id class href)  %>
       </div>
-      <div id="cart" class="col-xs-10 col-xs-offset-1 col-sm-12 col-md-3">
+      <div id="cart" class="col-xs-10 col-xs-offset-1 col-sm-3 col-sm-offset-0">
         <% if user_signed_in? %>
         <%= form_tag(add_item_cartitems_path, method: :post) do %>
         <%= hidden_field_tag :item_id, @item.id %>
@@ -70,5 +69,3 @@
 サブジャンルID:<%# @item.subgenre_id %>
 商品ID:<%# @item.id %>
 -->
-
-<!-- <div>END app/views/public/items/show.html.erb</div> -->
