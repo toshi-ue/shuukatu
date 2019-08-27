@@ -1,12 +1,14 @@
-<div class="col-md-2">
-  <div class="sidebar">
-    <ul>
-      <li class="text-center"><%= link_to 'ユーザー一覧', managers_users_path %></li>
-      <li class="text-center"><%= link_to '受注履歴一覧', managers_orders_path %></li>
-      <li class="text-center"><%= link_to '商品一覧' , managers_items_path%></li>
-      <li class="text-center"><%= link_to 'ジャンル一覧', managers_genres_path %></li>
-      <li class="text-center"><%= link_to 'サブジャンル一覧', managers_subgenres_path %></li>
-    </ul>
-  </div>
+<%# if "#{controller.controller_path}##{controller.action_name}" == "managers/tops#dash_board" %>
+
+<div class="sidebar col-sm-2 row-eq-height hidden-xs">
+  <ul>
+    <li><%= link_to 'ユーザー一覧', managers_users_path, class: 'text-center' %></li>
+    <li class="text-center"><%= link_to '受注履歴一覧', managers_orders_path %></li>
+    <li class="text-center"><%= link_to '商品一覧' , managers_items_path%></li>
+    <li class="text-center"><%= link_to 'ジャンル一覧', managers_genres_path %></li>
+    <li class="text-center"><%= link_to 'サブジャンル一覧', managers_subgenres_path %></li>
+  </ul>
 </div>
 
+<%# else %>
+<%# end %>

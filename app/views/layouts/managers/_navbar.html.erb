@@ -7,15 +7,26 @@
       <div class="container-fluid">
         <div class="navbar-header">
           <%= link_to "管理者画面", managers_tops_dash_board_path, class: 'navbar-brand' %>
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#gnav">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
         </div>
-
-        <div class="collapse navbar-collapse" id="navbarEexample">
-          <ul class="nav navbar-nav navbar-right">
+        <div class="collapse navbar-collapse" id="gnav">
+          <ul class="nav navbar-nav navbar-right hidden-sm">
               <%= search_form_for @q, url: managers_tops_search_path, html:{class: 'navbar-form navbar-left nav-search', role:"search"} do |f|%>
                 <!-- <div class="row col-md-12"> -->
                 <%= f.search_field :order_no_cont, placeholder: '注文番号で検索', class: 'form-control' %>
                 <!-- </div> -->
-                <%= f.submit "検索", class: "btn btn-default" %>
+                <div class="hidden-xs">
+                  <%= f.submit "検索", class: "btn btn-default" %>
+                </div>
+                <div class="visible-xs">
+                  <div class="text-center">
+                    <%= f.submit "検索", class: "btn btn-default" %>
+                  </div>
+                </div>
               <% end %>
 <!--             <li><a href="#">メニュー</a></li> -->
             <li class="text-center"><%= link_to 'ユーザー一覧', managers_users_path %></li>
@@ -23,7 +34,7 @@
             <li class="text-center"><%= link_to '商品一覧' , managers_items_path%></li>
             <li class="text-center"><%= link_to 'ジャンル一覧', managers_genres_path %></li>
             <li class="text-center"><%= link_to 'サブジャンル一覧', managers_subgenres_path %></li>
-            <li><%= link_to 'ログアウト', destroy_manager_session_path %></li>
+            <li class="text-center"><%= link_to 'ログアウト', destroy_manager_session_path %></li>
 <!--             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">メニュー<span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">

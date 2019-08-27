@@ -1,83 +1,257 @@
-@media (min-width: 900px) {
+@import "application";
+
+// not-mobile
+@media (min-width: $mobile) {
 
   .nav-search{
     margin-left: 0%;
   }
 
   #managers-tops{
-
-    ul{
-      list-style-type: none;
-      padding: 0;
-
-      li{
-        // padding-left: -30px;
-        width: 170px;
-        height: 50px;
-        line-height: 50px;
-        background-color: #f1be0f;
-        border: 1px solid silver;
-        border-collapse: collapse;
-
-        a{
-          text-decoration: none;
-
-          &:link, &:visited, &:active{
-            color: white;
-          }//&:link, &:visited, &:active
-
-          &:hover{
-            opacity: 0.5;
-          }//&:hover
-        }//a
-
-      }//li
-    }//ul
-
     #dash_board{
       img{
         width: 50px;
       }
 
-      .aggregates{
+      .contents{
         display: flex;
-        flex-wrap: wrap;
-        // justify-content: space-around;
-        align-content: space-between;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        margin-left: 50px;
 
-      .frame, .frame-midasi{
-        border: 2px solid silver;
-        border-collapse: collapse;
-        width: 200px;
-        height: 50px;
-        text-align: center;
+        .sidebar {
+          // min-height: 200%;
+          // width: 100%;
+          border-right: none;
+          padding: 0;
+          background-color: #f1be0f;
 
-        strong{
-          display: inline-block;
-          vertical-align: middle;
-          font-size: 20px;
-          vertical-align: middle;
-        }//strong
-      }//.frame, .frame_midashi
+          ul {
+            padding: 0;
+            list-style-type: none;
+            width: 100%;
 
-      .frame_midasi{
-        border: 2px solid silver;
-        background-color: #428DE5;
-        width: 200px;
-        text-align: center;
+            li {
+              width: 100%;
+              padding: 0;
+              height: 50px;
+              line-height: 50px;
 
-        strong{
-          color: white;
-        }//strong
-      }//.frame_midash
+              a {
+                display: block;
+                text-decoration: none;
 
-      }//.aggregates
+                &:link,
+                &:visited,
+                &:active {
+                  color: white;
+                }
 
+                //&:link, &:visited, &:active
+
+                &:hover {
+                  opacity: 0.5;
+                }
+
+                //&:hover
+              }
+            }
+
+          }
+        }
+
+        .graphs,
+        .sales{
+          padding: 20px 40px;
+          min-height: 200px;
+        }
+        .graphs{
+          // background-color: mediumturquoise;
+          #monthlySales{
+
+          }
+        }
+        .sales{
+          // background-color: brown;
+          ul {
+            padding: 0;
+            list-style: none;
+            li{
+              width: 100%;
+              border-bottom: 1px solid #ccc;
+
+              &:first-child{
+                border-top: 1px solid #ccc;
+              }
+              span{
+                font-size: 16px;
+              }
+              .salesCategorys {
+                display: inline-block;
+                // color: blue;
+                width: 100px;
+                text-align: center;
+                height: 40px;
+                line-height: 40px;
+              }
+
+              .salesAmount {
+                display: inline-block;
+                width: 100px;
+                text-align: right;
+              }
+            }
+
+          }
+        }
+      }
+
+      .detailcategorys,
+      .shippingAddress{
+        tr,th,td{
+          border: none;
+        }
+      }
+      .detail{
+        tr, th, td{
+          border: none;
+        }
+      }
     }//#dash_board
 
   }//#managers-tops
+
+}
+
+// mobile
+@media (max-width: $mobile) {
+
+  .nav-search {
+    margin-left: 0%;
+  }
+
+  #managers-tops {
+    #dash_board {
+      img {
+        width: 50px;
+      }
+
+      .contents {
+        display: flex;
+
+        .sidebar {
+          // min-height: 200%;
+          // width: 100%;
+          border-right: none;
+          padding: 0;
+          background-color: #f1be0f;
+
+          ul {
+            padding: 0;
+            list-style-type: none;
+            width: 100%;
+
+            li {
+              width: 100%;
+              padding: 0;
+              height: 50px;
+              line-height: 50px;
+
+              a {
+                display: block;
+                text-decoration: none;
+
+                &:link,
+                &:visited,
+                &:active {
+                  color: white;
+                }
+
+                //&:link, &:visited, &:active
+
+                &:hover {
+                  opacity: 0.5;
+                }
+
+                //&:hover
+              }
+            }
+
+          }
+        }
+
+        .graphs,
+        .sales {
+          padding: 20px 40px;
+          min-height: 200px;
+        }
+
+        .graphs {
+
+          // background-color: mediumturquoise;
+          #monthlySales {}
+        }
+
+        .sales {
+
+          // background-color: brown;
+          ul {
+            padding: 0;
+            list-style: none;
+
+            li {
+              width: 100%;
+              border-bottom: 1px solid #ccc;
+
+              &:first-child {
+                border-top: 1px solid #ccc;
+              }
+
+              span {
+                font-size: 16px;
+              }
+
+              .salesCategorys {
+                display: inline-block;
+                // color: blue;
+                width: 100px;
+                text-align: center;
+                height: 40px;
+                line-height: 40px;
+              }
+
+              .salesAmount {
+                display: inline-block;
+                width: 100px;
+                text-align: right;
+              }
+            }
+
+          }
+        }
+      }
+
+      .detailcategorys,
+      .shippingAddress {
+
+        tr,
+        th,
+        td {
+          border: none;
+        }
+      }
+
+      .detail {
+
+        tr,
+        th,
+        td {
+          border: none;
+        }
+      }
+    }
+
+    //#dash_board
+
+  }
+
+  //#managers-tops
 
 }

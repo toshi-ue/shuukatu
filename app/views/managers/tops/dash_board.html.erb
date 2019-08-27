@@ -1,42 +1,140 @@
-<!-- <h1>Managers::Tops#dash_board</h1>
-<p>Find me in app/views/managers/tops/dash_board.html.erb</p> -->
-
-<%# render 'managers/partials/sidebar' %>
-
-<div class="col-md-10 col-md-offset-1">
-  <h3 class="text-center">売上</h3>
-  <div class="row aggregates">
-    <div class="monthly_sales">
-      <div class="frame_midasi">
-        <strong>今月</strong>
+<%# <h1>Managers::Tops#dash_board</h1> %>
+<%# <p>Find me in app/views/managers/tops/dash_board.html.erb</p> %>
+<div class="row contents">
+  <%# <div id="managernav" class="col-sm-2 row-eq-height hidden-xs"> %>
+    <%= render 'managers/partials/sidebar' %>
+  <%# </div> %>
+  <div class="col-sm-10">
+    <h3 class="text-center">売上</h3>
+    <div class="row container-fluid">
+      <div class="graphs col-sm-7 col-sm-offset-1">
+        <canvas id="monthlySales"></canvas><br>
+        <%# sales_for_graph(max = @max_sales):<br> %>
+        <%# @sales_for_graph<br><br> %>
+        <%# order_numbers_for_graph:<br> %>
+        <%# @order_numbers_for_graph<br><br> %>
+        <%# day_scale:<br> %>
+        <%# @day_scale %>
       </div>
-      <div class="frame">
-        <strong><%= number_to_currency(@total_sales_monthly, :format => "%u%n", :precision => 0, :unit =>"¥") %></strong>
+      <div class="sales col-sm-3">
+        <ul>
+          <%# 今月の売上 %>
+          <li>
+            <span class="salesCategorys">今月</span>
+            <span class="salesAmount"><%= number_to_currency(@total_sales_monthly, :format => "%u%n", :precision => 0, :unit =>"¥") %></span>
+          </li>
+          <%# 1週間の売上 %>
+          <li>
+            <span class="salesCategorys">1週間</span>
+            <span
+              class="salesAmount"><%= number_to_currency(@total_sales_weekly.sum, :format => "%u%n", :precision => 0, :unit =>"¥") %></span>
+          </li>
+          <%# 1週間の各日売上 %>
+          <% @days.zip(@total_sales_weekly) do |day, sales|%>
+          <li>
+            <span class="salesCategorys"><%= day.strftime("%m/%d(#{%w(日 月 火 水 木 金 土)[day.wday]})") %></span>
+            <span
+              class="salesAmount"><%= number_to_currency(sales, :format => "%u%n", :precision => 0, :unit =>"¥") %></span>
+          </li>
+          <% end %>
+        </ul>
       </div>
     </div>
-    <div class="weekly_sales">
-      <div class="frame_midasi">
-        <strong>1週間</strong>
-      </div>
-      <div class="frame">
-        <strong><%= number_to_currency(@total_sales_weekly.sum, :format => "%u%n", :precision => 0, :unit =>"¥") %></strong>
-      </div>
-    </div>
-
-    <% @days.zip(@total_sales_weekly) do |day, sales|%>
-      <div>
-        <div class="frame_midasi">
-          <strong><%= day.strftime("%m/%d(#{%w(日 月 火 水 木 金 土)[day.wday]})") %></strong>
-        </div>
-        <div class="frame">
-          <strong><%= number_to_currency(sales, :format => "%u%n", :precision => 0, :unit =>"¥") %></strong>
-        </div>
-      </div>
-    <% end %>
+    <h3 class="text-center">受注履歴</h3>
+    <%= render partial: 'partials/manager_orders', locals: {orders: @orders} %>
   </div>
-  <h3 class="text-center">受注履歴</h3>
-  <%= render partial: 'partials/manager_orders', locals: {orders: @orders} %>
-<!--   <canvas id="oneWeekChart">
-
-  </canvas> -->
 </div>
+
+<%# script for graph %>
+<script>
+  var ctx = document.getElementById("monthlySales").getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: <%= @day_scale.to_json.html_safe %>,
+      datasets: [
+        // order_numbers_data
+        {
+          type: 'line',
+          label: "注文件数",
+          data: <%= @order_numbers_for_graph %>,
+          backgroundColor: 'rgba(203,203,0, 1.0)',
+          borderColor: 'rgba(203,203,0, 1.0)',
+          fill: false,
+          yAxisID: "Yの右軸"
+        },
+        // sales_data
+        {
+          label: "売上(円)",
+          data: <%= @sales_for_graph %>,
+          backgroundColor: 'rgba(0,152,0, 1.0)',
+          // borderColor: 'rgba(0,152,0, 1.0)',
+          fill: false,
+          yAxisID: "Yの左軸"
+        }
+      ],
+    },
+    options: {
+      title: {
+        display: true,
+        text: "<%= Time.now.month %>月の売上"
+      },
+      scales: {
+        xAxes:[{}],
+        yAxes: [
+              // sales_data
+          {
+            id: "Yの左軸",
+            position: "left",
+            ticks: {
+              beginAtZero: true,
+              max: <%= @limit_of_sales_scale %>,
+              stepSize: <%= @limit_of_sales_scale %> / 5,
+              callback: function (value) {
+                // 1000円以下は切り捨て
+                return Math.ceil(value / 10000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+              }
+            },
+            scaleLabel:{
+              display: true,
+              labelString: "売上(万円)"
+            }
+          },
+            // order_numbers_data
+          {
+            id: "Yの右軸",
+            position: "right",
+            ticks: {
+              beginAtZero: true,
+              max: Math.ceil(<%= @upper_limit_of_order_numbers %> * 1.2),
+              stepSize: 2,
+            },
+            gridLines: false,
+            scaleLabel:{
+            display: true,
+            labelString: "注文件数(件)",
+            }
+          }
+        ]
+      },
+      elements:{
+        line:{
+          tension: 0,
+        }
+      },
+      tooltips:{
+        mode: 'label',
+        callbacks:{
+          label: function(tooltipItem, data) {
+            if(tooltipItem.datasetIndex === 1){
+              return '¥' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+            }else{
+              return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index] + '件'
+            }
+            // return data.datasets[1].data[tooltipItem.index]
+          }
+        }
+      }
+    },
+  });
+</script>
