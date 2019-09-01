@@ -27,6 +27,9 @@ a {
   padding: 0;
 }
 
+.color-price{
+  color: #B12704;
+}
 
 // navbar設定
 $bgDefault : #f1be0f;
@@ -301,7 +304,9 @@ nav.navbar.navbar-default {
 
   #cart-count{
     position: relative;
-
+    a{
+      padding: 0;
+    }
     p{
       color: #f1be0f;
       font-size:20px;
@@ -312,10 +317,6 @@ nav.navbar.navbar-default {
       margin:0;
       padding:0;
     }//p
-
-    img{
-      // vertical-align: middle;
-    }//img
   }//#cart-count
 
 // エラー(404)

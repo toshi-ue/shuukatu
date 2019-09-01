@@ -1,47 +1,187 @@
-// デスクトップ用
-@media (min-width: 900px) {
+@import "application";
+
+// .sample_line{
+//   border: 1px solid red;
+// }
+ul {
+  list-style-type: none;
+  padding: 0;
+
+  li{
+    // padding-left: -30px;
+    width: 170px;
+    height: 50px;
+    line-height: 50px;
+    background-color: #f1be0f;
+    // border: 1px solid silver;
+    // border-collapse: collapse;
+
+    a {
+      text-decoration: none;
+      display: block;
+
+      &:link,
+      &:visited,
+      &:active {
+        color: white;
+        text-decoration: none;
+      }//&:link, &:visited, &:active
+
+      &:hover {
+        opacity: 0.5;
+      }// &:hover
+    }// a
+  }// li
+}// ul
+
+
+// not_mobile
+@media (min-width: $mobile) {
 
   .nav-search{
     margin-left: 0%;
   }
 
   #managers-users{
+    #index{
+      .sidebar{
 
-    ul{
-      list-style-type: none;
-      padding: 0;
+      }
 
-      li{
-        // padding-left: -30px;
-        width: 170px;
-        height: 50px;
-        line-height: 50px;
-        background-color: #f1be0f;
-        border: 1px solid silver;
-        border-collapse: collapse;
-
-        a{
-          text-decoration: none;
-
-          &:link, &:visited, &:active{
-            color: white;
-          }//&:link, &:visited, &:active
-
-          &:hover{
-            opacity: 0.5;
-          }//&:hover
-        }//a
-
-      }//li
-    }//ul
+      .usersList{
+        padding: 20px;
+      }
+    }
 
     #show{
 
       img{
         width: 50px;
       }
-
+      .back_to_orders {
+        padding: 30px 0;
+      }
     }//#show
   }//#managers-orders
 
-}//@media (min-width: 999px)
+}// not-mobile
+
+// mobile
+@media (max-width: $mobile) {
+ #managers-users{
+   #show{
+    .back_to_orders{
+      padding: 10px 0;
+    }
+
+    #addresses{
+      padding-top: 10px;
+
+      #defaultAddress{
+        overflow: hidden;
+      }
+    }
+
+    .itemImg {
+      padding: 0;
+    }
+
+    .orderLists,
+    .orderInfo,
+    .delivery {
+      overflow: hidden;
+    }
+
+    .orderInfo {
+      padding: 10px 0;
+    }
+
+    .orderLists {
+      border-top: 1px solid lightgrey;
+
+      ul {
+        margin: 0;
+        padding-left: 0;
+
+        li {
+          border-style: none;
+          list-style: none;
+        }
+      }
+
+      .deliveryStatus,
+      .itemPrice,
+      .linkUser,
+      .totalPrice {
+        float: right;
+      }
+
+      .itemPrice {
+        float: right;
+      }
+
+      // text-center
+      .shippingChild {
+        text-align: center;
+      }
+
+      // text-right
+      // .itemPrice,
+      .orderDate {
+        text-align: right;
+      }
+
+      // text-left
+      .itemname,
+      .Addressee,
+      .orderNo {
+        text-align: left;
+      }
+
+      // padding
+      .shippingParent,
+      .Addressee,
+      .orderNo {
+        padding: 0;
+      }
+
+    }
+
+    .itemLists {
+      overflow: hidden;
+      padding: 10px 0;
+    }
+
+    .dispButton {
+      position: relative;
+      padding: 0;
+      text-align: center;
+    }
+
+    .showDetails {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      height: 70%;
+    }
+
+
+    .shippingParent {
+      position: relative;
+      padding: 10px;
+    }
+
+    .shippingChild {
+      position: absolute;
+      top: 50%;
+      margin-top: -1rem;
+      // right: 0;
+      // bottom: 0;
+      // left: 0;
+    }
+   }
+ }
+}

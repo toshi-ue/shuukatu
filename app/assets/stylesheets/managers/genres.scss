@@ -1,4 +1,7 @@
-@media (min-width: 900px) {
+@import "application";
+
+// not-mobile
+@media (min-width: $mobile) {
 
   .nav-search{
     margin-left: 0%;
@@ -48,4 +51,4 @@
 
   }//#managers-genres
 
-}//@media (min-width: 999px)
+}// not-mobile

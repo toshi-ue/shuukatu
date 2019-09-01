@@ -1,6 +1,7 @@
+@import "application";
 @import "trix";
 
-@media (min-width: 900px) {
+@media (min-width: $mobile) {
 
   .nav-search{
     margin-left: 0%;

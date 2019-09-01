@@ -1,5 +1,11 @@
-// デスクトップ用
-@media (min-width: 900px) {
+@import "application";
+
+// .sample_line{
+//   border: 1px solid red;
+// }
+
+// not_mobile
+@media (min-width: $mobile) {
 
   .nav-search{
     margin-left: 0%;
@@ -37,6 +43,10 @@
     }//ul
 
     #index{
+      .orderdate,
+      .orderno{
+        text-align: center;
+      }
 
       // .container-fluid{
       //   height: 1000px;
@@ -137,4 +147,116 @@
     }//#create
 
   }//#public-orders
-}//@media (min-width: 999px)
+}// not-mobile
+
+// mobile
+@media (max-width: $mobile) {
+  #managers-orders{
+    #index{
+      // common
+      .row-eq-height {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0;
+      }
+
+      .itemImg{
+        padding: 0;
+      }
+      .orderLists,
+      .orderInfo,
+      .delivery{
+        overflow: hidden;
+      }
+
+      .orderInfo{
+        padding: 10px 0;
+      }
+      .orderLists{
+        border-top: 1px solid lightgrey;
+
+        ul {
+          margin: 0;
+          padding-left: 0;
+
+          li {
+            border-style: none;
+            list-style: none;
+          }
+        }
+        .deliveryStatus,
+        .itemPrice,
+        .linkUser,
+        .totalPrice{
+          float: right;
+        }
+
+        .itemPrice{
+          float: right;
+        }
+
+        // text-center
+        .shippingChild{
+          text-align: center;
+        }
+
+        // text-right
+        // .itemPrice,
+        .orderDate{
+          text-align: right;
+        }
+
+        // text-left
+        .itemname,
+        .Addressee,
+        .orderNo {
+          text-align: left;
+        }
+
+        // padding
+        .shippingParent,
+        .Addressee,
+        .orderNo{
+          padding: 0;
+        }
+
+      }
+
+        .itemLists {
+          overflow: hidden;
+          padding: 10px 0;
+        }
+
+      .dispButton{
+        position: relative;
+        padding: 0;
+        text-align: center;
+      }
+
+      .showDetails{
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        height: 70%;
+      }
+
+
+      .shippingParent {
+        position: relative;
+        padding: 10px;
+      }
+      .shippingChild{
+        position: absolute;
+        top: 50%;
+        margin-top: -1rem;
+        // right: 0;
+        // bottom: 0;
+        // left: 0;
+      }
+    }
+  }
+
+}
