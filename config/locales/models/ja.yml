@@ -25,6 +25,20 @@ ja:
       subgenre:
         name: "サブジャンル名"
         genre_id: "所属ジャンル名"
+      review:
+        score: "星"
+        comment: "コメント"
+    errors:
+      models:
+        review:
+          attributes:
+            score:
+              # blank: "を選んでください"
+              less_than_or_equal_to: "の数を選んでください"
+              greater_than_or_equal_to: "の数を選んでください"
+            comment:
+              too_short: "は20文字以上100文字以下になるようにしてください"
+              too_long: "は20文字以上100文字以下になるようにしてください"
   date:
     abbr_day_names:
     - 日
@@ -42,4 +56,3 @@ ja:
     - 木曜日
     - 金曜日
     - 土曜日
-
