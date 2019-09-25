@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
-ruby '2.3.8'
+ruby '2.4.5'
 
-gem 'rails', '4.2.11'
+gem 'rails', '~> 4.2', '>= 4.2.11.1'
 # gem 'mysql2', '>= 0.3.13', '< 0.5'
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
-gem 'sass-rails', '~> 5.0'
+gem 'sassc-rails', '~> 2.1', '>= 2.1.2'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 
@@ -52,6 +52,17 @@ gem 'squasher'
 gem 'trix-rails', '~> 0.11.4.1', require: 'trix'
 gem 'whenever', require: false
 
+group :test do
+  gem 'capybara', '~> 3.28'
+  gem 'selenium-webdriver'
+  gem 'shoulda-matchers',
+    git: 'https://github.com/thoughtbot/shoulda-matchers.git',
+    branch: 'rails-5'
+  gem 'launchy', '~> 2.4', '>= 2.4.3'
+  gem 'vcr'
+  gem 'webmock'
+  gem 'webdrivers', '~> 4.1', '>= 4.1.2'
+end
 
 group :development, :test do
   gem 'annotate'
