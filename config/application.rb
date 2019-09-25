@@ -14,10 +14,17 @@ module Shuukatu
 
     config.generators do |g|
       g.test_framework :rspec,
+      # [RSpecチートシート - Qiita](https://qiita.com/morrr/items/6ed889d17abbfd352649)
+      fixtures: true,
+      controller_specs: true,
       view_specs: false,
       helper_specs: false,
       routing_specs: false,
       request_specs: false
+      # system_specs: true
+
+      # fixtureの代わりにfactory_botを使うよう設定
+      g.fixture_replacement :factory_bot, dir: "spec/factories"
     end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -32,7 +39,14 @@ module Shuukatu
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # 日本語
-    config.i18n.default_locale = :ja
+    if Rails.env == ('development' || 'production')
+      # 日本語
+      config.i18n.default_locale = :ja
+    else
+      # 英語
+      config.i18n.default_locale = :en
+    end
+
 
     # locales以下のファイルの読み込み
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
