@@ -7,16 +7,3 @@ FactoryBot.define do
     association :item
   end
 end
-
-# == Schema Information
-#
-# Table name: reviews
-#
-#  id         :integer          not null, primary key
-#  comment    :string(255)
-#  score      :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  item_id    :integer
-#  user_id    :integer
-#
