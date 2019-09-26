@@ -136,6 +136,7 @@ Guardfile
 table_structure/
 memos/
 
-spec/
+# spec/
+test/
 
 public/uploads/
