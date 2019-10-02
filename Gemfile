@@ -19,9 +19,6 @@ gem 'therubyracer'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use Unicorn as the app server
-# gem 'unicorn'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'autonumeric-rails'
@@ -62,6 +59,10 @@ group :test do
   gem 'vcr'
   gem 'webmock'
   gem 'webdrivers', '~> 4.1', '>= 4.1.2'
+end
+
+group :production, :staging do
+    gem 'unicorn'
 end
 
 group :development, :test do

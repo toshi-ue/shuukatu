@@ -49,7 +49,7 @@ class Public::Settings::AddressesController < ApplicationController
         @nextDefaultaddress.defaultflg = true
         @nextDefaultaddress.save
       end
-      binding.pry
+      # binding.pry
     end
     @address.destroy
     redirect_to settings_addresses_path, success: "住所を削除しました"
