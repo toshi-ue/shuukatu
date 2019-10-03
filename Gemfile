@@ -61,10 +61,6 @@ group :test do
   gem 'webdrivers', '~> 4.1', '>= 4.1.2'
 end
 
-group :production, :staging do
-    gem 'unicorn'
-end
-
 group :development, :test do
   gem 'annotate'
   gem 'hirb'
@@ -95,4 +91,5 @@ end
 
 group :production do
   gem 'rails_12factor'
+  gem 'unicorn'
 end
